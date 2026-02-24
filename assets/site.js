@@ -64,7 +64,7 @@
       if (shouldPlay) {
         const maybePromise = heroLivingVideo.play();
         if (maybePromise && typeof maybePromise.catch === "function") {
-          maybePromise.catch(() => {});
+          maybePromise.catch(() => { });
         }
       } else {
         heroLivingVideo.pause();
@@ -138,6 +138,15 @@
       { threshold: 0.12 }
     );
     reveals.forEach((el) => io.observe(el));
+    // Safety fallback: force-show reveals that haven't triggered after 1.8s
+    setTimeout(() => {
+      reveals.forEach((el) => {
+        if (!el.classList.contains("is-visible")) {
+          el.classList.add("is-visible");
+          io.unobserve(el);
+        }
+      });
+    }, 1800);
   } else {
     reveals.forEach((el) => el.classList.add("is-visible"));
   }
@@ -278,6 +287,10 @@
     if (current < 0) current = 0;
     let timer = null;
     let isVisible = true;
+    let isTransitioning = false;
+
+    // Expose autoplay duration as CSS custom property for progress bar
+    carousel.style.setProperty("--carousel-autoplay-ms", `${autoplayMs}ms`);
 
     const syncSlideMedia = () => {
       slides.forEach((slide, index) => {
@@ -288,7 +301,7 @@
         try {
           if (shouldPlay) {
             const p = video.play();
-            if (p && typeof p.catch === "function") p.catch(() => {});
+            if (p && typeof p.catch === "function") p.catch(() => { });
           } else {
             video.pause();
           }
@@ -298,41 +311,78 @@
       });
     };
 
-    const setActive = (nextIndex) => {
-      current = (nextIndex + slides.length) % slides.length;
-      slides.forEach((slide, index) => {
-        const active = index === current;
-        slide.setAttribute("data-active", String(active));
-        slide.setAttribute("aria-hidden", String(!active));
-      });
+    const setActive = (nextIndex, direction) => {
+      const resolved = (nextIndex + slides.length) % slides.length;
+      if (resolved === current && slides.length > 1) return;
+      if (isTransitioning) return;
+
+      // Determine direction if not explicitly provided
+      const dir = direction || (resolved > current ? "next" : "prev");
+
+      // Mark the outgoing slide
+      const outgoing = slides[current];
+      outgoing.setAttribute("data-leaving", dir);
+      outgoing.setAttribute("data-active", "false");
+      outgoing.setAttribute("aria-hidden", "true");
+
+      // Set carousel direction so CSS can position the incoming slide
+      carousel.setAttribute("data-direction", dir);
+
+      // Force a reflow so the incoming slide starts from the correct side
+      void carousel.offsetHeight;
+
+      // Remove direction immediately so the incoming slide transitions to center
+      carousel.removeAttribute("data-direction");
+
+      // Activate the new slide
+      current = resolved;
+      const incoming = slides[current];
+      incoming.setAttribute("data-active", "true");
+      incoming.setAttribute("aria-hidden", "false");
+
+      // Update dots
       dotButtons.forEach((btn, index) => {
         btn.setAttribute("aria-pressed", String(index === current));
       });
+
       carousel.style.setProperty("--carousel-index", String(current));
       syncSlideMedia();
+
+      // Clean up the leaving slide after transition
+      isTransitioning = true;
+      setTimeout(() => {
+        outgoing.removeAttribute("data-leaving");
+        isTransitioning = false;
+      }, 540); // Matches CSS transition duration
+    };
+
+    const setPaused = (paused) => {
+      carousel.setAttribute("data-paused", String(paused));
     };
 
     const stop = () => {
       if (!timer) return;
       window.clearInterval(timer);
       timer = null;
+      setPaused(true);
     };
 
     const start = () => {
       if (prefersReducedMotion || slides.length < 2 || !isVisible || timer) return;
+      setPaused(false);
       timer = window.setInterval(() => {
-        setActive(current + 1);
+        setActive(current + 1, "next");
       }, autoplayMs);
     };
 
     prevButton?.addEventListener("click", () => {
-      setActive(current - 1);
+      setActive(current - 1, "prev");
       stop();
       start();
     });
 
     nextButton?.addEventListener("click", () => {
-      setActive(current + 1);
+      setActive(current + 1, "next");
       stop();
       start();
     });
@@ -341,12 +391,14 @@
       btn.addEventListener("click", () => {
         const raw = Number(btn.getAttribute("data-carousel-dot"));
         if (Number.isNaN(raw)) return;
-        setActive(raw);
+        const dir = raw > current ? "next" : "prev";
+        setActive(raw, dir);
         stop();
         start();
       });
     });
 
+    // Pause on hover / focus
     carousel.addEventListener("mouseenter", stop);
     carousel.addEventListener("mouseleave", start);
     carousel.addEventListener("focusin", stop);
@@ -354,6 +406,56 @@
       if (!carousel.contains(document.activeElement)) start();
     });
 
+    // Keyboard arrow navigation
+    carousel.setAttribute("tabindex", "0");
+    carousel.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        setActive(current + 1, "next");
+        stop();
+        start();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        setActive(current - 1, "prev");
+        stop();
+        start();
+      }
+    });
+
+    // Touch / swipe support
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isSwiping = false;
+
+    carousel.addEventListener("touchstart", (e) => {
+      if (e.touches.length !== 1) return;
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      isSwiping = true;
+    }, { passive: true });
+
+    carousel.addEventListener("touchend", (e) => {
+      if (!isSwiping || !e.changedTouches.length) return;
+      isSwiping = false;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      // Only trigger if horizontal swipe > 40px and more horizontal than vertical
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+        if (dx < 0) {
+          setActive(current + 1, "next");
+        } else {
+          setActive(current - 1, "prev");
+        }
+        stop();
+        start();
+      }
+    }, { passive: true });
+
+    carousel.addEventListener("touchcancel", () => {
+      isSwiping = false;
+    }, { passive: true });
+
+    // Visibility observer
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver(
         (entries) => {
@@ -369,7 +471,17 @@
       io.observe(carousel);
     }
 
-    setActive(current);
+    // Initialize
+    slides.forEach((slide, index) => {
+      const active = index === current;
+      slide.setAttribute("data-active", String(active));
+      slide.setAttribute("aria-hidden", String(!active));
+    });
+    dotButtons.forEach((btn, index) => {
+      btn.setAttribute("aria-pressed", String(index === current));
+    });
+    carousel.style.setProperty("--carousel-index", String(current));
+    syncSlideMedia();
     start();
   });
 
