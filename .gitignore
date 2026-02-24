@@ -1,0 +1,18 @@
+# Local legacy backup archive(s)
+legacy/
+
+# macOS
+.DS_Store
+
+# Web / Node
+node_modules/
+dist/
+build/
+.next/
+.vite/
+coverage/
+
+# Env
+.env
+.env.*
+!.env.example
