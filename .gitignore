@@ -16,3 +16,6 @@ coverage/
 .env
 .env.*
 !.env.example
+
+# Claude local worktrees
+.claude/worktrees/
