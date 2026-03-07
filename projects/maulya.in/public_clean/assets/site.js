@@ -768,12 +768,13 @@
   }
 
   // ─── Stagger animation for grids (Phase 3B) ───────────────────────────────
+  const staggerCap = window.innerWidth <= 820 ? 3 : Infinity;
   document.querySelectorAll("[data-stagger]").forEach((parent) => {
     const children = parent.querySelectorAll(
       ".reveal, .shipped-fact, .proof-card, .card"
     );
     children.forEach((child, i) => {
-      child.style.setProperty("--stagger-i", String(i));
+      child.style.setProperty("--stagger-i", String(Math.min(i, staggerCap - 1)));
       child.classList.add("reveal");
     });
   });
@@ -813,7 +814,7 @@
   }
 
   // ─── Parallax depth on noise-glow (Phase 3E) ──────────────────────────────
-  if (!prefersReducedMotion) {
+  if (!prefersReducedMotion && window.innerWidth > 820) {
     const noiseGlow = document.querySelector(".noise-glow");
     if (noiseGlow) {
       let ticking = false;
@@ -1018,4 +1019,82 @@ p{line-height:1.6;margin-bottom:12px;color:#b8bcb4}.card{background:#1a2420;bord
       btn.setAttribute("aria-expanded", String(!isOpen));
     });
   });
+
+  // ═══ Pilot micro-wizard ═══════════════════════════════════════════════════
+  const wizard = document.querySelector(".contact-wizard");
+  if (wizard) {
+    const wSteps = Array.from(wizard.querySelectorAll("[data-wizard-step]"));
+    const laneTiles = Array.from(wizard.querySelectorAll(".lane-tile"));
+    const nextBtn = wizard.querySelector("[data-wizard-next]");
+    const backBtn = wizard.querySelector("[data-wizard-back]");
+    const formPanels = Array.from(wizard.querySelectorAll("[data-form-panel]"));
+    let selectedLane = null;
+
+    const showWizardStep = (num) => {
+      wSteps.forEach((s) => s.setAttribute("data-active", String(s.getAttribute("data-wizard-step") === String(num))));
+      wizard.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    const showFormPanel = (lane) => {
+      formPanels.forEach((p) => {
+        p.style.display = p.getAttribute("data-form-panel") === lane ? "block" : "none";
+      });
+    };
+
+    laneTiles.forEach((tile) => {
+      const handler = () => {
+        const lane = tile.getAttribute("data-lane");
+        const radio = tile.querySelector("input[type='radio']");
+        if (radio) radio.checked = true;
+        laneTiles.forEach((t) => t.removeAttribute("data-selected"));
+        tile.setAttribute("data-selected", "true");
+        selectedLane = lane;
+        if (nextBtn) nextBtn.disabled = false;
+      };
+      tile.addEventListener("click", handler);
+      const radio = tile.querySelector("input[type='radio']");
+      if (radio) radio.addEventListener("change", handler);
+    });
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        if (!selectedLane) return;
+        showFormPanel(selectedLane);
+        showWizardStep(2);
+      });
+    }
+
+    if (backBtn) {
+      backBtn.addEventListener("click", () => showWizardStep(1));
+    }
+
+    wizard.querySelectorAll("form[data-demo-form]").forEach((form) => {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let valid = true;
+        form.querySelectorAll("[required]").forEach((field) => {
+          const empty = field.tagName === "SELECT" ? !field.value : !field.value.trim();
+          field.setAttribute("aria-invalid", String(empty));
+          if (empty) valid = false;
+        });
+        if (!valid) return;
+        const action = form.getAttribute("action");
+        if (action && action.includes("maulya.in")) {
+          fetch(action, { method: "POST", body: new FormData(form) }).catch(() => {});
+          setTimeout(() => { window.location.href = "https://app.maulya.in/partner/request-access"; }, 600);
+          return;
+        }
+        showWizardStep(3);
+      });
+    });
+
+    wizard.querySelectorAll("input[required], textarea[required], select[required]").forEach((field) => {
+      field.addEventListener("blur", () => {
+        const empty = field.tagName === "SELECT" ? !field.value : !field.value.trim();
+        if (empty) field.setAttribute("aria-invalid", "true");
+      });
+      field.addEventListener("input", () => field.removeAttribute("aria-invalid"));
+      if (field.tagName === "SELECT") field.addEventListener("change", () => field.removeAttribute("aria-invalid"));
+    });
+  }
 })();
