@@ -19,14 +19,19 @@
   <div class="page-shell">
     <div class="noise-glow" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="nav-overlay" aria-hidden="true"></div>
     <header class="site-header">
       <div class="shell">
         <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo"
             src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-        <nav class="nav" aria-label="Primary">
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="/products/" data-match="/products">Products</a>
-          <a href="/studio/" data-match="/studio">Studio</a>
+          <a href="/method/" data-match="/method">Method</a>
           <a href="/proof/" data-match="/proof">Proof</a>
+          <a href="/studio/" data-match="/studio">Studio</a>
           <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
         </nav>
       </div>
@@ -89,7 +94,7 @@
           </div>
           <div class="grid-3 package-grid">
             <article class="card reveal">
-              <span class="price-meta">Offer 01 • 7 days</span>
+              <span class="price-meta">Offer 01 / Blueprint</span>
               <h3>Systems Blueprint Sprint</h3>
               <p>Translate process chaos into a build-ready operating model.</p>
               <ul class="list">
@@ -97,9 +102,10 @@
                 <li>Evidence + readiness requirements</li>
                 <li>Scope cut and implementation plan</li>
               </ul>
+              <p class="price-range">7 days / starts at mid-5 figures</p>
             </article>
             <article class="card reveal">
-              <span class="price-meta">Offer 02 • 4–6 weeks</span>
+              <span class="price-meta">Offer 02 / MVP</span>
               <h3>MVP Build</h3>
               <p>
                 Build the minimum operator-grade system with controlled
@@ -110,9 +116,10 @@
                 <li>Rules, gating, and audit primitives</li>
                 <li>Pilot deployment + handoff</li>
               </ul>
+              <p class="price-range">4-6 weeks / mid-6 figures</p>
             </article>
             <article class="card reveal">
-              <span class="price-meta">Offer 03 • 2 weeks</span>
+              <span class="price-meta">Offer 03 / Hardening</span>
               <h3>Ops Hardening</h3>
               <p>
                 Upgrade an existing system with release discipline, billing
@@ -123,6 +130,7 @@
                 <li>Hardening roadmap with scope order</li>
                 <li>Implementation support</li>
               </ul>
+              <p class="price-range">2 weeks / starts at low-5 figures</p>
             </article>
           </div>
         </div>
@@ -169,6 +177,18 @@
         </div>
       </section>
 
+      <section class="section section-tight">
+        <div class="shell">
+          <div class="partner-strip reveal">
+            <div class="partner-strip__copy">
+              <span class="partner-strip__label">Pilots and partnerships</span>
+              <p class="partner-strip__text">Not ready for a full build? We run small, measurable pilot integrations with creators, cohort owners, and platform partners.</p>
+            </div>
+            <a class="btn btn-secondary btn-small" href="/contact/#studio">Request Pilot Call</a>
+          </div>
+        </div>
+      </section>
+
       <section class="section">
         <div class="shell">
           <div class="cta-band reveal">
@@ -196,11 +216,12 @@
           <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo"
               src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
           <div class="footer-links">
-            <a href="/products/">Products</a><a href="/studio/">Studio</a><a href="/proof/">Proof</a><a
+            <a href="/products/">Products</a><a href="/method/">Method</a><a href="/proof/">Proof</a><a href="/studio/">Studio</a><a
               href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a>
           </div>
         </div>
         <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
+        <p class="footer-tagline">Systems Product Studio · Built for operators.</p>
       </div>
     </footer>
   </div>

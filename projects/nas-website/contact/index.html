@@ -20,14 +20,19 @@
   <div class="page-shell">
     <div class="noise-glow" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="nav-overlay" aria-hidden="true"></div>
     <header class="site-header">
       <div class="shell">
         <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo"
             src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-        <nav class="nav" aria-label="Primary">
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="/products/" data-match="/products">Products</a>
-          <a href="/studio/" data-match="/studio">Studio</a>
+          <a href="/method/" data-match="/method">Method</a>
           <a href="/proof/" data-match="/proof">Proof</a>
+          <a href="/studio/" data-match="/studio">Studio</a>
           <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
         </nav>
       </div>
@@ -86,7 +91,7 @@
                 </select>
               </label>
               <label><span>Current workflow tools</span><input type="text" name="tools" placeholder="WhatsApp, Excel, email, internal CRM..." /></label>
-              <label><span>Biggest blocker right now</span><textarea name="pain" required placeholder="Missing docs, approval delays, payment follow-up, assignment handoff confusion..."></textarea></label>
+              <label><span>Biggest blocker right now</span><textarea name="pain" required maxlength="400" placeholder="Missing docs, approval delays, payment follow-up, assignment handoff confusion..."></textarea></label>
               <label><span>Phone or email</span><input type="text" name="contact" required /></label>
               <button class="btn btn-primary" type="submit">Continue to live request access</button>
               <p class="form-note">Your brief is posted to ZenOps handoff, then the request-access page opens with the onboarding form prefilled.</p>
@@ -124,8 +129,8 @@
               <label><span>Name</span><input type="text" name="name" required /></label>
               <label><span>Company</span><input type="text" name="company" /></label>
               <label><span>Domain</span><input type="text" name="domain" /></label>
-              <label><span>Current process mess</span><textarea name="process_mess" required></textarea></label>
-              <label><span>Desired outcome</span><textarea name="outcome" required></textarea></label>
+              <label><span>Current process mess</span><textarea name="process_mess" required maxlength="500" placeholder="Describe the workflow gaps causing the most pain..."></textarea></label>
+              <label><span>Desired outcome</span><textarea name="outcome" required maxlength="400" placeholder="What should work differently in 3 months?"></textarea></label>
               <label><span>Timeline</span><input type="text" name="timeline" /></label>
               <label><span>Budget range</span><input type="text" name="budget" /></label>
               <button class="btn btn-primary" type="submit">Apply for Studio</button>
@@ -143,11 +148,12 @@
           <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo"
               src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
           <div class="footer-links">
-            <a href="/products/">Products</a><a href="/studio/">Studio</a><a href="/proof/">Proof</a><a
+            <a href="/products/">Products</a><a href="/method/">Method</a><a href="/proof/">Proof</a><a href="/studio/">Studio</a><a
               href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a>
           </div>
         </div>
         <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
+        <p class="footer-tagline">Systems Product Studio · Built for operators.</p>
       </div>
     </footer>
   </div>

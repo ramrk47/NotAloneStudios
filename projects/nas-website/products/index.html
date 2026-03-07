@@ -15,13 +15,18 @@
   <div class="page-shell">
     <div class="noise-glow" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="nav-overlay" aria-hidden="true"></div>
     <header class="site-header">
       <div class="shell">
         <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-        <nav class="nav" aria-label="Primary">
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="/products/" data-match="/products">Products</a>
-          <a href="/studio/" data-match="/studio">Studio</a>
+          <a href="/method/" data-match="/method">Method</a>
           <a href="/proof/" data-match="/proof">Proof</a>
+          <a href="/studio/" data-match="/studio">Studio</a>
           <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
         </nav>
       </div>
@@ -40,7 +45,7 @@
       </section>
 
       <section class="section section-tight premium-band">
-        <div class="shell premium-card-grid premium-card-grid--products">
+        <div class="shell premium-card-grid premium-card-grid--products" data-stagger>
           <article class="premium-product-card premium-product-card--zenops reveal">
             <div class="premium-product-card__copy">
               <p class="small-label">Flagship product</p>
@@ -111,9 +116,10 @@
       <div class="shell">
         <div class="footer-top">
           <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-          <div class="footer-links"><a href="/products/">Products</a><a href="/studio/">Studio</a><a href="/proof/">Proof</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
+          <div class="footer-links"><a href="/products/">Products</a><a href="/method/">Method</a><a href="/proof/">Proof</a><a href="/studio/">Studio</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
         </div>
         <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
+        <p class="footer-tagline">Systems Product Studio · Built for operators.</p>
       </div>
     </footer>
   </div>

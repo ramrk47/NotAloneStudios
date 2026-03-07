@@ -16,13 +16,18 @@
     <div class="noise-glow" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
 
+    <div class="nav-overlay" aria-hidden="true"></div>
     <header class="site-header">
       <div class="shell">
         <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-        <nav class="nav" aria-label="Primary">
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="/products/" data-match="/products">Products</a>
-          <a href="/studio/" data-match="/studio">Studio</a>
+          <a href="/method/" data-match="/method">Method</a>
           <a href="/proof/" data-match="/proof">Proof</a>
+          <a href="/studio/" data-match="/studio">Studio</a>
           <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
         </nav>
       </div>
@@ -35,10 +40,18 @@
             <div class="home-hero-v2__intro reveal is-visible">
               <p class="kicker">Systems product studio</p>
               <h1>Classy software systems for operators, teams, and ambitious product ideas.</h1>
+              <p class="hero-subtitle">Products lead the story. Studio builds stay selective.</p>
               <p class="lede">Not Alone Studios builds premium workflow software and selective custom systems. ZenOps leads the commercial story. Everything else supports the same product discipline.</p>
               <div class="button-row home-hero-v2__intro-actions">
                 <a class="btn btn-primary" href="/products/">Browse Products</a>
                 <a class="btn btn-secondary" href="/studio/">View Studio</a>
+              </div>
+              <div class="social-proof-strip">
+                <div class="proof-stat"><strong data-count-to="2400" data-count-suffix="+">2400+</strong><br>assignments processed</div>
+                <div class="proof-divider" aria-hidden="true"></div>
+                <div class="proof-stat"><strong data-count-to="12">12</strong><br>operator teams onboarded</div>
+                <div class="proof-divider" aria-hidden="true"></div>
+                <div class="proof-stat"><strong>3</strong><br>products shipped</div>
               </div>
             </div>
 
@@ -147,7 +160,7 @@
             <h2>Start with the product page. Go live only when you’re ready.</h2>
             <p>Homepage surfaces are now directional on purpose. The dedicated product pages carry the proof, workflows, onboarding detail, and deeper narrative.</p>
           </div>
-          <div class="premium-card-grid premium-card-grid--products">
+          <div class="premium-card-grid premium-card-grid--products" data-stagger>
             <article class="premium-product-card premium-product-card--zenops reveal">
               <div class="premium-product-card__copy">
                 <p class="small-label">Flagship workflow operating system</p>
@@ -199,28 +212,96 @@
         </div>
       </section>
 
-      <section class="section section-tight premium-proof-band" data-river-anchor="home">
-        <div class="shell premium-proof-band__grid">
+      <section class="section section-tight" data-river-anchor="home">
+        <div class="shell">
           <div class="section-head reveal">
-            <p class="kicker">Proof and product thinking</p>
-            <h2>Shipped surfaces, tighter stories, better hierarchy.</h2>
-            <p>Proof stays visible, but it no longer overwhelms the homepage. The site should point cleanly into the right product path.</p>
-            <div class="button-row">
-              <a class="btn btn-secondary" href="/proof/">View Proof</a>
-              <a class="btn btn-ghost" href="/contact/">Contact NAS</a>
+            <p class="kicker">Shipped facts</p>
+            <h2>Concrete behaviors, not promises.</h2>
+            <p>Every item below is live in production. Skeptical buyers trust shipped behavior, not words.</p>
+          </div>
+          <div class="shipped-facts" data-stagger>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product">ZenOps</span>
+              <p class="shipped-fact__text">Readiness gating blocks incomplete delivery</p>
+            </div>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product">ZenOps</span>
+              <p class="shipped-fact__text">Credits + postpaid billing gates implemented</p>
+            </div>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product">ZenOps</span>
+              <p class="shipped-fact__text">Audit trail + snapshots exist for every assignment</p>
+            </div>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product">ZenOps</span>
+              <p class="shipped-fact__text">Multi-surface: ops desk, studio view, partner portal</p>
+            </div>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span>
+              <p class="shipped-fact__text">Explore, Vault, and Walk Pack core loop is live</p>
+            </div>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span>
+              <p class="shipped-fact__text">Exam proximity tiering: Iron through Platinum</p>
+            </div>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span>
+              <p class="shipped-fact__text">Safety-first: concept-level only, no paper reconstruction</p>
+            </div>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span>
+              <p class="shipped-fact__text">Tablet-first UX: calm interface, no feed clutter</p>
+            </div>
+            <div class="shipped-fact reveal">
+              <span class="shipped-fact__product">Studio</span>
+              <p class="shipped-fact__text">Both products built in-house with the same method</p>
             </div>
           </div>
-          <div class="premium-proof-stack">
-            <article class="proof-rail-card reveal">
-              <span class="small-label">ZenOps</span>
-              <h3>Dedicated page for the full sales narrative</h3>
-              <p>Proof strip, workflow pillars, onboarding, demo lane, and deep dive now live where they belong.</p>
-            </article>
-            <article class="proof-rail-card reveal">
-              <span class="small-label">NAS</span>
-              <h3>Homepage stays elegant and directional</h3>
-              <p>The homepage now introduces the studio and products without trying to become a product landing page itself.</p>
-            </article>
+          <div class="button-row" style="margin-top: 18px;">
+            <a class="btn btn-secondary" href="/proof/">View Proof</a>
+            <a class="btn btn-ghost" href="/method/">See Our Method</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight" data-river-anchor="home">
+        <div class="shell">
+          <div class="conversion-rails reveal">
+            <div class="conversion-rail">
+              <span class="conversion-rail__label">Product buyers</span>
+              <p class="conversion-rail__heading">ZenOps demo / pilot</p>
+              <a class="btn btn-primary btn-small" href="/products/zenops/">Explore ZenOps</a>
+            </div>
+            <div class="conversion-rail">
+              <span class="conversion-rail__label">Partners</span>
+              <p class="conversion-rail__heading">Creators, cohorts, platforms</p>
+              <a class="btn btn-secondary btn-small" href="/contact/#studio">Request Pilot Call</a>
+            </div>
+            <div class="conversion-rail">
+              <span class="conversion-rail__label">Services (selective)</span>
+              <p class="conversion-rail__heading">Systems builds, apply only</p>
+              <a class="btn btn-ghost btn-small" href="/studio/">Apply for Studio</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight" data-river-anchor="home">
+        <div class="shell">
+          <div class="partner-strip reveal">
+            <div class="partner-strip__copy">
+              <span class="partner-strip__label">Pilots and partnerships</span>
+              <p class="partner-strip__text">We run small, measurable integrations with creators, cohort owners, platform partners, and distribution allies.</p>
+            </div>
+            <a class="btn btn-secondary btn-small" href="/contact/#studio">Request Pilot Call</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight" data-river-anchor="footer">
+        <div class="shell">
+          <div class="manifesto-strip reveal">
+            <p class="manifesto-strip__text">We build constraints into the product so operators do not have to remember them. Evidence gates, readiness checks, and release controls exist because shipped discipline is worth more than shipped features.</p>
           </div>
         </div>
       </section>
@@ -230,13 +311,13 @@
           <div class="cta-band reveal">
             <div>
               <p class="kicker">Next step</p>
-              <h2>Use the page that matches the intent.</h2>
-              <p>Explore ZenOps as the flagship product, review the Studio lane for custom systems, or go to Proof if you want shipped surfaces first.</p>
+              <h2>Pick the path that fits.</h2>
+              <p>Explore ZenOps as the flagship product, apply for a selective Studio build, or request a pilot integration.</p>
             </div>
             <div class="cta-actions">
               <a class="btn btn-primary" href="/products/zenops/">Explore ZenOps</a>
-              <a class="btn btn-secondary" href="/studio/">View Studio</a>
-              <a class="btn btn-ghost" href="/proof/">View Proof</a>
+              <a class="btn btn-secondary" href="/studio/">Apply for Studio</a>
+              <a class="btn btn-ghost" href="/contact/#studio">Request Pilot Call</a>
             </div>
           </div>
         </div>
@@ -249,14 +330,16 @@
           <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
           <div class="footer-links">
             <a href="/products/">Products</a>
-            <a href="/studio/">Studio</a>
+            <a href="/method/">Method</a>
             <a href="/proof/">Proof</a>
+            <a href="/studio/">Studio</a>
             <a href="/contact/">Contact</a>
             <a href="/privacy/">Privacy</a>
             <a href="/terms/">Terms</a>
           </div>
         </div>
         <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
+        <p class="footer-tagline">Systems Product Studio · Built for operators.</p>
       </div>
     </footer>
   </div>

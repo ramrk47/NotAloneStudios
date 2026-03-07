@@ -15,13 +15,18 @@
   <div class="page-shell">
     <div class="noise-glow" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="nav-overlay" aria-hidden="true"></div>
     <header class="site-header">
       <div class="shell">
         <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-        <nav class="nav" aria-label="Primary">
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="/products/" data-match="/products">Products</a>
-          <a href="/studio/" data-match="/studio">Studio</a>
+          <a href="/method/" data-match="/method">Method</a>
           <a href="/proof/" data-match="/proof">Proof</a>
+          <a href="/studio/" data-match="/studio">Studio</a>
           <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
         </nav>
       </div>
@@ -144,6 +149,46 @@
             <article class="card reveal"><span class="icon-pill">3</span><h3>Approvals discipline</h3><p>Draft approvals, final decisions, and payment confirmation sit inside one operating loop.</p></article>
             <article class="card reveal"><span class="icon-pill">4</span><h3>Billing and release gating</h3><p>Paid, credits, or override-with-reason state is explicit before work leaves the system.</p></article>
           </div>
+          <div class="signature-diagram reveal" style="margin-top: 24px;">
+            <svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" aria-label="ZenOps workflow: Evidence to Rules to Readiness to Pack to Release, billing-gated">
+              <defs>
+                <linearGradient id="zo-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#0f766e" stop-opacity="0.12"/>
+                  <stop offset="100%" stop-color="#0f766e" stop-opacity="0.04"/>
+                </linearGradient>
+                <marker id="zo-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#0f766e"/>
+                </marker>
+              </defs>
+              <rect x="0" y="30" width="900" height="60" rx="12" fill="url(#zo-grad)"/>
+              <!-- Step boxes -->
+              <rect x="20" y="38" width="140" height="44" rx="10" fill="#fff" stroke="#0f766e" stroke-width="1.5"/>
+              <text x="90" y="65" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Evidence</text>
+              <!-- Arrow 1 -->
+              <line x1="168" y1="60" x2="198" y2="60" stroke="#0f766e" stroke-width="1.5" marker-end="url(#zo-arrow)"/>
+              <rect x="200" y="38" width="120" height="44" rx="10" fill="#fff" stroke="#0f766e" stroke-width="1.5"/>
+              <text x="260" y="65" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Rules</text>
+              <!-- Arrow 2 -->
+              <line x1="328" y1="60" x2="358" y2="60" stroke="#0f766e" stroke-width="1.5" marker-end="url(#zo-arrow)"/>
+              <rect x="360" y="38" width="140" height="44" rx="10" fill="#fff" stroke="#0f766e" stroke-width="1.5"/>
+              <text x="430" y="65" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Readiness</text>
+              <!-- Arrow 3 -->
+              <line x1="508" y1="60" x2="538" y2="60" stroke="#0f766e" stroke-width="1.5" marker-end="url(#zo-arrow)"/>
+              <rect x="540" y="38" width="120" height="44" rx="10" fill="#fff" stroke="#0f766e" stroke-width="1.5"/>
+              <text x="600" y="65" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Pack</text>
+              <!-- Arrow 4 -->
+              <line x1="668" y1="60" x2="698" y2="60" stroke="#0f766e" stroke-width="1.5" marker-end="url(#zo-arrow)"/>
+              <rect x="700" y="38" width="180" height="44" rx="10" fill="#fff" stroke="#0f766e" stroke-width="1.5"/>
+              <text x="790" y="58" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Release</text>
+              <text x="790" y="74" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#5c6a60">(billing-gated)</text>
+              <!-- Top label -->
+              <text x="450" y="18" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5c6a60" letter-spacing="0.08em" text-transform="uppercase">THE ZENOPS OPERATING SPINE</text>
+              <!-- Bottom label -->
+              <text x="450" y="110" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#5c6a60">Every step enforces constraints. Nothing ships incomplete.</text>
+            </svg>
+            <p class="signature-diagram__caption">The ZenOps deterministic workflow: each gate must clear before the next step.</p>
+          </div>
+
           <details class="details-panel reveal">
             <summary class="details-panel__summary">Advanced capabilities</summary>
             <div class="details-panel__body">
@@ -213,6 +258,18 @@
         </div>
       </section>
 
+      <section class="section section-tight" data-river-anchor="zenops">
+        <div class="shell">
+          <div class="partner-strip reveal">
+            <div class="partner-strip__copy">
+              <span class="partner-strip__label">Pilots and partnerships</span>
+              <p class="partner-strip__text">Running a valuation firm or ops-heavy team? We run small, measurable pilot integrations to prove the system before a full rollout.</p>
+            </div>
+            <a class="btn btn-secondary btn-small" href="/contact/#zenops">Request Pilot Call</a>
+          </div>
+        </div>
+      </section>
+
       <section class="section section-tight premium-final-cta" data-river-anchor="footer">
         <div class="shell">
           <div class="cta-band reveal">
@@ -235,9 +292,10 @@
       <div class="shell">
         <div class="footer-top">
           <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-          <div class="footer-links"><a href="/products/">Products</a><a href="/studio/">Studio</a><a href="/proof/">Proof</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
+          <div class="footer-links"><a href="/products/">Products</a><a href="/method/">Method</a><a href="/proof/">Proof</a><a href="/studio/">Studio</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
         </div>
         <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
+        <p class="footer-tagline">Systems Product Studio · Built for operators.</p>
       </div>
     </footer>
   </div>

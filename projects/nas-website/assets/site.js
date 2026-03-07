@@ -680,4 +680,167 @@
       }
     });
   });
+
+  // ─── Nav scroll shadow (Phase 2D) ────────────────────────────────────────
+  const siteHeader = document.querySelector(".site-header");
+  if (siteHeader) {
+    const updateHeaderScroll = () => {
+      if (window.scrollY > 24) {
+        siteHeader.classList.add("site-header--scrolled");
+      } else {
+        siteHeader.classList.remove("site-header--scrolled");
+      }
+    };
+    window.addEventListener("scroll", updateHeaderScroll, { passive: true });
+    updateHeaderScroll();
+  }
+
+  // ─── Hamburger navigation (Phase 4A) ─────────────────────────────────────
+  const hamburger = document.querySelector(".nav-hamburger");
+  const primaryNav = document.querySelector(".nav");
+  const navOverlay = document.querySelector(".nav-overlay");
+
+  if (hamburger && primaryNav) {
+    const openNav = () => {
+      hamburger.setAttribute("aria-expanded", "true");
+      primaryNav.classList.add("is-open");
+      if (navOverlay) navOverlay.classList.add("is-active");
+      document.body.style.overflow = "hidden";
+      // Focus first nav link
+      const firstLink = primaryNav.querySelector("a");
+      if (firstLink) firstLink.focus();
+    };
+
+    const closeNav = () => {
+      hamburger.setAttribute("aria-expanded", "false");
+      primaryNav.classList.remove("is-open");
+      if (navOverlay) navOverlay.classList.remove("is-active");
+      document.body.style.overflow = "";
+      hamburger.focus();
+    };
+
+    hamburger.addEventListener("click", () => {
+      const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+      if (isOpen) closeNav(); else openNav();
+    });
+
+    if (navOverlay) {
+      navOverlay.addEventListener("click", closeNav);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
+        closeNav();
+      }
+    });
+
+    // Focus trap within open nav
+    primaryNav.addEventListener("keydown", (e) => {
+      if (hamburger.getAttribute("aria-expanded") !== "true") return;
+      if (e.key !== "Tab") return;
+      const focusable = [...primaryNav.querySelectorAll("a, button")].filter(
+        (el) => !el.hidden && el.offsetParent !== null
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Close nav when a link is clicked (mobile)
+    primaryNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (hamburger.getAttribute("aria-expanded") === "true") closeNav();
+      });
+    });
+
+    // Sync on resize
+    const mq = window.matchMedia("(min-width: 821px)");
+    mq.addEventListener("change", (e) => {
+      if (e.matches) closeNav();
+    });
+  }
+
+  // ─── Stagger animation for grids (Phase 3B) ───────────────────────────────
+  document.querySelectorAll("[data-stagger]").forEach((parent) => {
+    const children = parent.querySelectorAll(
+      ".reveal, .shipped-fact, .proof-card, .card"
+    );
+    children.forEach((child, i) => {
+      child.style.setProperty("--stagger-i", String(i));
+      child.classList.add("reveal");
+    });
+  });
+
+  // ─── Counter animation (Phase 3D) ─────────────────────────────────────────
+  if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+    const counters = document.querySelectorAll("[data-count-to]");
+    if (counters.length) {
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            counterObserver.unobserve(entry.target);
+            const el = entry.target;
+            const target = parseFloat(el.getAttribute("data-count-to")) || 0;
+            const duration = 1200;
+            const start = performance.now();
+            const suffix = el.getAttribute("data-count-suffix") || "";
+            const decimals = String(target).includes(".") ? 1 : 0;
+
+            const tick = (now) => {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const current = target * easeOutQuart(progress);
+              el.textContent = current.toFixed(decimals) + suffix;
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          });
+        },
+        { threshold: 0.5 }
+      );
+      counters.forEach((el) => counterObserver.observe(el));
+    }
+  }
+
+  // ─── Parallax depth on noise-glow (Phase 3E) ──────────────────────────────
+  if (!prefersReducedMotion) {
+    const noiseGlow = document.querySelector(".noise-glow");
+    if (noiseGlow) {
+      let ticking = false;
+      const onScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            noiseGlow.style.transform = `translateY(${window.scrollY * 0.18}px)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
+  }
+
+  // ─── Textarea character counter (Phase 5C) ────────────────────────────────
+  document.querySelectorAll("textarea[maxlength]").forEach((ta) => {
+    const max = parseInt(ta.getAttribute("maxlength"), 10);
+    if (!max) return;
+    const counter = document.createElement("div");
+    counter.className = "char-counter";
+    counter.setAttribute("aria-live", "polite");
+    counter.textContent = `0 / ${max}`;
+    ta.insertAdjacentElement("afterend", counter);
+    ta.addEventListener("input", () => {
+      counter.textContent = `${ta.value.length} / ${max}`;
+    });
+  });
 })();
