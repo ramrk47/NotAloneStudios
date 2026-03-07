@@ -1,5 +1,10 @@
 # NotAloneStudios
 
-Fresh private repository for website work.
+Multi-project repository for NotAloneStudios work.
 
-A local backup of the previous project contents is stored in `legacy/NotAloneStudios-legacy-20260224-190051.zip` (gitignored).
+## Layout
+
+- `projects/nas-website/` - current NAS website (all existing website files moved here)
+- `projects/dev-logs-general/` - shared planning/changelog/reference docs
+
+Add future projects under `projects/` as separate folders.
