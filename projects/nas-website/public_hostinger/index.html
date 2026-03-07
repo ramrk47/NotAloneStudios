@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Not Alone Studios — Systems Product Studio</title>
-  <meta name="description" content="Not Alone Studios builds premium operator-grade software systems, with ZenOps as the flagship workflow operating system." />
+  <meta name="description" content="Not Alone Studios builds premium operator-grade software systems, with Maulya as the flagship workflow operating system." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap" rel="stylesheet" />
@@ -16,29 +16,78 @@
     <div class="noise-glow" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
 
+    <div class="nav-overlay" aria-hidden="true"></div>
     <header class="site-header">
       <div class="shell">
         <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-        <nav class="nav" aria-label="Primary">
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="/products/" data-match="/products">Products</a>
-          <a href="/studio/" data-match="/studio">Studio</a>
+          <a href="/method/" data-match="/method">Method</a>
           <a href="/proof/" data-match="/proof">Proof</a>
+          <a href="/studio/" data-match="/studio">Studio</a>
           <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
         </nav>
       </div>
     </header>
 
     <main>
+      <!-- ═══ HERO with self-segmentation switch ═══ -->
       <section class="hero hero-premium" data-river-anchor="home">
         <div class="shell">
           <div class="home-hero-v2">
             <div class="home-hero-v2__intro reveal is-visible">
-              <p class="kicker">Systems product studio</p>
-              <h1>Classy software systems for operators, teams, and ambitious product ideas.</h1>
-              <p class="lede">Not Alone Studios builds premium workflow software and selective custom systems. ZenOps leads the commercial story. Everything else supports the same product discipline.</p>
-              <div class="button-row home-hero-v2__intro-actions">
-                <a class="btn btn-primary" href="/products/">Browse Products</a>
-                <a class="btn btn-secondary" href="/studio/">View Studio</a>
+
+              <div class="segment-switch" role="tablist" aria-label="Choose your path">
+                <button class="segment-switch__option" role="tab" aria-selected="true" data-segment="operator" id="tab-operator" aria-controls="panel-operator">Valuer / Firm</button>
+                <button class="segment-switch__option" role="tab" aria-selected="false" data-segment="aspirant" id="tab-aspirant" aria-controls="panel-aspirant">Aspirant (NEET/INI)</button>
+                <button class="segment-switch__option" role="tab" aria-selected="false" data-segment="partner" id="tab-partner" aria-controls="panel-partner">Partner / Platform</button>
+              </div>
+
+              <div class="segment-content" data-segment-panel="operator" data-active="true" role="tabpanel" id="panel-operator" aria-labelledby="tab-operator">
+                <p class="kicker">Systems product studio</p>
+                <h1>Classy software systems for operators, teams, and ambitious product ideas.</h1>
+                <p class="hero-subtitle">Products lead the story. Studio builds stay selective.</p>
+                <p class="lede">Not Alone Studios builds premium workflow software and selective custom systems. Maulya leads the commercial story.</p>
+                <div class="button-row home-hero-v2__intro-actions">
+                  <a class="btn btn-primary" href="https://maulya.in/product/">Explore Maulya</a>
+                  <a class="btn btn-secondary" href="/studio/">See how we build</a>
+                </div>
+                <div class="cta-micro-row" aria-label="No commitment details"><span>15 min call</span><span>No commitment</span><span>See workspace first</span></div>
+              </div>
+
+              <div class="segment-content" data-segment-panel="aspirant" role="tabpanel" id="panel-aspirant" aria-labelledby="tab-aspirant">
+                <p class="kicker">Premium study OS</p>
+                <h1>Stop studying randomly. Start studying with a system.</h1>
+                <p class="hero-subtitle">Revalk converts confusion into mastery packs you can actually finish.</p>
+                <p class="lede">Explore exam-relevant concepts ranked by proximity, collect them into your Vault, and train recall under pressure.</p>
+                <div class="button-row home-hero-v2__intro-actions">
+                  <a class="btn btn-clay" href="/products/revalk/">Explore Revalk</a>
+                  <a class="btn btn-secondary" href="/contact/#revalk">Start early access</a>
+                </div>
+                <div class="cta-micro-row" aria-label="No commitment details"><span>Free early access</span><span>No payment info</span><span>Core loop is live</span></div>
+              </div>
+
+              <div class="segment-content" data-segment-panel="partner" role="tabpanel" id="panel-partner" aria-labelledby="tab-partner">
+                <p class="kicker">Partnerships and integrations</p>
+                <h1>Plug premium retention layers into your platform.</h1>
+                <p class="hero-subtitle">Creators, cohort owners, and platform builders get structured product integrations.</p>
+                <p class="lede">We run small, measurable pilot integrations. Revalk functions as a retention layer. Maulya serves ops-heavy partner workflows.</p>
+                <div class="button-row home-hero-v2__intro-actions">
+                  <a class="btn btn-primary" href="/contact/#studio">Schedule a pilot call</a>
+                  <a class="btn btn-secondary" href="/products/">See the products</a>
+                </div>
+                <div class="cta-micro-row" aria-label="No commitment details"><span>Short pilot scope</span><span>Measurable outcomes</span><span>No long contracts</span></div>
+              </div>
+
+              <div class="social-proof-strip">
+                <div class="proof-stat"><strong data-count-to="2400" data-count-suffix="+">2400+</strong><br>assignments processed</div>
+                <div class="proof-divider" aria-hidden="true"></div>
+                <div class="proof-stat"><strong data-count-to="12">12</strong><br>operator teams onboarded</div>
+                <div class="proof-divider" aria-hidden="true"></div>
+                <div class="proof-stat"><strong>3</strong><br>products shipped</div>
               </div>
             </div>
 
@@ -50,14 +99,12 @@
                   </video>
                   <div class="feature-slide__bg-scrim"></div>
                   <div class="feature-slide__content">
-                    <div class="feature-slide__meta">
-                      <span class="status-badge">Studio / Selective</span>
-                    </div>
+                    <div class="feature-slide__meta"><span class="status-badge">Studio / Selective</span></div>
                     <h2>Selective systems builds with product-grade finish.</h2>
                     <p>We design and build workflow-heavy software, internal tools, portals, and community products that need structure, clarity, and premium execution.</p>
                     <div class="button-row feature-slide__actions">
-                      <a class="btn btn-primary" href="/studio/" data-track="home_carousel_studio_page_click">View Studio</a>
-                      <a class="btn btn-secondary" href="/contact/#studio">Apply for a Systems Build</a>
+                      <a class="btn btn-primary" href="/studio/" data-track="home_carousel_studio_page_click">See how we build</a>
+                      <a class="btn btn-secondary" href="/contact/#studio">Apply for a systems build</a>
                     </div>
                   </div>
                   <div class="feature-slide__aside">
@@ -68,51 +115,39 @@
                   </div>
                 </article>
 
-                <article class="feature-slide feature-slide--zenops feature-slide--premium" data-carousel-slide aria-hidden="true" aria-label="ZenOps product">
+                <article class="feature-slide feature-slide--maulya feature-slide--premium" data-carousel-slide aria-hidden="true" aria-label="Maulya product">
                   <div class="feature-slide__content">
-                    <div class="feature-slide__meta">
-                      <span class="status-badge">Flagship product</span>
-                    </div>
-                    <h2>ZenOps brings assignment ops into one disciplined control surface.</h2>
+                    <div class="feature-slide__meta"><span class="status-badge">Flagship product</span></div>
+                    <h2>Maulya brings assignment ops into one disciplined control surface.</h2>
                     <p>Mobile creation, approvals, evidence visibility, and payment follow-through all live in one product flow instead of scattered tools.</p>
                     <div class="button-row feature-slide__actions">
-                      <a class="btn btn-primary" href="/products/zenops/" data-track="home_carousel_zenops_page_click">Explore ZenOps</a>
-                      <a class="btn btn-secondary" href="https://zenops.notalonestudios.com/partner/request-access" data-track="home_carousel_zenops_request_access_click">Request Access</a>
+                      <a class="btn btn-primary" href="https://maulya.in/product/" data-track="home_carousel_maulya_page_click">Explore Maulya</a>
+                      <a class="btn btn-secondary" href="https://app.maulya.in/partner/request-access" data-track="home_carousel_maulya_request_access_click">Start associate onboarding</a>
                     </div>
-                    <div class="action-link-row">
-                      <a href="https://zenops.notalonestudios.com/">Open Workspace</a>
-                    </div>
+                    <div class="action-link-row"><a href="https://app.maulya.in/">Open your workspace</a></div>
                   </div>
                   <div class="feature-slide__media feature-slide__media--phone">
-                    <figure class="screen-frame feature-slide__screen media-mode-phone" data-theme="zenops">
-                      <div class="screen-frame__chrome" aria-hidden="true">
-                        <span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span>
-                      </div>
-                      <div class="screen-frame__viewport">
-                        <img src="/assets/screens/zenops/marketing/mobile-home-preview.png" alt="ZenOps mobile dashboard showing drafts, approvals, overdue work, and missing uploads." loading="lazy" decoding="async" />
-                      </div>
+                    <figure class="screen-frame feature-slide__screen media-mode-phone" data-theme="maulya">
+                      <div class="screen-frame__chrome" aria-hidden="true"><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span></div>
+                      <div class="screen-frame__viewport"><img src="/assets/screens/maulya/marketing/mobile-home-preview.png" alt="Maulya mobile dashboard showing drafts, approvals, overdue work, and missing uploads." loading="lazy" decoding="async" /></div>
                     </figure>
-                    <p class="feature-slide__media-note">The dedicated ZenOps page carries the full proof, onboarding, workflow, and demo story.</p>
+                    <p class="feature-slide__media-note">The dedicated Maulya page carries the full proof, onboarding, workflow, and demo story.</p>
                   </div>
                 </article>
 
                 <article class="feature-slide feature-slide--revalk feature-slide--premium" data-carousel-slide aria-hidden="true" aria-label="Revalk product">
                   <div class="feature-slide__content">
-                    <div class="feature-slide__meta">
-                      <span class="status-badge">Secondary product</span>
-                    </div>
+                    <div class="feature-slide__meta"><span class="status-badge">Secondary product</span></div>
                     <h2><img class="product-logo product-logo--sm" src="/assets/brand/revalk-logo.png" alt="" aria-hidden="true" /> Revalk is a premium study operating system, not another content feed.</h2>
                     <p>Doubt capture, topic spaces, and recall-driven workflows come together in a calmer, more intentional learning product.</p>
                     <div class="button-row feature-slide__actions">
                       <a class="btn btn-primary" href="/products/revalk/" data-track="home_carousel_revalk_page_click">Explore Revalk</a>
-                      <a class="btn btn-secondary" href="/contact/#revalk">Join Early Access</a>
+                      <a class="btn btn-secondary" href="/contact/#revalk">Start early access</a>
                     </div>
                   </div>
                   <div class="feature-slide__media feature-slide__media--phone">
                     <figure class="screen-frame feature-slide__screen media-mode-phone" data-theme="revalk">
-                      <div class="screen-frame__chrome" aria-hidden="true">
-                        <span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span>
-                      </div>
+                      <div class="screen-frame__chrome" aria-hidden="true"><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span></div>
                       <div class="screen-frame__viewport">
                         <picture>
                           <source type="image/webp" srcset="/assets/screens/revalk/responsive/topic-space-540.webp 540w, /assets/screens/revalk/responsive/topic-space-780.webp 780w, /assets/screens/revalk/topic-space.webp 1170w" sizes="(max-width: 820px) 100vw, 34vw" />
@@ -127,7 +162,7 @@
               <div class="feature-carousel__footer">
                 <div class="feature-carousel__dots" role="tablist" aria-label="Featured slides">
                   <button type="button" data-carousel-dot="0" aria-label="Show Studio slide" aria-pressed="true">Studio</button>
-                  <button type="button" data-carousel-dot="1" aria-label="Show ZenOps slide" aria-pressed="false">ZenOps</button>
+                  <button type="button" data-carousel-dot="1" aria-label="Show Maulya slide" aria-pressed="false">Maulya</button>
                   <button type="button" data-carousel-dot="2" aria-label="Show Revalk slide" aria-pressed="false">Revalk</button>
                 </div>
                 <div class="feature-carousel__controls" aria-label="Carousel controls">
@@ -140,38 +175,214 @@
         </div>
       </section>
 
-      <section class="section section-tight premium-band" data-river-anchor="home">
+      <!-- ═══ PROOF SNAPSHOT (two-speed: fast trust within first scroll) ═══ -->
+      <section class="section section-tight" data-river-anchor="home">
+        <div class="shell">
+          <div class="proof-snapshot reveal" data-proof-snapshot>
+            <div class="proof-snapshot__screens">
+              <figure class="screen-frame media-mode-phone" data-theme="maulya">
+                <div class="screen-frame__chrome" aria-hidden="true"><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span></div>
+                <div class="screen-frame__viewport"><img src="/assets/screens/maulya/marketing/mobile-home-preview.png" alt="Maulya mobile workboard." loading="lazy" decoding="async" /></div>
+              </figure>
+              <figure class="screen-frame media-mode-phone" data-theme="maulya">
+                <div class="screen-frame__chrome" aria-hidden="true"><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span></div>
+                <div class="screen-frame__viewport"><img src="/assets/screens/maulya/marketing/mobile-approvals-preview.png" alt="Maulya approvals inbox." loading="lazy" decoding="async" /></div>
+              </figure>
+            </div>
+            <div class="proof-snapshot__facts">
+              <div class="proof-snapshot__fact">Readiness gating blocks incomplete delivery</div>
+              <div class="proof-snapshot__fact">Audit trail + snapshots exist for every assignment</div>
+              <div class="proof-snapshot__fact">Credits + postpaid billing gates implemented</div>
+              <p class="proof-snapshot__so-what">Every item above is live in production — not planned, not in beta.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ HOOK ENGINE (one-question diagnostic) ═══ -->
+      <section class="section section-tight" data-river-anchor="home">
+        <div class="shell">
+          <div class="hook-engine reveal">
+            <p class="hook-engine__q">What are you trying to make deterministic?</p>
+            <div class="hook-tiles">
+              <label class="hook-tile">
+                <input type="radio" name="hook" value="ops" />
+                <span class="hook-tile__label">Assignment operations</span>
+                <p class="hook-tile__detail">Intake, approvals, evidence, billing</p>
+              </label>
+              <label class="hook-tile">
+                <input type="radio" name="hook" value="study" />
+                <span class="hook-tile__label">Study and recall</span>
+                <p class="hook-tile__detail">Doubts, revision, mastery tracking</p>
+              </label>
+              <label class="hook-tile">
+                <input type="radio" name="hook" value="custom" />
+                <span class="hook-tile__label">A custom workflow</span>
+                <p class="hook-tile__detail">Ops-heavy process that needs a system</p>
+              </label>
+            </div>
+            <div class="hook-engine__cta">
+              <a class="btn btn-primary" href="/contact/" data-hook-cta>Show me how this works</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ PROOF LADDER (deep proof — escalating trust tiers) ═══ -->
+      <section class="section section-tight" data-river-anchor="home">
         <div class="shell">
           <div class="section-head reveal">
-            <p class="kicker">Flagship products</p>
-            <h2>Start with the product page. Go live only when you’re ready.</h2>
-            <p>Homepage surfaces are now directional on purpose. The dedicated product pages carry the proof, workflows, onboarding detail, and deeper narrative.</p>
+            <p class="kicker">Shipped facts</p>
+            <h2>Concrete behaviors, not promises.</h2>
+            <p class="section-so-what">Every item below is live in production. Skeptical buyers trust shipped behavior, not marketing copy.</p>
           </div>
-          <div class="premium-card-grid premium-card-grid--products">
-            <article class="premium-product-card premium-product-card--zenops reveal">
-              <div class="premium-product-card__copy">
-                <p class="small-label">Flagship workflow operating system</p>
-                <h3>ZenOps</h3>
-                <p>Assignment intake, evidence discipline, approvals, associate onboarding, and payment visibility in one serious product flow.</p>
-                <div class="button-row">
-                  <a class="btn btn-primary" href="/products/zenops/">Explore ZenOps</a>
-                  <a class="btn btn-secondary" href="https://zenops.notalonestudios.com/partner/request-access">Request Associate Access</a>
+          <div class="proof-ladder" data-stagger>
+            <div class="proof-ladder__tier reveal">
+              <div class="proof-ladder__tier-head">
+                <span class="proof-ladder__tier-label">Tier 1: Shipped behaviors</span>
+                <span class="proof-ladder__tier-bar" aria-hidden="true"></span>
+              </div>
+              <div class="proof-ladder__items">
+                <div class="shipped-fact"><span class="shipped-fact__product">Maulya</span><p class="shipped-fact__text">Readiness gating blocks incomplete delivery</p></div>
+                <div class="shipped-fact"><span class="shipped-fact__product">Maulya</span><p class="shipped-fact__text">Audit trail + snapshots exist for every assignment</p></div>
+                <div class="shipped-fact"><span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span><p class="shipped-fact__text">Explore, Vault, and Walk Pack core loop is live</p></div>
+                <div class="shipped-fact"><span class="shipped-fact__product">Studio</span><p class="shipped-fact__text">Both products built in-house with the same method</p></div>
+              </div>
+            </div>
+            <div class="proof-ladder__tier reveal">
+              <div class="proof-ladder__tier-head">
+                <span class="proof-ladder__tier-label">Tier 2: Guarantees</span>
+                <span class="proof-ladder__tier-bar" aria-hidden="true"></span>
+              </div>
+              <div class="proof-ladder__items">
+                <div class="shipped-fact"><span class="shipped-fact__product">Maulya</span><p class="shipped-fact__text">Credits + postpaid billing gates implemented</p></div>
+                <div class="shipped-fact"><span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span><p class="shipped-fact__text">Safety-first: concept-level only, no paper reconstruction</p></div>
+              </div>
+            </div>
+            <div class="proof-ladder__tier reveal">
+              <div class="proof-ladder__tier-head">
+                <span class="proof-ladder__tier-label">Tier 3: Evidence</span>
+                <span class="proof-ladder__tier-bar" aria-hidden="true"></span>
+              </div>
+              <div class="proof-ladder__items">
+                <div class="shipped-fact"><span class="shipped-fact__product">Maulya</span><p class="shipped-fact__text">Multi-surface: ops desk, studio view, partner portal</p></div>
+                <div class="shipped-fact"><span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span><p class="shipped-fact__text">Exam proximity tiering: Iron through Platinum</p></div>
+                <div class="shipped-fact"><span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span><p class="shipped-fact__text">Tablet-first UX: calm interface, no feed clutter</p></div>
+              </div>
+            </div>
+            <div class="proof-ladder__tier reveal">
+              <div class="proof-ladder__tier-head">
+                <span class="proof-ladder__tier-label">Tier 4: Try it</span>
+                <span class="proof-ladder__tier-bar" aria-hidden="true"></span>
+              </div>
+              <div class="proof-ladder__items">
+                <div class="shipped-fact">
+                  <span class="shipped-fact__product">Maulya</span>
+                  <p class="shipped-fact__text">14-day pilot with live workspace access</p>
+                  <a class="btn btn-secondary btn-small" href="/contact/#maulya" style="margin-top:8px;">Schedule Maulya pilot</a>
                 </div>
-                <div class="action-link-row">
-                  <a href="https://zenops.notalonestudios.com/">Open Workspace</a>
-                  <a href="https://zenops.notalonestudios.com/login">Client &amp; Ops Login</a>
-                  <a href="/products/zenops/#demo-landing">Try Demo</a>
+                <div class="shipped-fact">
+                  <span class="shipped-fact__product shipped-fact__product--revalk">Revalk</span>
+                  <p class="shipped-fact__text">Free early access to the core study loop</p>
+                  <a class="btn btn-secondary btn-small" href="/contact/#revalk" style="margin-top:8px;">Start Revalk early access</a>
                 </div>
               </div>
-              <figure class="screen-frame media-mode-dashboard" data-theme="zenops">
-                <div class="screen-frame__chrome" aria-hidden="true">
-                  <span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span>
+            </div>
+          </div>
+          <div class="button-row" style="margin-top: 18px;">
+            <a class="btn btn-secondary" href="/proof/">See shipped proof</a>
+            <a class="btn btn-ghost" href="/method/">Read the method</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ PILOT OFFERS (low-risk entry points) ═══ -->
+      <section class="section section-tight" data-river-anchor="home">
+        <div class="shell">
+          <div class="section-head text-center reveal">
+            <p class="kicker">Low-risk entry points</p>
+            <h2>Start small. Prove value. Then scale.</h2>
+            <p class="section-so-what">Each pilot is scoped, measurable, and designed to produce a clear output.</p>
+          </div>
+          <div class="pilot-offer-grid" data-stagger>
+            <div class="pilot-offer reveal">
+              <span class="pilot-offer__product">Maulya</span>
+              <h3>14-day ops pilot</h3>
+              <span class="pilot-offer__duration">14 days / 1-3 users</span>
+              <p class="pilot-offer__deliverable">Live workspace access with your real assignment flow. Deliverable: Workflow fit report.</p>
+              <p class="pilot-offer__output">Output: You know if Maulya replaces your scattered tools.</p>
+              <a class="btn btn-primary btn-small" href="/contact/#maulya">Schedule Maulya pilot</a>
+              <div class="cta-micro-row"><span>15 min call</span><span>No commitment</span><span>See workspace first</span></div>
+            </div>
+            <div class="pilot-offer reveal">
+              <span class="pilot-offer__product" style="color: var(--accent-2);">Revalk</span>
+              <h3>21-day study cohort</h3>
+              <span class="pilot-offer__duration">21 days / free early access</span>
+              <p class="pilot-offer__deliverable">Full core loop access. Build your Vault, run Walk Packs, track coverage. Deliverable: Mastery snapshot.</p>
+              <p class="pilot-offer__output">Output: You know if Revalk replaces scattered study notes.</p>
+              <a class="btn btn-clay btn-small" href="/contact/#revalk">Start Revalk early access</a>
+              <div class="cta-micro-row"><span>Free early access</span><span>No payment info</span><span>Core loop is live</span></div>
+            </div>
+            <div class="pilot-offer reveal">
+              <span class="pilot-offer__product">Studio</span>
+              <h3>Blueprint sprint</h3>
+              <span class="pilot-offer__duration">7 days / scoped engagement</span>
+              <p class="pilot-offer__deliverable">Translate process chaos into a build-ready operating model. Deliverable: State machine, role map, implementation plan.</p>
+              <p class="pilot-offer__output">Output: You know the build scope before committing budget.</p>
+              <a class="btn btn-secondary btn-small" href="/contact/#studio">Apply for blueprint sprint</a>
+              <div class="cta-micro-row"><span>7-day turnaround</span><span>Qualified-only intake</span><span>No hourly billing</span></div>
+            </div>
+          </div>
+          <!-- System card download with pain-chip gate -->
+          <div style="text-align:center; margin-top: 18px;">
+            <p style="font-family:var(--mono); font-size:var(--step-label); text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); margin-bottom: 8px;">Pick your biggest pain to unlock your system card</p>
+            <div class="pain-chips" style="justify-content:center;">
+              <label class="pain-chip"><input type="radio" name="pain_card" value="evidence" />Missing evidence</label>
+              <label class="pain-chip"><input type="radio" name="pain_card" value="billing" />Billing delays</label>
+              <label class="pain-chip"><input type="radio" name="pain_card" value="rework" />Rework loops</label>
+            </div>
+            <a class="btn btn-ghost btn-small" href="#" data-download-card data-card-lane="operator" style="opacity:0.4; pointer-events:none;" id="card-download-btn">Download your system card</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ FLAGSHIP PRODUCTS + ONE-MINUTE STORIES ═══ -->
+      <section class="section section-tight premium-band" data-river-anchor="home">
+        <div class="shell">
+          <div class="section-head text-center reveal">
+            <p class="kicker">Flagship products</p>
+            <h2>Start with the product page. Go live only when you're ready.</h2>
+            <p class="section-so-what">The dedicated product pages carry the proof, workflows, onboarding detail, and deeper narrative.</p>
+          </div>
+          <div class="premium-card-grid premium-card-grid--products" data-stagger>
+            <article class="premium-product-card premium-product-card--maulya reveal">
+              <div class="premium-product-card__copy">
+                <p class="small-label">Flagship workflow operating system</p>
+                <h3>Maulya</h3>
+                <p>Assignment intake, evidence discipline, approvals, associate onboarding, and payment visibility in one serious product flow.</p>
+                <div class="button-row">
+                  <a class="btn btn-primary" href="https://maulya.in/product/">Explore Maulya</a>
+                  <a class="btn btn-secondary" href="https://app.maulya.in/partner/request-access">Start associate onboarding</a>
                 </div>
-                <div class="screen-frame__viewport">
-                  <img src="/assets/screens/zenops/marketing/live-assignments.png" alt="ZenOps live assignments view showing queue state and operator actions." loading="lazy" decoding="async" />
+                <div class="action-link-row">
+                  <a href="https://app.maulya.in/">Open your workspace</a>
+                  <a href="https://app.maulya.in/login">Client &amp; Ops Login</a>
+                  <a href="https://maulya.in/product/#demo-landing">Try Demo</a>
                 </div>
+              </div>
+              <figure class="screen-frame media-mode-dashboard" data-theme="maulya">
+                <div class="screen-frame__chrome" aria-hidden="true"><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span></div>
+                <div class="screen-frame__viewport"><img src="/assets/screens/maulya/marketing/live-assignments.png" alt="Maulya live assignments view showing queue state and operator actions." loading="lazy" decoding="async" /></div>
               </figure>
             </article>
+
+            <!-- Maulya one-minute story -->
+            <div class="case-study-block one-minute-story reveal">
+              <div class="case-study-step"><span class="case-study-step__label">Problem</span><p class="case-study-step__text">Assignment ops scattered across WhatsApp, Excel, and email.</p></div>
+              <div class="case-study-step"><span class="case-study-step__label">System</span><p class="case-study-step__text">One control surface with evidence capture, gating, and release.</p></div>
+              <div class="case-study-step"><span class="case-study-step__label">Proof</span><p class="case-study-step__text">2,400+ assignments processed. Zero incomplete releases.</p></div>
+              <div class="case-study-step"><span class="case-study-step__label">Next</span><p class="case-study-step__text"><a class="btn btn-secondary btn-small" href="https://maulya.in/product/">See the full story</a></p></div>
+            </div>
 
             <article class="premium-product-card premium-product-card--revalk reveal">
               <div class="premium-product-card__copy">
@@ -180,13 +391,11 @@
                 <p>A calmer, more intentional study product built around doubt capture, topic-space structure, and deliberate practice loops.</p>
                 <div class="button-row">
                   <a class="btn btn-clay" href="/products/revalk/">Explore Revalk</a>
-                  <a class="btn btn-secondary" href="/contact/#revalk">Join Early Access</a>
+                  <a class="btn btn-secondary" href="/contact/#revalk">Start early access</a>
                 </div>
               </div>
               <figure class="screen-frame media-mode-proof" data-theme="revalk">
-                <div class="screen-frame__chrome" aria-hidden="true">
-                  <span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span>
-                </div>
+                <div class="screen-frame__chrome" aria-hidden="true"><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span><span class="screen-frame__dot"></span></div>
                 <div class="screen-frame__viewport">
                   <picture>
                     <source type="image/webp" srcset="/assets/screens/revalk/responsive/explore-results-540.webp 540w, /assets/screens/revalk/responsive/explore-results-780.webp 780w, /assets/screens/revalk/explore-results.webp 1170w" sizes="(max-width: 820px) 100vw, 42vw" />
@@ -195,48 +404,48 @@
                 </div>
               </figure>
             </article>
-          </div>
-        </div>
-      </section>
 
-      <section class="section section-tight premium-proof-band" data-river-anchor="home">
-        <div class="shell premium-proof-band__grid">
-          <div class="section-head reveal">
-            <p class="kicker">Proof and product thinking</p>
-            <h2>Shipped surfaces, tighter stories, better hierarchy.</h2>
-            <p>Proof stays visible, but it no longer overwhelms the homepage. The site should point cleanly into the right product path.</p>
-            <div class="button-row">
-              <a class="btn btn-secondary" href="/proof/">View Proof</a>
-              <a class="btn btn-ghost" href="/contact/">Contact NAS</a>
+            <!-- Revalk one-minute story -->
+            <div class="case-study-block one-minute-story reveal">
+              <div class="case-study-step"><span class="case-study-step__label">Problem</span><p class="case-study-step__text">Revision is random PDFs, notes decay, nothing sticks.</p></div>
+              <div class="case-study-step"><span class="case-study-step__label">System</span><p class="case-study-step__text">Explore → Vault → Walk Packs → Mastery tracking.</p></div>
+              <div class="case-study-step"><span class="case-study-step__label">Proof</span><p class="case-study-step__text">Exam proximity tiering: Iron through Platinum. Core loop live.</p></div>
+              <div class="case-study-step"><span class="case-study-step__label">Next</span><p class="case-study-step__text"><a class="btn btn-clay btn-small" href="/products/revalk/">See the full story</a></p></div>
             </div>
           </div>
-          <div class="premium-proof-stack">
-            <article class="proof-rail-card reveal">
-              <span class="small-label">ZenOps</span>
-              <h3>Dedicated page for the full sales narrative</h3>
-              <p>Proof strip, workflow pillars, onboarding, demo lane, and deep dive now live where they belong.</p>
-            </article>
-            <article class="proof-rail-card reveal">
-              <span class="small-label">NAS</span>
-              <h3>Homepage stays elegant and directional</h3>
-              <p>The homepage now introduces the studio and products without trying to become a product landing page itself.</p>
-            </article>
-          </div>
         </div>
       </section>
 
-      <section class="section section-tight premium-final-cta" data-river-anchor="footer">
+      <!-- ═══ PARTNER STRIP ═══ -->
+      <section class="section section-tight" data-river-anchor="home">
         <div class="shell">
-          <div class="cta-band reveal">
-            <div>
-              <p class="kicker">Next step</p>
-              <h2>Use the page that matches the intent.</h2>
-              <p>Explore ZenOps as the flagship product, review the Studio lane for custom systems, or go to Proof if you want shipped surfaces first.</p>
+          <div class="partner-strip reveal">
+            <div class="partner-strip__copy">
+              <span class="partner-strip__label">Pilots and partnerships</span>
+              <p class="partner-strip__text">We run small, measurable integrations with creators, cohort owners, platform partners, and distribution allies.</p>
             </div>
-            <div class="cta-actions">
-              <a class="btn btn-primary" href="/products/zenops/">Explore ZenOps</a>
-              <a class="btn btn-secondary" href="/studio/">View Studio</a>
-              <a class="btn btn-ghost" href="/proof/">View Proof</a>
+            <a class="btn btn-secondary btn-small" href="/contact/#studio">Schedule a pilot call</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ MANIFESTO ═══ -->
+      <section class="section section-tight" data-river-anchor="footer">
+        <div class="shell">
+          <div class="manifesto-strip reveal">
+            <p class="manifesto-strip__text">We build constraints into the product so operators do not have to remember them. Evidence gates, readiness checks, and release controls exist because shipped discipline is worth more than shipped features.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══ SEAL BAND (peak-end finisher) ═══ -->
+      <section class="section section-tight" data-river-anchor="footer">
+        <div class="shell">
+          <div class="seal-band reveal">
+            <p class="seal-band__statement">Systems that enforce discipline are worth more than systems that promise features. Every product we ship proves that.</p>
+            <div class="seal-band__actions">
+              <a class="btn btn-primary" href="https://maulya.in/product/">Explore Maulya</a>
+              <a class="btn btn-ghost" href="/contact/">Schedule a pilot call</a>
             </div>
           </div>
         </div>
@@ -249,17 +458,28 @@
           <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
           <div class="footer-links">
             <a href="/products/">Products</a>
-            <a href="/studio/">Studio</a>
+            <a href="/method/">Method</a>
             <a href="/proof/">Proof</a>
+            <a href="/studio/">Studio</a>
             <a href="/contact/">Contact</a>
+            <a href="/press/">Press</a>
             <a href="/privacy/">Privacy</a>
             <a href="/terms/">Terms</a>
           </div>
         </div>
         <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
+        <p class="footer-tagline">Systems Product Studio · Built for operators.</p>
       </div>
     </footer>
   </div>
+
+  <!-- Zeigarnik pill (rendered by JS) -->
+  <div class="zeigarnik-pill" id="zeigarnik-pill" aria-live="polite">
+    <span class="zeigarnik-pill__progress"><span id="zeigarnik-label">System Map: 30%</span></span>
+    <a href="#" id="zeigarnik-continue">Continue</a>
+    <button class="zeigarnik-pill__dismiss" aria-label="Dismiss" id="zeigarnik-dismiss">×</button>
+  </div>
+
   <script src="/assets/site.js"></script>
 </body>
 </html>

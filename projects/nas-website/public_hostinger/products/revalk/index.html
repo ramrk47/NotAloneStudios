@@ -15,13 +15,18 @@
   <div class="page-shell">
     <div class="noise-glow" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <div class="nav-overlay" aria-hidden="true"></div>
     <header class="site-header">
       <div class="shell">
         <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-        <nav class="nav" aria-label="Primary">
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="/products/" data-match="/products">Products</a>
-          <a href="/studio/" data-match="/studio">Studio</a>
+          <a href="/method/" data-match="/method">Method</a>
           <a href="/proof/" data-match="/proof">Proof</a>
+          <a href="/studio/" data-match="/studio">Studio</a>
           <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
         </nav>
       </div>
@@ -45,11 +50,12 @@
                   <li>Calm, tablet-first study lab with no feed, no scrolling UI, and no chat clutter</li>
                 </ul>
                 <div class="button-row">
-                  <a class="btn btn-primary" href="/contact/#revalk">Join Early Access</a>
-                  <a class="btn btn-secondary" href="#proof-strip">See Screenshots</a>
+                  <a class="btn btn-primary" href="/contact/#revalk">Start early access</a>
+                  <a class="btn btn-secondary" href="#proof-strip">See screenshots</a>
                 </div>
+                <div class="cta-micro-row" aria-label="No commitment details"><span>Free early access</span><span>No payment info</span><span>Core loop is live</span></div>
                 <div class="action-link-row">
-                  <a href="/contact/#studio">Request Pilot / Partnership</a>
+                  <a href="/contact/#studio">Request pilot / partnership</a>
                 </div>
                 <p class="trust-note revalk-honesty-bar">Early access: core loop is usable end-to-end; polish and breadth are still in progress.</p>
               </div>
@@ -99,7 +105,7 @@
 
       <section class="section section-tight" data-river-anchor="revalk">
         <div class="shell">
-          <div class="section-head reveal">
+          <div class="section-head text-center reveal">
             <p class="kicker">Exam-Proximity tiering</p>
             <h2>Know what is worth your time.</h2>
             <p>Every concept unit is tagged by exam proximity using PYQ topic mapping and frequency signals. This is not a quality rank. It is a relevance rank.</p>
@@ -119,7 +125,7 @@
 
       <section class="section section-tight" data-river-anchor="revalk">
         <div class="shell">
-          <div class="section-head reveal">
+          <div class="section-head text-center reveal">
             <p class="kicker">Explore → Collect → Master</p>
             <h2>A library plus Vault, not a feed.</h2>
             <p>Revalk is designed for quiet execution: discover, save, convert, master.</p>
@@ -129,6 +135,58 @@
             <article class="card reveal"><span class="icon-pill">2</span><h3>Collect</h3><p>Save what matters into your private Vault. Tag it. Attach your own notes and media.</p><p class="footnote">So what? Learning stops becoming dead files.</p></article>
             <article class="card reveal"><span class="icon-pill">3</span><h3>Convert</h3><p>A saved concept becomes a compact Walk Pack with cards, traps, and a short audio recap.</p><p class="footnote">So what? Every doubt becomes revision material.</p></article>
             <article class="card reveal"><span class="icon-pill">4</span><h3>Master</h3><p>Recall under pressure, repeat fast, retest loops, and track coverage.</p><p class="footnote">So what? You build a repeatable daily system.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tight" data-river-anchor="revalk">
+        <div class="shell">
+          <div class="signature-diagram reveal">
+            <svg viewBox="0 0 900 140" xmlns="http://www.w3.org/2000/svg" aria-label="Revalk workflow: Explore to Collect to Convert to Master, with tier bar above">
+              <defs>
+                <linearGradient id="rv-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#bc4f2f" stop-opacity="0.1"/>
+                  <stop offset="100%" stop-color="#bc4f2f" stop-opacity="0.03"/>
+                </linearGradient>
+                <marker id="rv-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-auto">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#bc4f2f"/>
+                </marker>
+              </defs>
+              <!-- Tier bar -->
+              <rect x="60" y="4" width="780" height="28" rx="6" fill="none" stroke="#bc4f2f" stroke-width="1" stroke-opacity="0.3"/>
+              <text x="112" y="23" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500" fill="#8a8a8a">Iron</text>
+              <text x="268" y="23" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500" fill="#8a7050">Bronze</text>
+              <text x="424" y="23" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500" fill="#707878">Silver</text>
+              <text x="580" y="23" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500" fill="#b8860b">Gold</text>
+              <text x="736" y="23" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" font-weight="500" fill="#6a5acd">Platinum</text>
+              <!-- Gradient fill showing progression -->
+              <rect x="61" y="5" width="156" height="26" rx="5" fill="#8a8a8a" fill-opacity="0.06"/>
+              <rect x="217" y="5" width="156" height="26" rx="5" fill="#8a7050" fill-opacity="0.08"/>
+              <rect x="373" y="5" width="156" height="26" rx="5" fill="#707878" fill-opacity="0.1"/>
+              <rect x="529" y="5" width="156" height="26" rx="5" fill="#b8860b" fill-opacity="0.12"/>
+              <rect x="685" y="5" width="154" height="26" rx="5" fill="#6a5acd" fill-opacity="0.14"/>
+              <!-- Main flow background -->
+              <rect x="0" y="50" width="900" height="60" rx="12" fill="url(#rv-grad)"/>
+              <!-- Step boxes -->
+              <rect x="40" y="58" width="160" height="44" rx="10" fill="#fff" stroke="#bc4f2f" stroke-width="1.5"/>
+              <text x="120" y="85" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Explore</text>
+              <!-- Arrow 1 -->
+              <line x1="208" y1="80" x2="238" y2="80" stroke="#bc4f2f" stroke-width="1.5" marker-end="url(#rv-arrow)"/>
+              <rect x="240" y="58" width="160" height="44" rx="10" fill="#fff" stroke="#bc4f2f" stroke-width="1.5"/>
+              <text x="320" y="85" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Collect</text>
+              <!-- Arrow 2 -->
+              <line x1="408" y1="80" x2="438" y2="80" stroke="#bc4f2f" stroke-width="1.5" marker-end="url(#rv-arrow)"/>
+              <rect x="440" y="58" width="160" height="44" rx="10" fill="#fff" stroke="#bc4f2f" stroke-width="1.5"/>
+              <text x="520" y="85" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Convert</text>
+              <!-- Arrow 3 -->
+              <line x1="608" y1="80" x2="638" y2="80" stroke="#bc4f2f" stroke-width="1.5" marker-end="url(#rv-arrow)"/>
+              <rect x="640" y="58" width="220" height="44" rx="10" fill="#fff" stroke="#bc4f2f" stroke-width="1.5"/>
+              <text x="750" y="78" text-anchor="middle" font-family="Sora, sans-serif" font-size="13" font-weight="600" fill="#142017">Master</text>
+              <text x="750" y="94" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#5c6a60">(recall + retest)</text>
+              <!-- Bottom label -->
+              <text x="450" y="132" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="#5c6a60">Tier bar shows exam-proximity rank. Core loop converts confusion into mastery.</text>
+            </svg>
+            <p class="signature-diagram__caption">The Revalk study loop: tiered concepts flow from exploration to mastery.</p>
           </div>
         </div>
       </section>
@@ -251,8 +309,40 @@
               <p>Revalk can function as a premium retention layer: Explore → Vault → Mastery. Ideal for creators and cohorts who want structured revision, not another content dump.</p>
             </div>
             <div class="support-callout__actions">
-              <a class="btn btn-secondary" href="/contact/#studio">Request Pilot Call</a>
+              <a class="btn btn-secondary" href="/contact/#studio">Schedule a pilot call</a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- System map -->
+      <section class="section section-tight" data-river-anchor="revalk">
+        <div class="shell">
+          <div class="section-head reveal">
+            <p class="kicker">The study loop</p>
+            <h2>Click each step to see how it converts confusion into mastery.</h2>
+          </div>
+          <div class="system-map reveal" data-step-details='["Explore: Search and browse tiered concept chunks. Discover bridge topics that connect PYQ clusters.","Collect: Save what matters into your private Vault. Tag it. Attach your own notes and media.","Convert: A saved concept becomes a compact Walk Pack with cards, traps, and a short audio recap.","Master: Recall under pressure, repeat fast, retest loops, and track coverage."]'>
+            <div class="system-map__progress"><div class="system-map__progress-fill"></div></div>
+            <div class="system-map__steps">
+              <div class="system-map__step" data-active="true"><span class="system-map__step-num">01</span><span class="system-map__step-name">Explore</span></div>
+              <div class="system-map__step"><span class="system-map__step-num">02</span><span class="system-map__step-name">Collect</span></div>
+              <div class="system-map__step"><span class="system-map__step-num">03</span><span class="system-map__step-name">Convert</span></div>
+              <div class="system-map__step"><span class="system-map__step-num">04</span><span class="system-map__step-name">Master</span></div>
+            </div>
+            <div class="system-map__detail">Explore: Search and browse tiered concept chunks. Discover bridge topics that connect PYQ clusters.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust footer band -->
+      <section class="section section-tight" data-river-anchor="revalk">
+        <div class="shell">
+          <div class="trust-footer-band reveal">
+            <div class="trust-footer-band__item">Safety-first: concept-level only, no paper reconstruction</div>
+            <div class="trust-footer-band__item">Privacy posture: minimal retention, user-owned vault</div>
+            <div class="trust-footer-band__item">Honest progress: core loop is live, polish is in progress</div>
+            <div class="trust-footer-band__item">No lock-in: your data stays yours, your Vault is portable</div>
           </div>
         </div>
       </section>
@@ -278,14 +368,28 @@
         <div class="shell">
           <div class="cta-band reveal">
             <div>
-              <p class="kicker">Final CTA</p>
+              <p class="kicker">Next step</p>
               <h2>Ready to study like an operator?</h2>
               <p>Stop collecting. Start finishing. Revalk is built for serious aspirants who want structure, rank-aware revision, and calmer daily execution.</p>
             </div>
             <div class="cta-actions">
-              <a class="btn btn-primary" href="/contact/#revalk">Join Early Access</a>
-              <a class="btn btn-secondary" href="#proof-strip">See Screenshots</a>
-              <a class="btn btn-ghost" href="/contact/#studio">Request Pilot / Partnership</a>
+              <a class="btn btn-primary" href="/contact/#revalk">Start early access</a>
+              <a class="btn btn-secondary" href="#proof-strip">See screenshots</a>
+              <a class="btn btn-ghost" href="/contact/#studio">Request pilot / partnership</a>
+            </div>
+            <div class="cta-micro-row"><span>Free early access</span><span>No payment info</span><span>Core loop is live</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Seal band -->
+      <section class="section section-tight" data-river-anchor="footer">
+        <div class="shell">
+          <div class="seal-band reveal">
+            <p class="seal-band__statement">Revalk does not add more content. It converts the confusion you already have into a system that sticks.</p>
+            <div class="seal-band__actions">
+              <a class="btn btn-primary" href="/contact/#revalk">Start early access</a>
+              <a class="btn btn-ghost" href="#proof-strip">See screenshots</a>
             </div>
           </div>
         </div>
@@ -296,9 +400,10 @@
       <div class="shell">
         <div class="footer-top">
           <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-          <div class="footer-links"><a href="/products/">Products</a><a href="/studio/">Studio</a><a href="/proof/">Proof</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
+          <div class="footer-links"><a href="/products/">Products</a><a href="/method/">Method</a><a href="/proof/">Proof</a><a href="/studio/">Studio</a><a href="/contact/">Contact</a><a href="/press/">Press</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></div>
         </div>
         <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
+        <p class="footer-tagline">Systems Product Studio · Built for operators.</p>
       </div>
     </footer>
   </div>

@@ -1,0 +1,119 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Not Alone Studios" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - text: Not Alone Studios
+      - navigation "Primary" [ref=e7]:
+        - link "Products" [ref=e8] [cursor=pointer]:
+          - /url: /products/
+        - link "Studio" [ref=e9] [cursor=pointer]:
+          - /url: /studio/
+        - link "Proof" [ref=e10] [cursor=pointer]:
+          - /url: /proof/
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact/
+  - main [ref=e12]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - link "Home" [ref=e17] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e18]: /
+        - generic [ref=e19]: Proof
+      - paragraph [ref=e20]: Curated proof
+      - heading "Real screens, cleaner captions, tighter evidence." [level=1] [ref=e21]
+      - paragraph [ref=e22]: The proof page should show shipped product behavior without turning into a giant dump of screenshots. The goal is confidence, not visual overload.
+    - generic [ref=e24]:
+      - article [ref=e25]:
+        - paragraph [ref=e26]: What this page does
+        - heading "Proof stays curated." [level=2] [ref=e27]
+        - paragraph [ref=e28]: Each surface is paired with a short operating explanation so buyers can understand what the product actually prevents or enables.
+      - article [ref=e29]:
+        - paragraph [ref=e30]: Where to go next
+        - heading "Use the dedicated product pages." [level=2] [ref=e31]
+        - paragraph [ref=e32]: ZenOps proof here is supportive. The full sales narrative now lives on the dedicated ZenOps page.
+        - link "Open ZenOps Page" [ref=e34] [cursor=pointer]:
+          - /url: /products/zenops/
+    - generic [ref=e36]:
+      - generic [ref=e37]:
+        - paragraph [ref=e38]: ZenOps proof
+        - heading "Operational surfaces with clear behavior captions." [level=2] [ref=e39]
+        - paragraph [ref=e40]: These screenshots show queue pressure, billing discipline, and associate onboarding with less visual bulk and better reading order.
+      - generic [ref=e41]:
+        - article [ref=e42]:
+          - figure [ref=e43]:
+            - img "ZenOps control tower showing queue pressure, status tiles, and action center." [ref=e49]
+          - generic [ref=e50]:
+            - generic [ref=e51]: Queue control
+            - heading "Control-tower view reduces invisible queue pressure." [level=3] [ref=e52]
+            - paragraph [ref=e53]: Operators can see pressure, priorities, and action surfaces in one place instead of discovering problems too late.
+        - article [ref=e54]:
+          - figure [ref=e55]:
+            - img "ZenOps invoice ledger showing due tracking and billing controls." [ref=e61]
+          - generic [ref=e62]:
+            - generic [ref=e63]: Billing discipline
+            - heading "Ledger state stays visible before release decisions." [level=3] [ref=e64]
+            - paragraph [ref=e65]: Payment follow-through and overdue state remain attached to the workflow instead of drifting into a separate blind spot.
+        - article [ref=e66]:
+          - figure [ref=e67]:
+            - img "ZenOps associate access onboarding page." [ref=e73]
+          - generic [ref=e74]:
+            - generic [ref=e75]: Onboarding
+            - heading "Controlled partner onboarding feels like product, not ops spillover." [level=3] [ref=e76]
+            - paragraph [ref=e77]: External associates get a clearer entry path instead of being dumped into internal login flows.
+    - generic [ref=e79]:
+      - generic [ref=e80]:
+        - paragraph [ref=e81]: Revalk proof
+        - heading "Same finish, different category." [level=2] [ref=e82]
+        - paragraph [ref=e83]: Revalk proof should feel curated and premium too, without borrowing ZenOps styling too literally.
+      - generic [ref=e84]:
+        - article [ref=e85]:
+          - figure [ref=e86]:
+            - generic [ref=e91]:
+              - generic:
+                - img "Revalk topic space with study actions and media preview."
+          - generic [ref=e92]:
+            - generic [ref=e93]: Topic space
+            - heading "Study units feel focused instead of feed-like." [level=3] [ref=e94]
+            - paragraph [ref=e95]: Media, recap, and next actions live together inside one calmer working surface.
+        - article [ref=e96]:
+          - figure [ref=e97]:
+            - generic [ref=e102]:
+              - generic:
+                - img "Revalk walk session workflow."
+          - generic [ref=e103]:
+            - generic [ref=e104]: Walk session
+            - heading "Recall loops are productized with intention." [level=3] [ref=e105]
+            - paragraph [ref=e106]: The workflow feels like a designed system, not a patched collection of study utilities.
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - paragraph [ref=e111]: Next step
+        - heading "Use proof as confidence, not as the whole story." [level=2] [ref=e112]
+        - paragraph [ref=e113]: For the actual ZenOps positioning, workflow, onboarding, and CTA stack, move into the dedicated product page.
+      - generic [ref=e114]:
+        - link "Explore ZenOps" [ref=e115] [cursor=pointer]:
+          - /url: /products/zenops/
+        - link "Browse Products" [ref=e116] [cursor=pointer]:
+          - /url: /products/
+  - contentinfo [ref=e117]:
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - link "Not Alone Studios" [ref=e120] [cursor=pointer]:
+          - /url: /
+          - img [ref=e121]
+          - text: Not Alone Studios
+        - generic [ref=e122]:
+          - link "Products" [ref=e123] [cursor=pointer]:
+            - /url: /products/
+          - link "Studio" [ref=e124] [cursor=pointer]:
+            - /url: /studio/
+          - link "Proof" [ref=e125] [cursor=pointer]:
+            - /url: /proof/
+          - link "Contact" [ref=e126] [cursor=pointer]:
+            - /url: /contact/
+          - link "Privacy" [ref=e127] [cursor=pointer]:
+            - /url: /privacy/
+          - link "Terms" [ref=e128] [cursor=pointer]:
+            - /url: /terms/
+      - paragraph [ref=e129]: © 2026 Not Alone Studios.

@@ -1,86 +1,97 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Labs — Not Alone Studios</title>
-    <meta name="description" content="Labs explorations at Not Alone Studios." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/assets/site.css" />
-  </head>
-  <body data-theme="neutral">
-    <div class="page-shell">
-      <div class="noise-glow" aria-hidden="true"></div>
-      <div class="grain" aria-hidden="true"></div>
-      <header class="site-header">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Labs — Not Alone Studios</title>
+  <meta name="description" content="Labs explorations at Not Alone Studios." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/site.css" />
+</head>
+
+<body data-theme="neutral">
+  <div class="page-shell">
+    <div class="noise-glow" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="nav-overlay" aria-hidden="true"></div>
+    <header class="site-header">
+      <div class="shell">
+        <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo"
+            src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
+        <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+          <a href="/products/" data-match="/products">Products</a>
+          <a href="/method/" data-match="/method">Method</a>
+          <a href="/proof/" data-match="/proof">Proof</a>
+          <a href="/studio/" data-match="/studio">Studio</a>
+          <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="page-hero">
         <div class="shell">
-          <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-          <nav class="nav" aria-label="Primary">
-            <a href="/products/" data-match="/products">Products</a>
-            <a href="/studio/" data-match="/studio">Studio</a>
-            <a href="/proof/" data-match="/proof">Proof</a>
-            <a href="/contact/" data-match="/contact" class="nav-cta">Contact</a>
-          </nav>
+          <div class="surface-strong reveal is-visible">
+            <div class="breadcrumbs"><a href="/">Home</a><span>/</span><a
+                href="/products/">Products</a><span>/</span><span>Labs</span></div>
+            <p class="kicker">Explorations</p>
+            <h1>Labs</h1>
+            <p class="hero-note">
+              This lane holds experiments, tools, and prototypes that may
+              later graduate into products or become internal system patterns.
+            </p>
+            <div class="button-row">
+              <a class="btn btn-secondary" href="/contact/">Follow updates</a>
+              <a class="btn btn-ghost" href="/products/">Back to products</a>
+            </div>
+          </div>
         </div>
-      </header>
-      <main>
-        <section class="page-hero">
-          <div class="shell">
-            <div class="surface-strong reveal is-visible">
-              <div class="breadcrumbs"><a href="/">Home</a><span>/</span><a href="/products/">Products</a><span>/</span><span>Labs</span></div>
-              <p class="kicker">Explorations</p>
-              <h1>Labs</h1>
-              <p class="hero-note">
-                This lane holds experiments, tools, and prototypes that may
-                later graduate into products or become internal system patterns.
-              </p>
-              <div class="button-row">
-                <a class="btn btn-secondary" href="/contact/">Follow updates</a>
-                <a class="btn btn-ghost" href="/products/">Back to products</a>
-              </div>
-            </div>
+      </section>
+      <section class="section">
+        <div class="shell grid-2">
+          <div class="card reveal">
+            <p class="kicker">What belongs here</p>
+            <h2>System experiments with a point of view</h2>
+            <ul class="list">
+              <li>Constraint-driven workflow tools</li>
+              <li>Automation prototypes and operator utilities</li>
+              <li>Evidence capture and release discipline patterns</li>
+            </ul>
           </div>
-        </section>
-        <section class="section">
-          <div class="shell grid-2">
-            <div class="card reveal">
-              <p class="kicker">What belongs here</p>
-              <h2>System experiments with a point of view</h2>
-              <ul class="list">
-                <li>Constraint-driven workflow tools</li>
-                <li>Automation prototypes and operator utilities</li>
-                <li>Evidence capture and release discipline patterns</li>
-              </ul>
-            </div>
-            <div class="card reveal">
-              <p class="kicker">Current status</p>
-              <h2>Explorations</h2>
-              <p>
-                Add projects here once you are ready to share them publicly. For
-                now, this page supports the navigation architecture from the
-                brief without diluting the core product story.
-              </p>
-            </div>
+          <div class="card reveal">
+            <p class="kicker">Current status</p>
+            <h2>Explorations</h2>
+            <p>
+              Nothing public yet. Explorations will appear here as they
+              mature into shareable tools or system patterns.
+            </p>
           </div>
-        </section>
-      </main>
-      <footer class="site-footer">
-        <div class="shell">
-          <div class="footer-top">
-            <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo" src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
-            <div class="footer-links">
-              <a href="/products/">Products</a><a href="/studio/">Studio</a><a href="/proof/">Proof</a><a href="/contact/">Contact</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a>
-            </div>
-          </div>
-          <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
         </div>
-      </footer>
-    </div>
-    <script src="/assets/site.js"></script>
-  </body>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="shell">
+        <div class="footer-top">
+          <a class="brand" href="/" aria-label="Not Alone Studios"><img class="brand-logo"
+              src="/assets/brand/notalone-logo-cropped.png" alt="" aria-hidden="true" /></a>
+          <div class="footer-links">
+            <a href="/products/">Products</a><a href="/method/">Method</a><a href="/proof/">Proof</a><a href="/studio/">Studio</a><a
+              href="/contact/">Contact</a><a href="/press/">Press</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a>
+          </div>
+        </div>
+        <p class="footer-note">© <span data-year></span> Not Alone Studios.</p>
+        <p class="footer-tagline">Systems Product Studio · Built for operators.</p>
+      </div>
+    </footer>
+  </div>
+  <script src="/assets/site.js"></script>
+</body>
+
 </html>

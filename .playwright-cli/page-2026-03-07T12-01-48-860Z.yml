@@ -1,0 +1,304 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Not Alone Studios" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - text: Not Alone Studios
+      - navigation "Primary" [ref=e7]:
+        - link "Products" [ref=e8] [cursor=pointer]:
+          - /url: /products/
+        - link "Studio" [ref=e9] [cursor=pointer]:
+          - /url: /studio/
+        - link "Proof" [ref=e10] [cursor=pointer]:
+          - /url: /proof/
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact/
+  - main [ref=e12]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - link "Home" [ref=e17] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e18]: /
+        - link "Products" [ref=e19] [cursor=pointer]:
+          - /url: /products/
+        - generic [ref=e20]: /
+        - generic [ref=e21]: Revalk
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - paragraph [ref=e24]: Premium study OS for NEET/INI
+          - heading "Revalk Revalk helps you explore exam-relevant concepts, collect them into your Vault, and train recall under pressure." [level=1] [ref=e25]:
+            - img "Revalk" [ref=e26]
+            - text: Revalk helps you explore exam-relevant concepts, collect them into your Vault, and train recall under pressure.
+          - paragraph [ref=e27]: Revalk is a premium Study OS for NEET/INI that ranks what to study by PYQ topic proximity and converts doubts into recall packs you can actually finish.
+          - list [ref=e28]:
+            - listitem [ref=e29]: Exam-Proximity tiers (Iron → Platinum) grounded in PYQ topic frequency signals
+            - listitem [ref=e30]: Walk Packs + Audio for fast daily revision you will actually repeat
+            - listitem [ref=e31]: Calm, tablet-first study lab with no feed, no scrolling UI, and no chat clutter
+          - generic [ref=e32]:
+            - link "Join Early Access" [ref=e33] [cursor=pointer]:
+              - /url: /contact/#revalk
+            - link "See Screenshots" [ref=e34] [cursor=pointer]:
+              - /url: "#proof-strip"
+          - link "Request Pilot / Partnership" [ref=e36] [cursor=pointer]:
+            - /url: /contact/#studio
+          - paragraph [ref=e37]: "Early access: core loop is usable end-to-end; polish and breadth are still in progress."
+        - generic [ref=e38]:
+          - figure [ref=e39]:
+            - img "Revalk concept exploration surface with ranked study results and metadata." [ref=e46]
+          - generic [ref=e47]:
+            - paragraph [ref=e48]: One-liner
+            - paragraph [ref=e49]: Premium Study OS. Explore, collect, master.
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: What Revalk helps you do
+        - heading "From confusion to recall, every day." [level=2] [ref=e55]
+        - paragraph [ref=e56]: Revalk turns doubts into reusable recall assets and trains decision speed like the exam.
+        - paragraph [ref=e57]: You do not need more content. You need a system that captures confusion, converts it into a pack, forces recall, and retests before you forget.
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - strong [ref=e60]: Capture
+          - generic [ref=e61]: Save the doubt before it disappears.
+        - generic [ref=e62]:
+          - strong [ref=e63]: Organize
+          - generic [ref=e64]: Turn scattered confusion into structure.
+        - generic [ref=e65]:
+          - strong [ref=e66]: Convert
+          - generic [ref=e67]: Build a usable recall asset.
+        - generic [ref=e68]:
+          - strong [ref=e69]: Train
+          - generic [ref=e70]: Practice under time and pressure.
+        - generic [ref=e71]:
+          - strong [ref=e72]: Retest
+          - generic [ref=e73]: Come back before the memory drops.
+        - generic [ref=e74]:
+          - strong [ref=e75]: Track
+          - generic [ref=e76]: See what is sticking and what is not.
+        - generic [ref=e77]:
+          - strong [ref=e78]: Reduce mistakes
+          - generic [ref=e79]: Stop repeating the same misses.
+        - generic [ref=e80]:
+          - strong [ref=e81]: Increase speed
+          - generic [ref=e82]: Recognize high-yield faster.
+        - generic [ref=e83]:
+          - strong [ref=e84]: Build confidence
+          - generic [ref=e85]: Study with more direction, less panic.
+    - generic [ref=e87]:
+      - generic [ref=e88]:
+        - paragraph [ref=e89]: Exam-Proximity tiering
+        - heading "Know what is worth your time." [level=2] [ref=e90]
+        - paragraph [ref=e91]: Every concept unit is tagged by exam proximity using PYQ topic mapping and frequency signals. This is not a quality rank. It is a relevance rank.
+      - generic [ref=e92]:
+        - article [ref=e93]:
+          - generic [ref=e94]: Iron
+          - heading "Useful concept" [level=3] [ref=e95]
+          - paragraph [ref=e96]: Not seen in PYQ topic history yet.
+        - article [ref=e97]:
+          - generic [ref=e98]: Bronze
+          - heading "Context builder" [level=3] [ref=e99]
+          - paragraph [ref=e100]: Common in Qbank ecosystems and helpful for coverage.
+        - article [ref=e101]:
+          - generic [ref=e102]: Silver
+          - heading "Bridge concept" [level=3] [ref=e103]
+          - paragraph [ref=e104]: Connects and supports PYQ-linked topics.
+        - article [ref=e105]:
+          - generic [ref=e106]: Gold
+          - heading "Directly exam-linked" [level=3] [ref=e107]
+          - paragraph [ref=e108]: Asked before or directly derivable from PYQ topic history.
+        - article [ref=e109]:
+          - generic [ref=e110]: Platinum
+          - heading "Repeated cluster" [level=3] [ref=e111]
+          - paragraph [ref=e112]: High-frequency PYQ topics that recur across years.
+      - paragraph [ref=e114]:
+        - strong [ref=e115]: "Why this exists:"
+        - text: UG aspirants need structure. Interns need speed. Tiers are based on exam-topic frequency signals, not likes.
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - paragraph [ref=e119]: Explore → Collect → Master
+        - heading "A library plus Vault, not a feed." [level=2] [ref=e120]
+        - paragraph [ref=e121]: "Revalk is designed for quiet execution: discover, save, convert, master."
+      - generic [ref=e122]:
+        - article [ref=e123]:
+          - generic [ref=e124]: "1"
+          - heading "Explore" [level=3] [ref=e125]
+          - paragraph [ref=e126]: Search and browse tiered concept chunks. Discover bridge topics that connect PYQ clusters.
+          - paragraph [ref=e127]: So what? You stop studying randomly.
+        - article [ref=e128]:
+          - generic [ref=e129]: "2"
+          - heading "Collect" [level=3] [ref=e130]
+          - paragraph [ref=e131]: Save what matters into your private Vault. Tag it. Attach your own notes and media.
+          - paragraph [ref=e132]: So what? Learning stops becoming dead files.
+        - article [ref=e133]:
+          - generic [ref=e134]: "3"
+          - heading "Convert" [level=3] [ref=e135]
+          - paragraph [ref=e136]: A saved concept becomes a compact Walk Pack with cards, traps, and a short audio recap.
+          - paragraph [ref=e137]: So what? Every doubt becomes revision material.
+        - article [ref=e138]:
+          - generic [ref=e139]: "4"
+          - heading "Master" [level=3] [ref=e140]
+          - paragraph [ref=e141]: Recall under pressure, repeat fast, retest loops, and track coverage.
+          - paragraph [ref=e142]: So what? You build a repeatable daily system.
+    - generic [ref=e144]:
+      - generic [ref=e145]:
+        - paragraph [ref=e146]: What you get per concept
+        - heading "A saved concept becomes a small bundle you can finish." [level=2] [ref=e147]
+        - paragraph [ref=e148]: People do not buy frameworks. They buy a concrete output loop.
+      - generic [ref=e149]:
+        - generic [ref=e150]: 1 concept unit
+        - generic [ref=e151]: 3 flashcards
+        - generic [ref=e152]: 60-sec audio
+        - generic [ref=e153]: 1 trap note
+        - generic [ref=e154]: Retest reminder
+        - generic [ref=e155]: Source tags
+      - paragraph [ref=e156]: So what? You stop collecting notes and start collecting reps.
+    - generic [ref=e158]:
+      - generic [ref=e159]:
+        - paragraph [ref=e160]: Proof
+        - heading "Before and after, not just screenshots." [level=2] [ref=e161]
+        - paragraph [ref=e162]: "Each surface below shows the loop closing: random study behavior on one side, reusable mastery assets on the other."
+      - generic [ref=e163]:
+        - article [ref=e164]:
+          - figure [ref=e165]:
+            - generic [ref=e170]:
+              - generic:
+                - img "Revalk topic space with walk actions, media preview, and focus meter."
+          - generic [ref=e171]:
+            - generic [ref=e172]: Topic spaces
+            - 'heading "Before: doubts disappear. After: a doubt becomes a reusable concept unit." [level=3] [ref=e173]'
+            - paragraph [ref=e174]: Saved concepts turn into an active study surface instead of one-off notes you never revisit.
+        - article [ref=e175]:
+          - figure [ref=e176]:
+            - generic [ref=e181]:
+              - generic:
+                - img "Revalk Vault audio browser with subject and topic filters."
+          - generic [ref=e182]:
+            - generic [ref=e183]: Vault + audio
+            - 'heading "Before: notes become dead files. After: saved units stay active through packs, audio, and retest loops." [level=3] [ref=e184]'
+            - paragraph [ref=e185]: The Vault behaves like a working mastery layer, not like a storage drawer.
+        - article [ref=e186]:
+          - figure [ref=e187]:
+            - img "Revalk ranked concept exploration screen." [ref=e194]
+          - generic [ref=e195]:
+            - generic [ref=e196]: Exam proximity
+            - 'heading "Before: revision is random PDFs. After: a Gold and Platinum-first plan tells you what matters first." [level=3] [ref=e197]'
+            - paragraph [ref=e198]: Relevance ranking gives the exploration layer structure without turning it into a feed.
+    - generic [ref=e200]:
+      - generic [ref=e201]:
+        - paragraph [ref=e202]: Trust and architecture
+        - heading "Calm, evidence-first, safety-first." [level=2] [ref=e203]
+        - list [ref=e204]:
+          - listitem [ref=e205]: "Evidence-first: concept-level learning only, no paper reconstruction"
+          - listitem [ref=e206]: "Safety-first: scanning and quarantine rules for risky inputs"
+          - listitem [ref=e207]: "Cost-governed: cached outputs and reduced repeat processing"
+          - listitem [ref=e208]: "Privacy posture: minimal retention, user-owned vault"
+          - listitem [ref=e209]: "Rollbacks: controlled version activation for safer updates"
+      - generic [ref=e210]:
+        - paragraph [ref=e211]: So what?
+        - heading "A system you can trust while it grows." [level=2] [ref=e212]
+        - paragraph [ref=e213]: Revalk is designed to stay sustainable and credible even in early access. The product should feel serious, not speculative.
+        - group [ref=e214]:
+          - generic "Technical note +" [ref=e215] [cursor=pointer]
+    - generic [ref=e217]:
+      - generic [ref=e218]:
+        - paragraph [ref=e219]: Early access
+        - heading "Honest progress, not backlog theatre." [level=2] [ref=e220]
+        - paragraph [ref=e221]: Revalk should feel exciting, but still credible. The roadmap is framed around what users can actually expect.
+      - generic [ref=e222]:
+        - article [ref=e223]:
+          - paragraph [ref=e224]: Now
+          - heading "What you get in early access" [level=3] [ref=e225]
+          - list [ref=e226]:
+            - listitem [ref=e227]: Explore + Vault
+            - listitem [ref=e228]: Walk Packs (basic) + audio
+            - listitem [ref=e229]: Calm tablet-first experience
+            - listitem [ref=e230]: Core loop works end-to-end
+        - article [ref=e231]:
+          - paragraph [ref=e232]: Next 8–12 weeks
+          - heading "What gets sharper next" [level=3] [ref=e233]
+          - list [ref=e234]:
+            - listitem [ref=e235]: Tiering polish and stronger mapping
+            - listitem [ref=e236]: Better retrieval and dedup
+            - listitem [ref=e237]: Richer Walk Sessions + metrics
+            - listitem [ref=e238]: Smarter retest scheduling
+        - article [ref=e239]:
+          - paragraph [ref=e240]: Later
+          - heading "What V3 scale looks like" [level=3] [ref=e241]
+          - list [ref=e242]:
+            - listitem [ref=e243]: Community library for quality discovery, not scrolling
+            - listitem [ref=e244]: Leagues and mastery maps by tier coverage
+            - listitem [ref=e245]: Tier-based revision paths across subjects
+    - generic [ref=e248]:
+      - generic [ref=e249]:
+        - paragraph [ref=e250]: Partner / platform integration
+        - heading "Building a platform? Revalk plugs in." [level=2] [ref=e251]
+        - paragraph [ref=e252]: "Revalk can function as a premium retention layer: Explore → Vault → Mastery. Ideal for creators and cohorts who want structured revision, not another content dump."
+      - link "Request Pilot Call" [ref=e254] [cursor=pointer]:
+        - /url: /contact/#studio
+    - generic [ref=e256]:
+      - generic [ref=e257]:
+        - paragraph [ref=e258]: FAQ
+        - heading "Answer the obvious objections fast." [level=2] [ref=e259]
+      - generic [ref=e260]:
+        - generic [ref=e261]:
+          - button "Is Revalk a coaching replacement? Open" [ref=e262] [cursor=pointer]:
+            - generic [ref=e263]: Is Revalk a coaching replacement?
+            - generic [ref=e264]: Open
+          - generic: No. Revalk sits on top of your prep and converts learning into recall and retest loops.
+        - generic [ref=e265]:
+          - button "Does Revalk store PYQ questions? Open" [ref=e266] [cursor=pointer]:
+            - generic [ref=e267]: Does Revalk store PYQ questions?
+            - generic [ref=e268]: Open
+          - generic: No. Revalk uses PYQ topic mapping and frequency signals only. No paper reconstruction.
+        - generic [ref=e269]:
+          - button "How are tiers computed? Open" [ref=e270] [cursor=pointer]:
+            - generic [ref=e271]: How are tiers computed?
+            - generic [ref=e272]: Open
+          - generic: By exam-topic frequency signals, mapping, and clustering. Not by likes and not by social signals.
+        - generic [ref=e273]:
+          - button "Will this work without a massive library on day one? Open" [ref=e274] [cursor=pointer]:
+            - generic [ref=e275]: Will this work without a massive library on day one?
+            - generic [ref=e276]: Open
+          - generic: Yes. Your Vault grows as you collect. Early cohorts build the graph while still benefiting from the core loop.
+        - generic [ref=e277]:
+          - button "Why tablet-first? Open" [ref=e278] [cursor=pointer]:
+            - generic [ref=e279]: Why tablet-first?
+            - generic [ref=e280]: Open
+          - generic: Long sessions need calm UI, low-friction capture, and better review ergonomics. Tablet-first supports that better than a noisy feed design.
+        - generic [ref=e281]:
+          - button "How is this different from a Qbank or notes app? Open" [ref=e282] [cursor=pointer]:
+            - generic [ref=e283]: How is this different from a Qbank or notes app?
+            - generic [ref=e284]: Open
+          - generic: Qbanks test. Notes apps store. Revalk converts confusion into packs and pushes recall until it sticks.
+    - generic [ref=e287]:
+      - generic [ref=e288]:
+        - paragraph [ref=e289]: Final CTA
+        - heading "Ready to study like an operator?" [level=2] [ref=e290]
+        - paragraph [ref=e291]: Stop collecting. Start finishing. Revalk is built for serious aspirants who want structure, rank-aware revision, and calmer daily execution.
+      - generic [ref=e292]:
+        - link "Join Early Access" [ref=e293] [cursor=pointer]:
+          - /url: /contact/#revalk
+        - link "See Screenshots" [ref=e294] [cursor=pointer]:
+          - /url: "#proof-strip"
+        - link "Request Pilot / Partnership" [ref=e295] [cursor=pointer]:
+          - /url: /contact/#studio
+  - contentinfo [ref=e296]:
+    - generic [ref=e297]:
+      - generic [ref=e298]:
+        - link "Not Alone Studios" [ref=e299] [cursor=pointer]:
+          - /url: /
+          - img [ref=e300]
+          - text: Not Alone Studios
+        - generic [ref=e301]:
+          - link "Products" [ref=e302] [cursor=pointer]:
+            - /url: /products/
+          - link "Studio" [ref=e303] [cursor=pointer]:
+            - /url: /studio/
+          - link "Proof" [ref=e304] [cursor=pointer]:
+            - /url: /proof/
+          - link "Contact" [ref=e305] [cursor=pointer]:
+            - /url: /contact/
+          - link "Privacy" [ref=e306] [cursor=pointer]:
+            - /url: /privacy/
+          - link "Terms" [ref=e307] [cursor=pointer]:
+            - /url: /terms/
+      - paragraph [ref=e308]: © 2026 Not Alone Studios.

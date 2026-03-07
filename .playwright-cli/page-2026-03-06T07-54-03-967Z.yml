@@ -1,0 +1,200 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Not Alone Studios" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - text: Not Alone Studios
+      - navigation "Primary" [ref=e7]:
+        - link "Products" [ref=e8] [cursor=pointer]:
+          - /url: /products/
+        - link "Studio" [ref=e9] [cursor=pointer]:
+          - /url: /studio/
+        - link "Proof" [ref=e10] [cursor=pointer]:
+          - /url: /proof/
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact/
+  - main [ref=e12]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - link "Home" [ref=e17] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e18]: /
+        - link "Products" [ref=e19] [cursor=pointer]:
+          - /url: /products/
+        - generic [ref=e20]: /
+        - generic [ref=e21]: ZenOps
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - paragraph [ref=e24]: Workflow operating system for valuation teams
+          - heading "Run valuation assignments end-to-end without operational mess." [level=1] [ref=e25]
+          - paragraph [ref=e26]: ZenOps gives ops desks, field users, and external associates one disciplined surface for intake, evidence, approvals, billing visibility, and controlled release.
+          - paragraph [ref=e27]: Mobile creation. Approval discipline. Invoice visibility. Controlled onboarding.
+          - generic [ref=e28]:
+            - link "Request Associate Access" [ref=e29] [cursor=pointer]:
+              - /url: https://zenops.notalonestudios.com/partner/request-access
+            - link "Open ZenOps Workspace" [ref=e30] [cursor=pointer]:
+              - /url: https://zenops.notalonestudios.com/
+          - generic [ref=e31]:
+            - link "Client & Ops Login" [ref=e32] [cursor=pointer]:
+              - /url: https://zenops.notalonestudios.com/login
+            - link "Try Demo" [ref=e33] [cursor=pointer]:
+              - /url: "#demo-landing"
+          - paragraph [ref=e34]: Email verification, role-restricted onboarding, audit trail, and billing-aware release controls.
+        - figure [ref=e35]:
+          - img "ZenOps mobile dashboard showing drafts, approvals, overdue work, and missing uploads." [ref=e41]
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - paragraph [ref=e45]: Proof first
+        - heading "This is what teams actually use." [level=2] [ref=e46]
+        - paragraph [ref=e47]: "Three surfaces matter immediately: workboard, approvals, and invoice visibility. They should read quickly on mobile and still feel serious on desktop."
+      - generic [ref=e48]:
+        - article [ref=e49]:
+          - figure [ref=e50]:
+            - img "ZenOps mobile workboard with assignments and daily shortcuts." [ref=e56]
+          - generic [ref=e57]:
+            - generic [ref=e58]: Daily workboard
+            - heading "Mobile assignments workboard" [level=3] [ref=e59]
+            - paragraph [ref=e60]: Daily queues, alerts, and active cases stay visible without desktop-only friction.
+        - article [ref=e61]:
+          - figure [ref=e62]:
+            - generic [ref=e67]:
+              - img "ZenOps mobile approvals queue with pending decisions."
+          - generic [ref=e68]:
+            - generic [ref=e69]: Approval discipline
+            - heading "Approvals inbox" [level=3] [ref=e70]
+            - paragraph [ref=e71]: Review and decision pressure becomes visible before it turns into missed handoffs.
+        - article [ref=e72]:
+          - figure [ref=e73]:
+            - generic [ref=e78]:
+              - img "ZenOps mobile invoice and payment workflow screen."
+          - generic [ref=e79]:
+            - generic [ref=e80]: Payment visibility
+            - heading "Invoice and payment confirmation" [level=3] [ref=e81]
+            - paragraph [ref=e82]: Billing state remains tied to the assignment instead of disappearing into finance follow-up chaos.
+    - generic [ref=e85]:
+      - generic [ref=e86]:
+        - paragraph [ref=e87]: Why it matters
+        - heading "Operational breakdown happens when intake, approvals, evidence, and payment state live in different places." [level=2] [ref=e88]
+        - paragraph [ref=e89]: ZenOps puts those surfaces back into one workflow operating system so missing evidence, approval blind spots, and invoice confusion appear before delivery instead of after.
+      - figure [ref=e90]:
+        - img "ZenOps live assignments workspace with queues and operator actions." [ref=e96]
+    - generic [ref=e98]:
+      - generic [ref=e99]:
+        - paragraph [ref=e100]: Prevents
+        - heading "What ZenOps stops." [level=2] [ref=e101]
+        - list [ref=e102]:
+          - listitem [ref=e103]: Dropped follow-ups across desk, field, and partner handoffs
+          - listitem [ref=e104]: Missing docs and evidence gaps surfacing too late
+          - listitem [ref=e105]: Approval blind spots and unclear release ownership
+          - listitem [ref=e106]: Invoice confusion and weak payment visibility
+      - generic [ref=e107]:
+        - paragraph [ref=e108]: Ensures
+        - heading "What teams get instead." [level=2] [ref=e109]
+        - list [ref=e110]:
+          - listitem [ref=e111]: Clear ownership from draft to final release
+          - listitem [ref=e112]: Readiness checks that block incomplete delivery
+          - listitem [ref=e113]: Approval trail and billing state attached to workflow
+          - listitem [ref=e114]: Transparent visibility for ops, field users, and associates
+    - generic [ref=e116]:
+      - generic [ref=e117]:
+        - paragraph [ref=e118]: Core workflow
+        - heading "Four pillars that make the product usable under pressure." [level=2] [ref=e119]
+        - paragraph [ref=e120]: Keep the front of the page focused on the workflows people actually touch every day. Put the deeper deterministic spine later.
+      - generic [ref=e121]:
+        - article [ref=e122]:
+          - generic [ref=e123]: "1"
+          - heading "Evidence-first capture" [level=3] [ref=e124]
+          - paragraph [ref=e125]: Docs, photos, and assignment fields stay linked so missing evidence is visible immediately.
+        - article [ref=e126]:
+          - generic [ref=e127]: "2"
+          - heading "Rules and readiness" [level=3] [ref=e128]
+          - paragraph [ref=e129]: Warnings, derived values, and release checks prevent quiet slippage.
+        - article [ref=e130]:
+          - generic [ref=e131]: "3"
+          - heading "Approvals discipline" [level=3] [ref=e132]
+          - paragraph [ref=e133]: Draft approvals, final decisions, and payment confirmation sit inside one operating loop.
+        - article [ref=e134]:
+          - generic [ref=e135]: "4"
+          - heading "Billing and release gating" [level=3] [ref=e136]
+          - paragraph [ref=e137]: Paid, credits, or override-with-reason state is explicit before work leaves the system.
+      - group [ref=e138]:
+        - generic "Advanced capabilities +" [ref=e139] [cursor=pointer]
+    - generic [ref=e141]:
+      - article [ref=e142]:
+        - generic [ref=e143]:
+          - paragraph [ref=e144]: Associate onboarding
+          - heading "External associates can onboard without friction." [level=2] [ref=e145]
+          - paragraph [ref=e146]: Controlled onboarding keeps partner access branded, structured, and role-aware instead of dropping prospects into an internal-only flow.
+          - link "Request Associate Access" [ref=e148] [cursor=pointer]:
+            - /url: https://zenops.notalonestudios.com/partner/request-access
+        - figure [ref=e149]:
+          - generic [ref=e154]:
+            - img "ZenOps associate access request page for controlled onboarding."
+      - article [ref=e155]:
+        - generic [ref=e156]:
+          - paragraph [ref=e157]: Demo lane
+          - heading "See ZenOps in action before requesting access." [level=2] [ref=e158]
+          - paragraph [ref=e159]: The demo stays visible but subordinate. It is a safe evaluation path with isolated sample data and clear demo markers.
+          - link "Open Demo Landing" [ref=e161] [cursor=pointer]:
+            - /url: https://demo.zenops.notalonestudios.com/
+          - link "Go to demo login" [ref=e163] [cursor=pointer]:
+            - /url: https://demo.zenops.notalonestudios.com/login
+        - figure [ref=e164]:
+          - generic [ref=e169]:
+            - img "ZenOps public demo entry showing a branded demo environment."
+    - generic [ref=e171]:
+      - generic [ref=e172]:
+        - paragraph [ref=e173]: Deep dive
+        - heading "V1 execution depth, reframed as a cleaner V2 control plane." [level=2] [ref=e174]
+        - paragraph [ref=e175]: The differentiator stays on the page, but lower and tighter. Serious buyers can still see the dense execution layer and the cleaner governance layer together.
+      - generic [ref=e176]:
+        - article [ref=e177]:
+          - figure [ref=e178]:
+            - generic [ref=e183]:
+              - img "ZenOps V1 control tower view showing workload pressure and action center."
+          - generic [ref=e184]:
+            - generic [ref=e185]: V1 ops engine
+            - heading "Execution layer" [level=3] [ref=e186]
+            - paragraph [ref=e187]: Dense, operational, and battle-tested. This is where queue pressure and real production flow live.
+        - article [ref=e188]:
+          - figure [ref=e189]:
+            - generic [ref=e194]:
+              - img "ZenOps V2 invoice ledger showing billing state and operator follow-up controls."
+          - generic [ref=e195]:
+            - generic [ref=e196]: V2 control plane
+            - heading "Governance layer" [level=3] [ref=e197]
+            - paragraph [ref=e198]: Lighter, clearer, and easier to reason about without losing the deterministic operating spine underneath.
+    - generic [ref=e201]:
+      - generic [ref=e202]:
+        - paragraph [ref=e203]: Final CTA
+        - heading "Move assignment operations onto one control surface." [level=2] [ref=e204]
+        - paragraph [ref=e205]: ZenOps gives ops teams, field users, and external associates one workflow for intake, approvals, evidence, onboarding, and payment visibility.
+      - generic [ref=e206]:
+        - link "Request Associate Access" [ref=e207] [cursor=pointer]:
+          - /url: https://zenops.notalonestudios.com/partner/request-access
+        - link "Open ZenOps Workspace" [ref=e208] [cursor=pointer]:
+          - /url: https://zenops.notalonestudios.com/
+        - link "Client & Ops Login" [ref=e209] [cursor=pointer]:
+          - /url: https://zenops.notalonestudios.com/login
+  - contentinfo [ref=e210]:
+    - generic [ref=e211]:
+      - generic [ref=e212]:
+        - link "Not Alone Studios" [ref=e213] [cursor=pointer]:
+          - /url: /
+          - img [ref=e214]
+          - text: Not Alone Studios
+        - generic [ref=e215]:
+          - link "Products" [ref=e216] [cursor=pointer]:
+            - /url: /products/
+          - link "Studio" [ref=e217] [cursor=pointer]:
+            - /url: /studio/
+          - link "Proof" [ref=e218] [cursor=pointer]:
+            - /url: /proof/
+          - link "Contact" [ref=e219] [cursor=pointer]:
+            - /url: /contact/
+          - link "Privacy" [ref=e220] [cursor=pointer]:
+            - /url: /privacy/
+          - link "Terms" [ref=e221] [cursor=pointer]:
+            - /url: /terms/
+      - paragraph [ref=e222]: © 2026 Not Alone Studios.

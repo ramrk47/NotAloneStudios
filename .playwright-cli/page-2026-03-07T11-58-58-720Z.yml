@@ -1,0 +1,261 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Not Alone Studios" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - text: Not Alone Studios
+      - navigation "Primary" [ref=e7]:
+        - link "Products" [ref=e8] [cursor=pointer]:
+          - /url: /products/
+        - link "Studio" [ref=e9] [cursor=pointer]:
+          - /url: /studio/
+        - link "Proof" [ref=e10] [cursor=pointer]:
+          - /url: /proof/
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact/
+  - main [ref=e12]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - link "Home" [ref=e17] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e18]: /
+        - link "Products" [ref=e19] [cursor=pointer]:
+          - /url: /products/
+        - generic [ref=e20]: /
+        - generic [ref=e21]: Revalk
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - paragraph [ref=e24]: Expo / Early Access • In Progress
+          - heading "Revalk Revalk is a Study OS for NEET PG that converts doubt → recall → score." [level=1] [ref=e25]:
+            - img "Revalk" [ref=e26]
+            - text: Revalk is a Study OS for NEET PG that converts doubt → recall → score.
+          - paragraph [ref=e27]: A calm, serious, evidence-first study system with a premium tablet-first feel. Revalk is not a feed, not a chatbot, and not a “more content” app.
+          - generic [ref=e28]:
+            - link "Join Early Access" [ref=e29] [cursor=pointer]:
+              - /url: /contact/#revalk
+            - link "Follow Updates" [ref=e30] [cursor=pointer]:
+              - /url: /contact/#revalk
+            - link "See Proof" [ref=e31] [cursor=pointer]:
+              - /url: /proof/
+          - generic [ref=e32]:
+            - generic [ref=e33]:
+              - generic [ref=e34]: Evidence rail
+              - generic [ref=e35]: Study lab signals
+            - generic [ref=e36]:
+              - generic [ref=e37]: PYQ
+              - generic [ref=e38]: Source
+              - generic [ref=e39]: Confidence
+              - generic [ref=e40]: Walk
+              - generic [ref=e41]: Vault
+        - generic [ref=e42]:
+          - img "Revalk" [ref=e43]
+          - generic [ref=e44]:
+            - paragraph [ref=e45]: Premium Study Lab
+            - paragraph [ref=e46]: Tablet-first. Minimal distraction. Calm, safety-first learning.
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - heading "Doubt capture" [level=3] [ref=e51]
+        - paragraph [ref=e52]: Capture doubts as assets instead of letting them disappear.
+      - generic [ref=e53]:
+        - heading "Walk Pack" [level=3] [ref=e54]
+        - paragraph [ref=e55]: Convert doubts into structured high-yield recall material.
+      - generic [ref=e56]:
+        - heading "Walk Sessions" [level=3] [ref=e57]
+        - paragraph [ref=e58]: Train recall under pressure with guided walk-first sessions.
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - paragraph [ref=e62]: Why Revalk
+        - heading "Different from feed-driven study apps" [level=2] [ref=e63]
+        - list [ref=e64]:
+          - listitem [ref=e65]: Focus on high-yield patterns over volume
+          - listitem [ref=e66]: Doubts become reusable assets (not forgotten notes)
+          - listitem [ref=e67]: Walk Sessions train recall under pressure
+          - listitem [ref=e68]: Speed + minimal distraction (not social, not feed)
+          - listitem [ref=e69]: "Safety-first: concept-level learning, no paper reconstruction"
+      - generic [ref=e70]:
+        - paragraph [ref=e71]: Who it’s for / not for
+        - heading "Audience filter" [level=2] [ref=e72]
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - heading "For" [level=3] [ref=e75]
+            - list [ref=e76]:
+              - listitem [ref=e77]: Structure + execution seekers
+              - listitem [ref=e78]: GT mistake reducers
+              - listitem [ref=e79]: System lovers (not feed)
+              - listitem [ref=e80]: Early adopters
+          - generic [ref=e81]:
+            - heading "Not for" [level=3] [ref=e82]
+            - list [ref=e83]:
+              - listitem [ref=e84]: Full coaching replacement
+              - listitem [ref=e85]: “All notes in one place” expectation
+              - listitem [ref=e86]: People needing a finished product today
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - paragraph [ref=e90]: How it works
+        - heading "A 4-step study system" [level=2] [ref=e91]
+        - paragraph [ref=e92]: Revalk structures your study into a repeatable system — from capturing doubts to training recall under pressure.
+      - generic [ref=e93]:
+        - article [ref=e94]:
+          - generic [ref=e95]: "1"
+          - heading "Doubt Vault" [level=3] [ref=e96]
+          - paragraph [ref=e97]: Capture confusion fast with tags, micro-topics, and context.
+        - article [ref=e98]:
+          - generic [ref=e99]: "2"
+          - heading "Topic Spaces" [level=3] [ref=e100]
+          - paragraph [ref=e101]: Organize patterns into systems instead of scattered threads.
+        - article [ref=e102]:
+          - generic [ref=e103]: "3"
+          - heading "Walk Pack" [level=3] [ref=e104]
+          - paragraph [ref=e105]: Convert doubt clusters into reusable recall packs.
+        - article [ref=e106]:
+          - generic [ref=e107]: "4"
+          - heading "Walk Session" [level=3] [ref=e108]
+          - paragraph [ref=e109]: Train recall and decision speed under pressure.
+    - generic [ref=e111]:
+      - generic [ref=e112]:
+        - paragraph [ref=e113]: Revalk 2.0 roadmap (in progress)
+        - heading "What’s being built now" [level=2] [ref=e114]
+      - generic [ref=e115]:
+        - article [ref=e116]:
+          - heading "Topic Spaces" [level=3] [ref=e117]
+          - paragraph [ref=e118]: System-native learning spaces replacing thread-like sprawl.
+        - article [ref=e119]:
+          - heading "Vault" [level=3] [ref=e120]
+          - paragraph [ref=e121]: Visual/audio/mnemonic asset layer for reuse and recall triggers.
+        - article [ref=e122]:
+          - heading "Walk Hub" [level=3] [ref=e123]
+          - paragraph [ref=e124]: Recall-first training sessions and review loops.
+        - article [ref=e125]:
+          - heading "PYQ-weighted planning" [level=3] [ref=e126]
+          - paragraph [ref=e127]: Planning support anchored in high-yield weighting logic.
+        - article [ref=e128]:
+          - heading "Doubt → Walk Pack conversion" [level=3] [ref=e129]
+          - paragraph [ref=e130]: Structured pipeline from raw confusion to recall-ready pack.
+        - article [ref=e131]:
+          - heading "Status" [level=3] [ref=e132]
+          - paragraph [ref=e133]: In progress / early access with focused user cohorts and iterative releases.
+    - generic [ref=e136]:
+      - article [ref=e137]:
+        - figure "Prevents One-off notes that never become reusable study assets. Ensures Topic-level execution unit with walk actions, media preview, and recap." [ref=e138]:
+          - generic [ref=e143]:
+            - generic:
+              - img "Revalk Topic Space with walk actions, media preview, and focus meter."
+          - generic [ref=e144]:
+            - generic [ref=e145]:
+              - generic [ref=e146]: Prevents
+              - paragraph [ref=e147]: One-off notes that never become reusable study assets.
+            - generic [ref=e148]:
+              - generic [ref=e149]: Ensures
+              - paragraph [ref=e150]: Topic-level execution unit with walk actions, media preview, and recap.
+        - generic [ref=e151]:
+          - generic [ref=e152]: Proof
+          - heading "Topic Spaces make doubts navigable and reusable" [level=3] [ref=e153]
+          - paragraph [ref=e154]: Real Topic Space screen showing action buttons and focus meter in a reusable unit.
+      - article [ref=e155]:
+        - figure "Prevents Media assets getting buried without source and topic filtering. Ensures Browseable vault with subject/topic/source filters and reusable study media." [ref=e156]:
+          - generic [ref=e161]:
+            - generic:
+              - img "Revalk Vault audio browser with subject/topic filters and source tags."
+          - generic [ref=e162]:
+            - generic [ref=e163]:
+              - generic [ref=e164]: Prevents
+              - paragraph [ref=e165]: Media assets getting buried without source and topic filtering.
+            - generic [ref=e166]:
+              - generic [ref=e167]: Ensures
+              - paragraph [ref=e168]: Browseable vault with subject/topic/source filters and reusable study media.
+        - generic [ref=e169]:
+          - generic [ref=e170]: Proof
+          - heading "Doubts become assets, not dead notes" [level=3] [ref=e171]
+          - paragraph [ref=e172]: Real vault browser view showing source tags and topic-level filtering for reuse.
+      - article [ref=e173]:
+        - figure "Prevents Raw doubt capture without conversion into structured, reusable study artifacts. Ensures Media and recap stay attached to the topic context used during recall loops." [ref=e174]:
+          - generic [ref=e179]:
+            - generic:
+              - img "Revalk Topic Space with media preview and recap content in an interactive study view."
+          - generic [ref=e180]:
+            - generic [ref=e181]:
+              - generic [ref=e182]: Prevents
+              - paragraph [ref=e183]: Raw doubt capture without conversion into structured, reusable study artifacts.
+            - generic [ref=e184]:
+              - generic [ref=e185]: Ensures
+              - paragraph [ref=e186]: Media and recap stay attached to the topic context used during recall loops.
+        - generic [ref=e187]:
+          - generic [ref=e188]: Proof
+          - heading "Walk Packs convert study inputs into recall loops" [level=3] [ref=e189]
+          - paragraph [ref=e190]: Topic media + recap context demonstrates the bridge from captured doubt to recall prep.
+      - article [ref=e191]:
+        - figure "Prevents Passive review that skips pacing, repetition, and pressure. Ensures Session metrics and controls support deliberate recall training." [ref=e192]:
+          - generic [ref=e197]:
+            - generic:
+              - img "Revalk Walk Session showing walk metrics, answer controls, and session actions."
+          - generic [ref=e198]:
+            - generic [ref=e199]:
+              - generic [ref=e200]: Prevents
+              - paragraph [ref=e201]: Passive review that skips pacing, repetition, and pressure.
+            - generic [ref=e202]:
+              - generic [ref=e203]: Ensures
+              - paragraph [ref=e204]: Session metrics and controls support deliberate recall training.
+        - generic [ref=e205]:
+          - generic [ref=e206]: Proof
+          - heading "Walk sessions train execution under pressure" [level=3] [ref=e207]
+          - paragraph [ref=e208]: Real walk session screen demonstrates pacing controls and answer flow.
+    - generic [ref=e210]:
+      - generic [ref=e211]:
+        - paragraph [ref=e212]: Trust / architecture
+        - heading "Calm and safety-first" [level=2] [ref=e213]
+        - list [ref=e214]:
+          - listitem [ref=e215]: Concept-level learning support, not unsafe paper reconstruction
+          - listitem [ref=e216]: Dataset/model thinking and privacy-conscious product posture
+          - listitem [ref=e217]: System design that prioritizes execution quality over engagement addiction
+      - generic [ref=e218]:
+        - paragraph [ref=e219]: Tablet + stylus ready
+        - heading "Hardware is part of the experience" [level=2] [ref=e220]
+        - paragraph [ref=e221]: Tablet-first design is a differentiator. Keep large touch targets, calm surfaces, readable cards, and restrained motion.
+        - generic [ref=e222]:
+          - generic [ref=e223]: Parchment base
+          - generic [ref=e224]: Ink green
+          - generic [ref=e225]: Clay CTA
+          - generic [ref=e226]: Low distraction UI
+    - generic [ref=e229]:
+      - generic [ref=e230]:
+        - button "Who should join Revalk early access first? −" [expanded] [ref=e231] [cursor=pointer]:
+          - generic [ref=e232]: Who should join Revalk early access first?
+          - generic [ref=e233]: −
+        - generic [ref=e234]: Learners preparing seriously for NEET PG who want a calmer, structured recall workflow will get the most value in early access. The current product is best for users who are happy to give feedback while features mature.
+      - button "Does Revalk replace coaching or your notes? +" [ref=e236] [cursor=pointer]:
+        - generic [ref=e237]: Does Revalk replace coaching or your notes?
+        - generic [ref=e238]: +
+    - generic [ref=e241]:
+      - generic [ref=e242]:
+        - paragraph [ref=e243]: Final CTA
+        - heading "Join early access or follow updates" [level=2] [ref=e244]
+        - paragraph [ref=e245]: Revalk is in early access. Join now to shape the product with your feedback as features ship.
+      - generic [ref=e246]:
+        - link "Join Early Access" [ref=e247] [cursor=pointer]:
+          - /url: /contact/#revalk
+        - link "Follow Updates" [ref=e248] [cursor=pointer]:
+          - /url: /contact/#revalk
+        - link "Back to Products" [ref=e249] [cursor=pointer]:
+          - /url: /products/
+  - contentinfo [ref=e250]:
+    - generic [ref=e251]:
+      - generic [ref=e252]:
+        - link "Not Alone Studios" [ref=e253] [cursor=pointer]:
+          - /url: /
+          - img [ref=e254]
+          - text: Not Alone Studios
+        - generic [ref=e255]:
+          - link "Products" [ref=e256] [cursor=pointer]:
+            - /url: /products/
+          - link "Studio" [ref=e257] [cursor=pointer]:
+            - /url: /studio/
+          - link "Proof" [ref=e258] [cursor=pointer]:
+            - /url: /proof/
+          - link "Contact" [ref=e259] [cursor=pointer]:
+            - /url: /contact/
+          - link "Privacy" [ref=e260] [cursor=pointer]:
+            - /url: /privacy/
+          - link "Terms" [ref=e261] [cursor=pointer]:
+            - /url: /terms/
+      - paragraph [ref=e262]: © 2026 Not Alone Studios.

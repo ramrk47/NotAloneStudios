@@ -172,7 +172,7 @@
         cY: -0.8,
         sat: 1.03,
       },
-      zenops: {
+      maulya: {
         aX: -1.6,
         aY: 0.6,
         bX: 1.2,
@@ -678,6 +678,344 @@
       if (eventName) {
         track(eventName, { kind: "submit" });
       }
+    });
+  });
+
+  // ─── Nav scroll shadow (Phase 2D) ────────────────────────────────────────
+  const siteHeader = document.querySelector(".site-header");
+  if (siteHeader) {
+    const updateHeaderScroll = () => {
+      if (window.scrollY > 24) {
+        siteHeader.classList.add("site-header--scrolled");
+      } else {
+        siteHeader.classList.remove("site-header--scrolled");
+      }
+    };
+    window.addEventListener("scroll", updateHeaderScroll, { passive: true });
+    updateHeaderScroll();
+  }
+
+  // ─── Hamburger navigation (Phase 4A) ─────────────────────────────────────
+  const hamburger = document.querySelector(".nav-hamburger");
+  const primaryNav = document.querySelector(".nav");
+  const navOverlay = document.querySelector(".nav-overlay");
+
+  if (hamburger && primaryNav) {
+    const openNav = () => {
+      hamburger.setAttribute("aria-expanded", "true");
+      primaryNav.classList.add("is-open");
+      if (navOverlay) navOverlay.classList.add("is-active");
+      document.body.style.overflow = "hidden";
+      // Focus first nav link
+      const firstLink = primaryNav.querySelector("a");
+      if (firstLink) firstLink.focus();
+    };
+
+    const closeNav = () => {
+      hamburger.setAttribute("aria-expanded", "false");
+      primaryNav.classList.remove("is-open");
+      if (navOverlay) navOverlay.classList.remove("is-active");
+      document.body.style.overflow = "";
+      hamburger.focus();
+    };
+
+    hamburger.addEventListener("click", () => {
+      const isOpen = hamburger.getAttribute("aria-expanded") === "true";
+      if (isOpen) closeNav(); else openNav();
+    });
+
+    if (navOverlay) {
+      navOverlay.addEventListener("click", closeNav);
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && hamburger.getAttribute("aria-expanded") === "true") {
+        closeNav();
+      }
+    });
+
+    // Focus trap within open nav
+    primaryNav.addEventListener("keydown", (e) => {
+      if (hamburger.getAttribute("aria-expanded") !== "true") return;
+      if (e.key !== "Tab") return;
+      const focusable = [...primaryNav.querySelectorAll("a, button")].filter(
+        (el) => !el.hidden && el.offsetParent !== null
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
+    // Close nav when a link is clicked (mobile)
+    primaryNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (hamburger.getAttribute("aria-expanded") === "true") closeNav();
+      });
+    });
+
+    // Sync on resize
+    const mq = window.matchMedia("(min-width: 821px)");
+    mq.addEventListener("change", (e) => {
+      if (e.matches) closeNav();
+    });
+  }
+
+  // ─── Stagger animation for grids (Phase 3B) ───────────────────────────────
+  document.querySelectorAll("[data-stagger]").forEach((parent) => {
+    const children = parent.querySelectorAll(
+      ".reveal, .shipped-fact, .proof-card, .card"
+    );
+    children.forEach((child, i) => {
+      child.style.setProperty("--stagger-i", String(i));
+      child.classList.add("reveal");
+    });
+  });
+
+  // ─── Counter animation (Phase 3D) ─────────────────────────────────────────
+  if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+    const counters = document.querySelectorAll("[data-count-to]");
+    if (counters.length) {
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            counterObserver.unobserve(entry.target);
+            const el = entry.target;
+            const target = parseFloat(el.getAttribute("data-count-to")) || 0;
+            const duration = 1200;
+            const start = performance.now();
+            const suffix = el.getAttribute("data-count-suffix") || "";
+            const decimals = String(target).includes(".") ? 1 : 0;
+
+            const tick = (now) => {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const current = target * easeOutQuart(progress);
+              el.textContent = current.toFixed(decimals) + suffix;
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          });
+        },
+        { threshold: 0.5 }
+      );
+      counters.forEach((el) => counterObserver.observe(el));
+    }
+  }
+
+  // ─── Parallax depth on noise-glow (Phase 3E) ──────────────────────────────
+  if (!prefersReducedMotion) {
+    const noiseGlow = document.querySelector(".noise-glow");
+    if (noiseGlow) {
+      let ticking = false;
+      const onScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            noiseGlow.style.transform = `translateY(${window.scrollY * 0.18}px)`;
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
+  }
+
+  // ─── Textarea character counter (Phase 5C) ────────────────────────────────
+  document.querySelectorAll("textarea[maxlength]").forEach((ta) => {
+    const max = parseInt(ta.getAttribute("maxlength"), 10);
+    if (!max) return;
+    const counter = document.createElement("div");
+    counter.className = "char-counter";
+    counter.setAttribute("aria-live", "polite");
+    counter.textContent = `0 / ${max}`;
+    ta.insertAdjacentElement("afterend", counter);
+    ta.addEventListener("input", () => {
+      counter.textContent = `${ta.value.length} / ${max}`;
+    });
+  });
+
+  // ═══ PHASE 5: Hero self-segmentation switch ═══════════════════════════════
+  const segSwitch = document.querySelector(".segment-switch");
+  if (segSwitch) {
+    const tabs = Array.from(segSwitch.querySelectorAll("[data-segment]"));
+    const panels = Array.from(document.querySelectorAll("[data-segment-panel]"));
+    const STORAGE_KEY = "nas-segment";
+
+    const activate = (seg) => {
+      tabs.forEach((t) => t.setAttribute("aria-selected", String(t.getAttribute("data-segment") === seg)));
+      panels.forEach((p) => p.setAttribute("data-active", String(p.getAttribute("data-segment-panel") === seg)));
+      try { localStorage.setItem(STORAGE_KEY, seg); } catch {}
+    };
+
+    tabs.forEach((t) => t.addEventListener("click", () => activate(t.getAttribute("data-segment"))));
+
+    // Restore from URL or localStorage
+    const params = new URLSearchParams(window.location.search);
+    const urlSeg = params.get("segment");
+    const storedSeg = (() => { try { return localStorage.getItem(STORAGE_KEY); } catch { return null; } })();
+    const initial = urlSeg || storedSeg;
+    if (initial && tabs.some((t) => t.getAttribute("data-segment") === initial)) {
+      activate(initial);
+    }
+  }
+
+  // ═══ PHASE 6: Hook engine (radio → CTA link update) ═══════════════════════
+  const hookEngine = document.querySelector(".hook-engine");
+  if (hookEngine) {
+    const hookCTA = hookEngine.querySelector("[data-hook-cta]");
+    const hookRadios = hookEngine.querySelectorAll('input[name="hook"]');
+    const hookMap = {
+      ops: "https://maulya.in/product/",
+      study: "/products/revalk/",
+      custom: "/contact/#studio",
+    };
+    hookRadios.forEach((r) => {
+      r.addEventListener("change", () => {
+        if (hookCTA) hookCTA.href = hookMap[r.value] || "/contact/";
+      });
+    });
+  }
+
+  // ═══ PHASE 6: System map micro-simulator ══════════════════════════════════
+  document.querySelectorAll(".system-map").forEach((map) => {
+    const steps = Array.from(map.querySelectorAll(".system-map__step"));
+    const detail = map.querySelector(".system-map__detail");
+    const progressFill = map.querySelector(".system-map__progress-fill");
+    let details = [];
+    try { details = JSON.parse(map.getAttribute("data-step-details") || "[]"); } catch {}
+
+    const activate = (index) => {
+      steps.forEach((s, i) => s.setAttribute("data-active", String(i === index)));
+      if (detail && details[index]) detail.textContent = details[index];
+      if (progressFill) {
+        const pct = 30 + ((index + 1) / steps.length) * 70;
+        progressFill.style.width = `${pct}%`;
+      }
+      // Store progress for Zeigarnik pill
+      try {
+        const page = document.body.className;
+        localStorage.setItem("nas-map-progress", JSON.stringify({ page, step: index, total: steps.length }));
+      } catch {}
+    };
+
+    steps.forEach((s, i) => s.addEventListener("click", () => activate(i)));
+  });
+
+  // ═══ PHASE 7: Pain-chip gate → system card download ═══════════════════════
+  const painChips = document.querySelectorAll('input[name="pain_card"]');
+  const cardBtn = document.getElementById("card-download-btn");
+  if (painChips.length && cardBtn) {
+    painChips.forEach((chip) => {
+      chip.addEventListener("change", () => {
+        cardBtn.style.opacity = "1";
+        cardBtn.style.pointerEvents = "auto";
+      });
+    });
+
+    cardBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const selected = document.querySelector('input[name="pain_card"]:checked');
+      if (!selected) return;
+
+      const pain = selected.value;
+      const painLabels = { evidence: "Missing evidence", billing: "Billing delays", rework: "Rework loops" };
+      const html = `<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Not Alone Studios — System Card</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Manrope,system-ui,sans-serif;background:#0f1812;color:#e8ebe6;padding:40px;max-width:680px;margin:0 auto}
+h1{font-size:1.8rem;margin-bottom:8px}h2{font-size:1.1rem;color:#4dd4ac;margin:24px 0 8px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:0.08em;font-size:0.82rem}
+p{line-height:1.6;margin-bottom:12px;color:#b8bcb4}.card{background:#1a2420;border:1px solid #2a3630;border-radius:16px;padding:24px;margin:16px 0}
+.pain{display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(15,118,110,0.15);border:1px solid rgba(15,118,110,0.3);color:#4dd4ac;font-weight:700;font-size:0.88rem;margin:8px 0 16px}
+.progress{height:6px;background:#2a3630;border-radius:999px;margin:16px 0;overflow:hidden}.progress-fill{height:100%;width:30%;background:linear-gradient(90deg,#0f766e,#4dd4ac);border-radius:999px}
+.footer{margin-top:32px;border-top:1px solid #2a3630;padding-top:16px;font-size:0.82rem;color:#5c6a60}
+</style></head><body>
+<h1>Your Not Alone Studios System Card</h1>
+<p>Generated for your specific workflow challenge.</p>
+<h2>Your biggest pain</h2>
+<span class="pain">${painLabels[pain] || pain}</span>
+<div class="card">
+<h2>Recommended path</h2>
+<p>${pain === "evidence" ? "Maulya evidence-first capture ensures docs, photos, and assignment fields stay linked. Missing evidence becomes visible immediately — before delivery, not after." : pain === "billing" ? "Maulya billing-gated release means payment state (paid, credits, override-with-reason) is explicit before work leaves the system. No more invoice chase." : "Maulya readiness gating blocks incomplete delivery. Rules, derived values, and release checks prevent quiet slippage and rework loops."}</p>
+</div>
+<h2>Your system map</h2>
+<div class="progress"><div class="progress-fill"></div></div>
+<p style="font-size:0.82rem;color:#5c6a60;">You've started exploring. Complete a 14-day pilot to reach 100%.</p>
+<div class="card">
+<p><strong>Evidence → Rules → Readiness → Release</strong></p>
+<p>Each gate must clear before the next step. Nothing ships incomplete.</p>
+</div>
+<div class="footer">
+<p>Not Alone Studios · Systems Product Studio · notalonestudios.com</p>
+<p>Schedule a walkthrough: contact page → Maulya lane</p>
+</div></body></html>`;
+
+      const blob = new Blob([html], { type: "text/html" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "not-alone-studios-system-card.html";
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { URL.revokeObjectURL(url); a.remove(); }, 200);
+    });
+  }
+
+  // ═══ BEHAVIORAL: Zeigarnik "Continue" pill ════════════════════════════════
+  const zeigPill = document.getElementById("zeigarnik-pill");
+  if (zeigPill) {
+    const zeigLabel = document.getElementById("zeigarnik-label");
+    const zeigContinue = document.getElementById("zeigarnik-continue");
+    const zeigDismiss = document.getElementById("zeigarnik-dismiss");
+    const ZEIG_KEY = "nas-zeig-dismissed";
+    const MAP_KEY = "nas-map-progress";
+
+    const show = () => {
+      try {
+        if (localStorage.getItem(ZEIG_KEY) === "true") return;
+        const raw = localStorage.getItem(MAP_KEY);
+        if (!raw) return;
+        const { page, step, total } = JSON.parse(raw);
+        if (!page || typeof step !== "number") return;
+
+        const pct = Math.round(30 + ((step + 1) / total) * 70);
+        const label = page.includes("maulya") ? "Maulya" : page.includes("revalk") ? "Revalk" : "System Map";
+        zeigLabel.textContent = `${label}: ${pct}% — `;
+        const dest = page.includes("maulya") ? "https://maulya.in/product/" : page.includes("revalk") ? "/products/revalk/" : "/";
+        zeigContinue.href = dest;
+        zeigContinue.textContent = "Continue";
+
+        // Show after slight delay
+        setTimeout(() => zeigPill.classList.add("is-visible"), 2400);
+      } catch {}
+    };
+
+    if (zeigDismiss) {
+      zeigDismiss.addEventListener("click", () => {
+        zeigPill.classList.remove("is-visible");
+        try { localStorage.setItem(ZEIG_KEY, "true"); } catch {}
+      });
+    }
+
+    show();
+  }
+
+  // ═══ FAQ accordion (new-style for .faq-item) ═════════════════════════════
+  document.querySelectorAll(".faq-item button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.closest(".faq-item");
+      if (!item) return;
+      const isOpen = item.getAttribute("data-open") === "true";
+      item.setAttribute("data-open", String(!isOpen));
+      btn.setAttribute("aria-expanded", String(!isOpen));
     });
   });
 })();

@@ -1,0 +1,95 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Not Alone Studios" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - text: Not Alone Studios
+      - navigation "Primary" [ref=e7]:
+        - link "Products" [ref=e8] [cursor=pointer]:
+          - /url: /products/
+        - link "Studio" [ref=e9] [cursor=pointer]:
+          - /url: /studio/
+        - link "Proof" [ref=e10] [cursor=pointer]:
+          - /url: /proof/
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact/
+  - main [ref=e12]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - link "Home" [ref=e17] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e18]: /
+        - generic [ref=e19]: Products
+      - paragraph [ref=e20]: Products overview
+      - heading "One flagship operating system, one secondary premium product, one selective studio." [level=1] [ref=e21]
+      - paragraph [ref=e22]: ZenOps is the lead commercial path. Revalk shows the same product discipline in a different market. Each product now gets its own cleaner surface.
+    - generic [ref=e24]:
+      - article [ref=e25]:
+        - generic [ref=e26]:
+          - paragraph [ref=e27]: Flagship product
+          - heading "ZenOps" [level=2] [ref=e28]
+          - paragraph [ref=e29]: "Workflow operating system for valuation teams: mobile intake, evidence capture, approvals, payment visibility, and controlled associate onboarding."
+          - list [ref=e30]:
+            - listitem [ref=e31]: Dedicated product page with the full sales narrative
+            - listitem [ref=e32]: Live request-access, workspace, login, and demo paths
+            - listitem [ref=e33]: Flagship route for serious product traffic
+          - generic [ref=e34]:
+            - link "Explore ZenOps" [ref=e35] [cursor=pointer]:
+              - /url: /products/zenops/
+            - link "Request Associate Access" [ref=e36] [cursor=pointer]:
+              - /url: https://zenops.notalonestudios.com/partner/request-access
+          - generic [ref=e37]:
+            - link "Open Workspace" [ref=e38] [cursor=pointer]:
+              - /url: https://zenops.notalonestudios.com/
+            - link "Client & Ops Login" [ref=e39] [cursor=pointer]:
+              - /url: https://zenops.notalonestudios.com/login
+            - link "Try Demo" [ref=e40] [cursor=pointer]:
+              - /url: /products/zenops/#demo-landing
+        - figure [ref=e41]:
+          - img "ZenOps live assignments view showing queues and operator actions." [ref=e47]
+      - article [ref=e48]:
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: Secondary product
+          - heading "Revalk" [level=2] [ref=e51]:
+            - img [ref=e52]
+            - text: Revalk
+          - paragraph [ref=e53]: Premium study operating system for NEET PG with topic-space structure, deliberate review loops, and calmer product design.
+          - generic [ref=e54]:
+            - link "Explore Revalk" [ref=e55] [cursor=pointer]:
+              - /url: /products/revalk/
+            - link "Join Early Access" [ref=e56] [cursor=pointer]:
+              - /url: /contact/#revalk
+        - figure [ref=e57]:
+          - img "Revalk explore results view with premium study workflow structure." [ref=e64]
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - paragraph [ref=e69]: Navigate by intent
+        - heading "Go deeper where the real story lives." [level=2] [ref=e70]
+        - paragraph [ref=e71]: ZenOps now has its own dedicated product page. Use the product page first, then move into live access only when you are ready.
+      - generic [ref=e72]:
+        - link "Open ZenOps Page" [ref=e73] [cursor=pointer]:
+          - /url: /products/zenops/
+        - link "View Proof" [ref=e74] [cursor=pointer]:
+          - /url: /proof/
+  - contentinfo [ref=e75]:
+    - generic [ref=e76]:
+      - generic [ref=e77]:
+        - link "Not Alone Studios" [ref=e78] [cursor=pointer]:
+          - /url: /
+          - img [ref=e79]
+          - text: Not Alone Studios
+        - generic [ref=e80]:
+          - link "Products" [ref=e81] [cursor=pointer]:
+            - /url: /products/
+          - link "Studio" [ref=e82] [cursor=pointer]:
+            - /url: /studio/
+          - link "Proof" [ref=e83] [cursor=pointer]:
+            - /url: /proof/
+          - link "Contact" [ref=e84] [cursor=pointer]:
+            - /url: /contact/
+          - link "Privacy" [ref=e85] [cursor=pointer]:
+            - /url: /privacy/
+          - link "Terms" [ref=e86] [cursor=pointer]:
+            - /url: /terms/
+      - paragraph [ref=e87]: © 2026 Not Alone Studios.

@@ -1,0 +1,388 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Not Alone Studios" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - text: Not Alone Studios
+      - navigation "Primary" [ref=e7]:
+        - link "Products" [ref=e8] [cursor=pointer]:
+          - /url: /products/
+        - link "Studio" [ref=e9] [cursor=pointer]:
+          - /url: /studio/
+        - link "Proof" [ref=e10] [cursor=pointer]:
+          - /url: /proof/
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact/
+  - main [ref=e12]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Systems product studio
+        - heading "Products first. Selective software systems + community builds." [level=1] [ref=e17]
+        - paragraph [ref=e18]: Not Alone Studios builds operator-grade software, product systems, and community-facing experiences. Start with the lane that matches your intent.
+      - generic "Featured Not Alone Studios work" [ref=e19]:
+        - article "Studio systems builds" [ref=e21]:
+          - generic [ref=e22]:
+            - generic [ref=e23]:
+              - generic [ref=e24]: Studio / Selective
+              - generic [ref=e25]: Custom systems
+            - heading "Custom software systems for operations and community engagement." [level=2] [ref=e26]
+            - paragraph [ref=e27]: We design and build workflow-heavy web products, internal tools, control planes, portals, and community experiences that need clear states, reliable execution, and strong product direction.
+            - list [ref=e28]:
+              - listitem [ref=e29]: Operations software and internal workflow platforms
+              - listitem [ref=e30]: Community products, engagement loops, and user journeys
+              - listitem [ref=e31]: MVP builds, system hardening, and product iteration support
+            - generic "Studio work tags" [ref=e32]:
+              - generic [ref=e33]: Web Apps
+              - generic [ref=e34]: Workflow OS
+              - generic [ref=e35]: Community UX
+              - generic [ref=e36]: Ops Hardening
+            - generic [ref=e37]:
+              - link "View Studio" [ref=e38] [cursor=pointer]:
+                - /url: /studio/
+              - link "Apply for a Systems Build" [ref=e39] [cursor=pointer]:
+                - /url: /contact/#studio
+        - generic [ref=e40]:
+          - tablist "Featured slides" [ref=e41]:
+            - button "Show Studio slide" [pressed] [ref=e42] [cursor=pointer]: Studio
+            - button "Show ZenOps slide" [ref=e43] [cursor=pointer]: ZenOps
+            - button "Show Revalk slide" [ref=e44] [cursor=pointer]: Revalk
+          - generic "Carousel controls" [ref=e45]:
+            - button "Previous slide" [ref=e46] [cursor=pointer]:
+              - img [ref=e47]
+            - button "Next slide" [ref=e49] [cursor=pointer]:
+              - img [ref=e50]
+    - generic [ref=e54]:
+      - generic [ref=e55]:
+        - paragraph [ref=e56]: ZenOps featured
+        - heading "Associates, ops desks, and approvals move in one workspace." [level=2] [ref=e57]
+        - paragraph [ref=e58]: ZenOps brings assignment creation, evidence collection, approvals, and payment visibility into one workflow operating system built for real valuation pressure.
+        - generic [ref=e59]:
+          - link "Request Associate Access" [ref=e60] [cursor=pointer]:
+            - /url: https://zenops.notalonestudios.com/partner/request-access
+          - link "Open ZenOps Workspace" [ref=e61] [cursor=pointer]:
+            - /url: https://zenops.notalonestudios.com/
+        - generic [ref=e62]:
+          - link "Client & Ops Login" [ref=e63] [cursor=pointer]:
+            - /url: https://zenops.notalonestudios.com/login
+          - link "Try Demo" [ref=e64] [cursor=pointer]:
+            - /url: /products/zenops/#demo-landing
+      - figure [ref=e65]:
+        - img "ZenOps mobile dashboard showing drafts, approvals, overdue work, and missing uploads." [ref=e71]
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - paragraph [ref=e76]: Operator signals
+        - heading "Evidence-first software for serious operators." [level=2] [ref=e77]
+        - paragraph [ref=e78]: We build systems that turn chaos into repeatable output. Products lead the story, and studio work stays selective and systems-heavy.
+        - generic [ref=e79]:
+          - link "Browse Products" [ref=e80] [cursor=pointer]:
+            - /url: /products/
+          - link "View Proof Screens" [ref=e81] [cursor=pointer]:
+            - /url: /proof/
+          - link "Talk to Us" [ref=e82] [cursor=pointer]:
+            - /url: /contact/
+        - list "Core doctrine" [ref=e83]:
+          - listitem [ref=e84]: Capture
+          - listitem [ref=e85]: Enforce
+          - listitem [ref=e86]: Release
+          - listitem [ref=e87]: Audit Traceability
+        - link "Proof first. Screens, shipped facts, and system guarantees." [ref=e88] [cursor=pointer]:
+          - /url: /proof/
+      - generic [ref=e89]:
+        - generic "Floating evidence chips rail" [ref=e90]:
+          - generic [ref=e91]:
+            - generic [ref=e92]: Floating Evidence Rail
+            - generic [ref=e93]: Calm control signals
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - generic [ref=e97]: ZenOps
+              - generic [ref=e98]:
+                - generic [ref=e99]: Evidence
+                - generic [ref=e100]: Ready
+                - generic [ref=e101]: Release
+                - generic [ref=e102]: Credits
+                - generic [ref=e103]: Audit
+            - generic [ref=e104]:
+              - generic [ref=e106]: Revalk
+              - generic [ref=e107]:
+                - generic [ref=e108]: PYQ
+                - generic [ref=e109]: Source
+                - generic [ref=e110]: Confidence
+                - generic [ref=e111]: Walk
+                - generic [ref=e112]: Vault
+        - generic [ref=e114]:
+          - article [ref=e115]:
+            - generic [ref=e117]: Pilot / Launching
+            - generic [ref=e118]:
+              - heading "ZenOps" [level=3] [ref=e119]
+              - paragraph [ref=e120]: Deterministic valuation operations + billing gates + audit trail.
+            - generic "ZenOps proof chips" [ref=e122]:
+              - generic [ref=e123]: Readiness
+              - generic [ref=e124]: Billing gated
+              - generic [ref=e125]: Audit logs
+          - article [ref=e126]:
+            - generic [ref=e128]: Early Access
+            - generic [ref=e129]:
+              - heading "Revalk" [level=3] [ref=e130]:
+                - img [ref=e131]
+                - text: Revalk
+              - paragraph [ref=e132]: Premium study OS that converts doubt to recall to score.
+            - generic "Revalk evidence chips" [ref=e133]:
+              - generic [ref=e134]: Walk Pack
+              - generic [ref=e135]: Topic Spaces
+              - generic [ref=e136]: Recall mode
+        - generic [ref=e138]:
+          - generic [ref=e139]:
+            - paragraph [ref=e140]: Brand promise
+            - paragraph [ref=e141]: Systems that make good work inevitable.
+          - generic [ref=e142]:
+            - paragraph [ref=e143]: Current mode
+            - paragraph [ref=e144]: Products first. Selective studio builds.
+          - generic [ref=e145]:
+            - paragraph [ref=e146]: Product lane
+            - paragraph [ref=e147]: ZenOps (primary) + Revalk (secondary)
+          - generic [ref=e148]:
+            - paragraph [ref=e149]: Studio lane
+            - paragraph [ref=e150]: A few systems builds per quarter
+    - generic [ref=e152]:
+      - generic "ZenOps bridge narrative" [ref=e153]:
+        - generic [ref=e154]:
+          - generic [ref=e155]: Bridge narrative
+          - generic [ref=e156]: ZenOps V1 → V2 signature line
+        - generic [ref=e157]:
+          - generic [ref=e158]: V1 Ops Engine
+          - generic [ref=e160]: V2 Control Plane
+      - generic "Not Alone Method" [ref=e161]:
+        - generic [ref=e162]:
+          - heading "Capture" [level=3] [ref=e163]
+          - paragraph [ref=e164]: Evidence, inputs, context, and intent become structured.
+        - generic [ref=e165]:
+          - heading "Enforce" [level=3] [ref=e166]
+          - paragraph [ref=e167]: Rules, gating, and workflow discipline prevent mistakes.
+        - generic [ref=e168]:
+          - heading "Release" [level=3] [ref=e169]
+          - paragraph [ref=e170]: Output ships with readiness checks and traceability.
+    - generic [ref=e172]:
+      - generic [ref=e173]:
+        - paragraph [ref=e174]: Flagship products
+        - heading "Two flagship systems. One product studio." [level=2] [ref=e175]
+        - paragraph [ref=e176]: Not Alone Studios operates as a systems product house. ZenOps is the primary operating product. Revalk extends the portfolio with a second system built for a different audience and use case.
+      - generic [ref=e177]:
+        - article [ref=e178]:
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - generic [ref=e181]: Pilot / Launching
+              - generic [ref=e182]: ZenOps
+              - generic [ref=e183]: Valuation Ops
+            - heading "ZenOps" [level=3] [ref=e184]
+            - paragraph [ref=e185]: Deterministic valuation operations + billing gates + audit traceability for serious production environments.
+            - list [ref=e186]:
+              - listitem [ref=e187]: Mobile intake and evidence capture for daily assignment work
+              - listitem [ref=e188]: Approval discipline, readiness checks, and fewer missed handoffs
+              - listitem [ref=e189]: Invoice movement and payment visibility in the same workflow
+            - generic [ref=e190]:
+              - link "Request Associate Access" [ref=e191] [cursor=pointer]:
+                - /url: https://zenops.notalonestudios.com/partner/request-access
+              - link "Open Workspace" [ref=e192] [cursor=pointer]:
+                - /url: https://zenops.notalonestudios.com/
+            - generic [ref=e193]:
+              - link "Client & Ops Login" [ref=e194] [cursor=pointer]:
+                - /url: https://zenops.notalonestudios.com/login
+              - link "Try Demo" [ref=e195] [cursor=pointer]:
+                - /url: /products/zenops/#demo-landing
+          - generic [ref=e200]: Billing gates tested
+        - article [ref=e201]:
+          - generic [ref=e202]:
+            - generic [ref=e203]:
+              - generic [ref=e204]: In Progress / Early Access
+              - generic [ref=e205]: Revalk
+              - generic [ref=e206]: Study OS
+            - heading "Revalk" [level=3] [ref=e207]
+            - paragraph [ref=e208]: Premium study OS for NEET PG that converts doubt capture and high-yield recall loops into a calmer study workflow.
+            - list [ref=e209]:
+              - listitem [ref=e210]: Doubt capture → Walk Pack
+              - listitem [ref=e211]: Topic Spaces (system, not threads)
+              - listitem [ref=e212]: Walk-first recall sessions
+            - generic [ref=e213]:
+              - link "Join Early Access" [ref=e214] [cursor=pointer]:
+                - /url: /contact/#revalk
+              - link "Follow Updates" [ref=e215] [cursor=pointer]:
+                - /url: /contact/#revalk
+          - generic [ref=e219]: Walk packs in progress
+    - generic [ref=e221]:
+      - generic [ref=e222]:
+        - paragraph [ref=e223]: Proof
+        - heading "Screens that sell the system, not the promise" [level=2] [ref=e224]
+        - paragraph [ref=e225]: Real product screenshots with concise “Prevents / Ensures” captions. The Proof page expands this further.
+      - generic [ref=e226]:
+        - article [ref=e227]:
+          - figure "Prevents Queue chaos and dropped assignments across operators. Ensures Stateful queue visibility, filters, and quick previews for faster execution." [ref=e228]:
+            - generic [ref=e233]:
+              - generic:
+                - img "ZenOps assignments queue showing work queue table, status chips, and quick preview panel."
+            - generic [ref=e234]:
+              - generic [ref=e235]:
+                - generic [ref=e236]: Prevents
+                - paragraph [ref=e237]: Queue chaos and dropped assignments across operators.
+              - generic [ref=e238]:
+                - generic [ref=e239]: Ensures
+                - paragraph [ref=e240]: Stateful queue visibility, filters, and quick previews for faster execution.
+          - generic [ref=e241]:
+            - generic [ref=e242]: ZenOps
+            - heading "Readiness blocks incomplete delivery" [level=3] [ref=e243]
+            - paragraph [ref=e244]: Queue and workflow structure support the gating model that reduces incomplete delivery.
+        - article [ref=e245]:
+          - figure "Prevents Weak follow-up discipline and missed unpaid invoice states. Ensures Visible aging buckets and ledger state before billing-gated release." [ref=e246]:
+            - generic [ref=e251]:
+              - generic:
+                - img "ZenOps invoice ledger with due buckets, ledger table, and billing follow-up controls."
+            - generic [ref=e252]:
+              - generic [ref=e253]:
+                - generic [ref=e254]: Prevents
+                - paragraph [ref=e255]: Weak follow-up discipline and missed unpaid invoice states.
+              - generic [ref=e256]:
+                - generic [ref=e257]: Ensures
+                - paragraph [ref=e258]: Visible aging buckets and ledger state before billing-gated release.
+          - generic [ref=e259]:
+            - generic [ref=e260]: ZenOps
+            - heading "Billing gates enforce payment discipline" [level=3] [ref=e261]
+            - paragraph [ref=e262]: Invoice ledger and aging buckets make collections and release discipline tangible.
+        - article [ref=e263]:
+          - figure "Prevents Doubts getting lost across random notes and screens. Ensures Each topic becomes a reusable study unit with media and walk actions." [ref=e264]:
+            - img "Revalk Topic Space page with walk actions, media preview, and focus meter." [ref=e271]
+            - generic [ref=e272]:
+              - generic [ref=e273]:
+                - generic [ref=e274]: Prevents
+                - paragraph [ref=e275]: Doubts getting lost across random notes and screens.
+              - generic [ref=e276]:
+                - generic [ref=e277]: Ensures
+                - paragraph [ref=e278]: Each topic becomes a reusable study unit with media and walk actions.
+          - generic [ref=e279]:
+            - generic [ref=e280]: Revalk
+            - heading "Evidence chips keep learning grounded" [level=3] [ref=e281]
+            - paragraph [ref=e282]: Real Topic Space screenshot showing systemized actions around one concept.
+        - article [ref=e283]:
+          - figure "Prevents Passive revision that never tests recall and pacing. Ensures Recall-first practice with walk metrics and session controls." [ref=e284]:
+            - generic [ref=e289]:
+              - generic:
+                - img "Revalk Walk Session screen with metrics, prompt, and answer controls."
+            - generic [ref=e290]:
+              - generic [ref=e291]:
+                - generic [ref=e292]: Prevents
+                - paragraph [ref=e293]: Passive revision that never tests recall and pacing.
+              - generic [ref=e294]:
+                - generic [ref=e295]: Ensures
+                - paragraph [ref=e296]: Recall-first practice with walk metrics and session controls.
+          - generic [ref=e297]:
+            - generic [ref=e298]: Revalk
+            - heading "Walk-first sessions train recall under pressure" [level=3] [ref=e299]
+            - paragraph [ref=e300]: Real walk session interface demonstrating pacing, prompts, and recall controls.
+      - link "View Proof Page" [ref=e302] [cursor=pointer]:
+        - /url: /proof/
+    - generic [ref=e305]:
+      - generic [ref=e306]:
+        - generic [ref=e307]:
+          - paragraph [ref=e308]: Systems index
+          - heading "Patterns we build into products and client systems" [level=2] [ref=e309]
+          - paragraph [ref=e310]: A point of view is part of the brand. These patterns signal that Not Alone Studios builds operator-grade systems, not generic app features.
+        - list [ref=e311]:
+          - listitem [ref=e312]:
+            - text: Evidence capture + validation
+            - generic [ref=e313]: Ground truth before decisions
+          - listitem [ref=e314]:
+            - text: Readiness gating
+            - generic [ref=e315]: Release only when complete
+          - listitem [ref=e316]:
+            - text: Billing gates
+            - generic [ref=e317]: Credits, postpaid, proof-aware release
+          - listitem [ref=e318]:
+            - text: Audit logs + snapshots
+            - generic [ref=e319]: Traceability when things go wrong
+          - listitem [ref=e320]:
+            - text: Queue boards + SLAs
+            - generic [ref=e321]: Execution visibility across roles
+          - listitem [ref=e322]:
+            - text: Controlled production intake
+            - generic [ref=e323]: Portal + workflow discipline
+      - complementary [ref=e324]:
+        - blockquote [ref=e325]: “We design systems that make good work inevitable.”
+        - paragraph [ref=e326]: "Not Alone means the system catches mistakes before they ship: enforced workflow, traceability, and disciplined release."
+        - generic [ref=e327]:
+          - link "Browse Products" [ref=e328] [cursor=pointer]:
+            - /url: /products/
+          - link "Studio (Selective)" [ref=e329] [cursor=pointer]:
+            - /url: /studio/
+    - generic [ref=e331]:
+      - generic [ref=e332]:
+        - paragraph [ref=e333]: Systems Studio (selective)
+        - heading "We build operating systems for a few clients per quarter" [level=2] [ref=e334]
+        - paragraph [ref=e335]: The Studio lane is intentionally scarce. It exists for operations-heavy workflows, compliance-sensitive systems, and multi-role execution environments.
+      - generic [ref=e336]:
+        - article [ref=e337]:
+          - generic [ref=e338]: 7 days • Offer 01
+          - heading "Systems Blueprint Sprint" [level=3] [ref=e339]
+          - paragraph [ref=e340]: Map workflow states, roles, evidence requirements, and release gates before building.
+          - list [ref=e341]:
+            - listitem [ref=e342]: Process map + state machine
+            - listitem [ref=e343]: Data model + readiness criteria
+            - listitem [ref=e344]: Execution plan and scope cut
+        - article [ref=e345]:
+          - generic [ref=e346]: 4–6 weeks • Offer 02
+          - heading "MVP Build" [level=3] [ref=e347]
+          - paragraph [ref=e348]: Build the operator-facing system with the shortest credible path to production usefulness.
+          - list [ref=e349]:
+            - listitem [ref=e350]: Workflow UI + role-based actions
+            - listitem [ref=e351]: Rules / gating implementation
+            - listitem [ref=e352]: Pilot-ready deployment handoff
+        - article [ref=e353]:
+          - generic [ref=e354]: 2 weeks • Offer 03
+          - heading "Ops Hardening" [level=3] [ref=e355]
+          - paragraph [ref=e356]: Upgrade an existing product with traceability, billing gates, release discipline, or workflow controls.
+          - list [ref=e357]:
+            - listitem [ref=e358]: Audit + workflow gap scan
+            - listitem [ref=e359]: Constraint design and rollout plan
+            - listitem [ref=e360]: Instrumentation and proof layer
+      - generic [ref=e361]:
+        - link "Apply for a Systems Build" [ref=e362] [cursor=pointer]:
+          - /url: /contact/#studio
+        - link "View Studio Page" [ref=e363] [cursor=pointer]:
+          - /url: /studio/
+    - generic [ref=e366]:
+      - generic [ref=e367]:
+        - paragraph [ref=e368]: Final CTA
+        - heading "Pick the lane that matches your intent" [level=2] [ref=e369]
+        - paragraph [ref=e370]: Explore the flagship product, join an early access list, or apply for a selective systems build.
+      - generic [ref=e371]:
+        - link "Request Associate Access" [ref=e372] [cursor=pointer]:
+          - /url: https://zenops.notalonestudios.com/partner/request-access
+        - link "Open ZenOps Workspace" [ref=e373] [cursor=pointer]:
+          - /url: https://zenops.notalonestudios.com/
+        - link "Client & Ops Login" [ref=e374] [cursor=pointer]:
+          - /url: https://zenops.notalonestudios.com/login
+        - link "Join Revalk early access" [ref=e375] [cursor=pointer]:
+          - /url: /contact/#revalk
+        - link "Apply for systems build" [ref=e376] [cursor=pointer]:
+          - /url: /contact/#studio
+      - link "Try Demo" [ref=e378] [cursor=pointer]:
+        - /url: /products/zenops/#demo-landing
+  - contentinfo [ref=e379]:
+    - generic [ref=e380]:
+      - generic [ref=e381]:
+        - link "Not Alone Studios" [ref=e382] [cursor=pointer]:
+          - /url: /
+          - img [ref=e383]
+          - text: Not Alone Studios
+        - generic [ref=e384]:
+          - link "Products" [ref=e385] [cursor=pointer]:
+            - /url: /products/
+          - link "Studio" [ref=e386] [cursor=pointer]:
+            - /url: /studio/
+          - link "Proof" [ref=e387] [cursor=pointer]:
+            - /url: /proof/
+          - link "Contact" [ref=e388] [cursor=pointer]:
+            - /url: /contact/
+          - link "Privacy" [ref=e389] [cursor=pointer]:
+            - /url: /privacy/
+          - link "Terms" [ref=e390] [cursor=pointer]:
+            - /url: /terms/
+      - paragraph [ref=e391]: © 2026 Not Alone Studios. Evidence-first operating systems for repeatable output.

@@ -1,0 +1,142 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Not Alone Studios" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - img [ref=e6]
+        - text: Not Alone Studios
+      - navigation "Primary" [ref=e7]:
+        - link "Products" [ref=e8] [cursor=pointer]:
+          - /url: /products/
+        - link "Studio" [ref=e9] [cursor=pointer]:
+          - /url: /studio/
+        - link "Proof" [ref=e10] [cursor=pointer]:
+          - /url: /proof/
+        - link "Contact" [ref=e11] [cursor=pointer]:
+          - /url: /contact/
+  - main [ref=e12]:
+    - generic [ref=e15]:
+      - generic [ref=e16]:
+        - paragraph [ref=e17]: Systems product studio
+        - heading "Classy software systems for operators, teams, and ambitious product ideas." [level=1] [ref=e18]
+        - paragraph [ref=e19]: Not Alone Studios builds premium workflow software and selective custom systems. ZenOps leads the commercial story. Everything else supports the same product discipline.
+        - generic [ref=e20]:
+          - link "Browse Products" [ref=e21] [cursor=pointer]:
+            - /url: /products/
+          - link "View Studio" [ref=e22] [cursor=pointer]:
+            - /url: /studio/
+      - generic "Featured Not Alone Studios work" [ref=e23]:
+        - article "Studio systems builds" [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e28]: Studio / Selective
+            - heading "Selective systems builds with product-grade finish." [level=2] [ref=e29]
+            - paragraph [ref=e30]: We design and build workflow-heavy software, internal tools, portals, and community products that need structure, clarity, and premium execution.
+            - generic [ref=e31]:
+              - link "View Studio" [ref=e32] [cursor=pointer]:
+                - /url: /studio/
+              - link "Apply for a Systems Build" [ref=e33] [cursor=pointer]:
+                - /url: /contact/#studio
+          - generic [ref=e35]:
+            - paragraph [ref=e36]: Best fit
+            - paragraph [ref=e37]: Operator workflows, internal control surfaces, and community products with serious product expectations.
+        - generic [ref=e38]:
+          - tablist "Featured slides" [ref=e39]:
+            - button "Show Studio slide" [pressed] [ref=e40] [cursor=pointer]: Studio
+            - button "Show ZenOps slide" [ref=e41] [cursor=pointer]: ZenOps
+            - button "Show Revalk slide" [ref=e42] [cursor=pointer]: Revalk
+          - generic "Carousel controls" [ref=e43]:
+            - button "Previous slide" [ref=e44] [cursor=pointer]:
+              - img [ref=e45]
+            - button "Next slide" [ref=e47] [cursor=pointer]:
+              - img [ref=e48]
+    - generic [ref=e51]:
+      - generic [ref=e52]:
+        - paragraph [ref=e53]: Flagship products
+        - heading "Start with the product page. Go live only when you’re ready." [level=2] [ref=e54]
+        - paragraph [ref=e55]: Homepage surfaces are now directional on purpose. The dedicated product pages carry the proof, workflows, onboarding detail, and deeper narrative.
+      - generic [ref=e56]:
+        - article [ref=e57]:
+          - generic [ref=e58]:
+            - paragraph [ref=e59]: Flagship workflow operating system
+            - heading "ZenOps" [level=3] [ref=e60]
+            - paragraph [ref=e61]: Assignment intake, evidence discipline, approvals, associate onboarding, and payment visibility in one serious product flow.
+            - generic [ref=e62]:
+              - link "Explore ZenOps" [ref=e63] [cursor=pointer]:
+                - /url: /products/zenops/
+              - link "Request Associate Access" [ref=e64] [cursor=pointer]:
+                - /url: https://zenops.notalonestudios.com/partner/request-access
+            - generic [ref=e65]:
+              - link "Open Workspace" [ref=e66] [cursor=pointer]:
+                - /url: https://zenops.notalonestudios.com/
+              - link "Client & Ops Login" [ref=e67] [cursor=pointer]:
+                - /url: https://zenops.notalonestudios.com/login
+              - link "Try Demo" [ref=e68] [cursor=pointer]:
+                - /url: /products/zenops/#demo-landing
+          - figure [ref=e69]:
+            - img "ZenOps live assignments view showing queue state and operator actions." [ref=e75]
+        - article [ref=e76]:
+          - generic [ref=e77]:
+            - paragraph [ref=e78]: Premium study operating system
+            - heading "Revalk" [level=3] [ref=e79]:
+              - img [ref=e80]
+              - text: Revalk
+            - paragraph [ref=e81]: A calmer, more intentional study product built around doubt capture, topic-space structure, and deliberate practice loops.
+            - generic [ref=e82]:
+              - link "Explore Revalk" [ref=e83] [cursor=pointer]:
+                - /url: /products/revalk/
+              - link "Join Early Access" [ref=e84] [cursor=pointer]:
+                - /url: /contact/#revalk
+          - figure [ref=e85]:
+            - img "Revalk explore results view showing filtered topic output and study workflow structure." [ref=e92]
+    - generic [ref=e94]:
+      - generic [ref=e95]:
+        - paragraph [ref=e96]: Proof and product thinking
+        - heading "Shipped surfaces, tighter stories, better hierarchy." [level=2] [ref=e97]
+        - paragraph [ref=e98]: Proof stays visible, but it no longer overwhelms the homepage. The site should point cleanly into the right product path.
+        - generic [ref=e99]:
+          - link "View Proof" [ref=e100] [cursor=pointer]:
+            - /url: /proof/
+          - link "Contact NAS" [ref=e101] [cursor=pointer]:
+            - /url: /contact/
+      - generic [ref=e102]:
+        - article [ref=e103]:
+          - generic [ref=e104]: ZenOps
+          - heading "Dedicated page for the full sales narrative" [level=3] [ref=e105]
+          - paragraph [ref=e106]: Proof strip, workflow pillars, onboarding, demo lane, and deep dive now live where they belong.
+        - article [ref=e107]:
+          - generic [ref=e108]: NAS
+          - heading "Homepage stays elegant and directional" [level=3] [ref=e109]
+          - paragraph [ref=e110]: The homepage now introduces the studio and products without trying to become a product landing page itself.
+    - generic [ref=e113]:
+      - generic [ref=e114]:
+        - paragraph [ref=e115]: Next step
+        - heading "Use the page that matches the intent." [level=2] [ref=e116]
+        - paragraph [ref=e117]: Explore ZenOps as the flagship product, review the Studio lane for custom systems, or go to Proof if you want shipped surfaces first.
+      - generic [ref=e118]:
+        - link "Explore ZenOps" [ref=e119] [cursor=pointer]:
+          - /url: /products/zenops/
+        - link "View Studio" [ref=e120] [cursor=pointer]:
+          - /url: /studio/
+        - link "View Proof" [ref=e121] [cursor=pointer]:
+          - /url: /proof/
+  - contentinfo [ref=e122]:
+    - generic [ref=e123]:
+      - generic [ref=e124]:
+        - link "Not Alone Studios" [ref=e125] [cursor=pointer]:
+          - /url: /
+          - img [ref=e126]
+          - text: Not Alone Studios
+        - generic [ref=e127]:
+          - link "Products" [ref=e128] [cursor=pointer]:
+            - /url: /products/
+          - link "Studio" [ref=e129] [cursor=pointer]:
+            - /url: /studio/
+          - link "Proof" [ref=e130] [cursor=pointer]:
+            - /url: /proof/
+          - link "Contact" [ref=e131] [cursor=pointer]:
+            - /url: /contact/
+          - link "Privacy" [ref=e132] [cursor=pointer]:
+            - /url: /privacy/
+          - link "Terms" [ref=e133] [cursor=pointer]:
+            - /url: /terms/
+      - paragraph [ref=e134]: © 2026 Not Alone Studios.
