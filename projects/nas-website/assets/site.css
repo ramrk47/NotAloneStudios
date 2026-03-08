@@ -4504,10 +4504,12 @@ label:focus-within span {
 
 .media-mode-dashboard .screen-frame__viewport {
   max-height: clamp(250px, 32vw, 380px);
+  min-height: 80px; /* prevent zero-height collapse with lazy images */
 }
 
 .media-mode-proof .screen-frame__viewport {
   max-height: clamp(220px, 30vw, 330px);
+  min-height: 120px; /* prevent zero-height collapse with lazy images */
 }
 
 .page-products-v2 .surface-strong,
