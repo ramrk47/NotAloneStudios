@@ -24,7 +24,7 @@
     <div class="nav-overlay" aria-hidden="true"></div>
     <header class="site-header">
       <div class="shell">
-        <a class="brand brand-text" href="/" aria-label="Maulya" style="font-family: Fraunces, serif; font-size: 1.5rem; color: #142017; text-decoration: none;">Maulya</a>
+        <a class="brand" href="/" aria-label="Maulya"><img src="/assets/brand/maulya-logo.png" alt="Maulya" class="brand-logo" style="height: 30px; width: auto; display: block;" /></a>
         <button class="nav-hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
           <span></span><span></span><span></span>
         </button>
@@ -49,21 +49,123 @@
         </div>
       </section>
 
-      <section class="section section-tight premium-final-cta" data-river-anchor="footer" id="contact">
+      <!-- ═══ PILOT MICRO-WIZARD ═══ -->
+      <section class="section section-tight" id="contact">
         <div class="shell">
-          <div class="cta-band reveal text-center">
-            <div>
-              <p class="kicker">Next step</p>
-              <h2>Move assignment operations onto one control surface.</h2>
+          <div class="contact-wizard" data-testid="pilot-wizard">
+
+            <!-- Step 1: Pick your role -->
+            <div class="wizard-step" data-wizard-step="1" data-active="true" data-testid="pilot-step-1">
+              <div class="wizard-progress" aria-label="Step 1 of 2">
+                <div class="wizard-progress__step" data-current="true"><span>01</span> Your role</div>
+                <div class="wizard-progress__bar"><div class="wizard-progress__bar-fill" style="width: 50%"></div></div>
+                <div class="wizard-progress__step"><span>02</span> Quick brief</div>
+              </div>
+
+              <div class="section-head" style="margin-bottom: 20px">
+                <h2>How do you want to start?</h2>
+                <p class="section-so-what">Pick your path. We show the shortest form that gets you onboarded.</p>
+              </div>
+
+              <div class="lane-tiles" role="radiogroup" aria-label="Select your path" data-testid="pilot-lanes">
+                <label class="lane-tile" data-lane="team-pilot" data-testid="lane-team-pilot">
+                  <input type="radio" name="wizard-lane" value="team-pilot" />
+                  <div class="lane-tile__name">Team Pilot</div>
+                  <p class="lane-tile__desc">14-day controlled rollout for your firm or ops desk.</p>
+                </label>
+                <label class="lane-tile" data-lane="associate-access" data-testid="lane-associate-access">
+                  <input type="radio" name="wizard-lane" value="associate-access" />
+                  <div class="lane-tile__name">Associate Access</div>
+                  <p class="lane-tile__desc">Individual field user or external associate onboarding.</p>
+                </label>
+                <label class="lane-tile" data-lane="demo-first" data-testid="lane-demo-first">
+                  <input type="radio" name="wizard-lane" value="demo-first" />
+                  <div class="lane-tile__name">Demo First</div>
+                  <p class="lane-tile__desc">Explore the public demo before committing to a pilot.</p>
+                </label>
+              </div>
+
+              <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-primary" data-wizard-next disabled data-testid="pilot-next-btn">Continue</button>
+                <div class="cta-micro-row" style="justify-content: center; margin-top: 8px;"><span>No commitment</span><span>Takes 60 seconds</span></div>
+              </div>
             </div>
-            <div class="button-row" style="margin-top: 32px">
-              <a class="btn btn-primary" href="https://app.maulya.in/partner/request-access">Request Associate Access</a>
-              <a class="btn btn-secondary" href="https://app.maulya.in/">Open Workspace</a>
+
+            <!-- Step 2: Lane-specific forms -->
+            <div class="wizard-step" data-wizard-step="2" data-testid="pilot-step-2">
+              <div class="wizard-progress" aria-label="Step 2 of 2">
+                <div class="wizard-progress__step" data-done="true"><span>&#10003;</span> Path selected</div>
+                <div class="wizard-progress__bar"><div class="wizard-progress__bar-fill" style="width: 100%"></div></div>
+                <div class="wizard-progress__step" data-current="true"><span>02</span> Quick brief</div>
+              </div>
+
+              <button class="wizard-back" data-wizard-back data-testid="pilot-back-btn" type="button">&larr; Back</button>
+
+              <!-- Team Pilot Form -->
+              <div class="wizard-form-panel" data-form-panel="team-pilot" style="display:none" data-testid="form-team-pilot">
+                <p class="kicker">Team pilot</p>
+                <h3>Start a 14-day controlled rollout</h3>
+                <p style="color: var(--muted); margin-bottom: 16px;">We scope a measurable pilot with 1-3 users, then review fit together.</p>
+                <form action="https://app.maulya.in/api/partner/request-access/handoff" method="post" data-demo-form data-track-submit="cta_maulya_pilot_team_submit">
+                  <input type="hidden" name="source" value="maulya-pilot-team" />
+                  <label><span>Name</span><input type="text" name="name" required autocomplete="name" data-testid="field-name-team" /></label>
+                  <label><span>Firm or team</span><input type="text" name="firm" required autocomplete="organization" data-testid="field-firm-team" /></label>
+                  <label><span>How many people need access?</span><input type="text" name="team_size" placeholder="e.g. 3 associates, 8-person team" data-testid="field-size-team" /></label>
+                  <label><span>Phone or email</span><input type="text" name="contact" required autocomplete="email" data-testid="field-contact-team" /></label>
+                  <button class="btn btn-primary" type="submit" data-testid="submit-team-pilot">Start pilot onboarding</button>
+                  <div class="cta-micro-row"><span>15 min call</span><span>No commitment</span><span>Workflow fit report included</span></div>
+                </form>
+              </div>
+
+              <!-- Associate Access Form -->
+              <div class="wizard-form-panel" data-form-panel="associate-access" style="display:none" data-testid="form-associate-access">
+                <p class="kicker">Associate access</p>
+                <h3>Get individual onboarding</h3>
+                <p style="color: var(--muted); margin-bottom: 16px;">Request access as a field user or external associate.</p>
+                <form action="https://app.maulya.in/api/partner/request-access/handoff" method="post" data-demo-form data-track-submit="cta_maulya_pilot_associate_submit">
+                  <input type="hidden" name="source" value="maulya-pilot-associate" />
+                  <label><span>Name</span><input type="text" name="name" required autocomplete="name" data-testid="field-name-assoc" /></label>
+                  <label>
+                    <span>Role</span>
+                    <select name="role" required data-testid="field-role-assoc">
+                      <option value="">Select role</option>
+                      <option>External associate</option>
+                      <option>Valuer / field user</option>
+                      <option>Ops desk / coordinator</option>
+                    </select>
+                  </label>
+                  <label><span>Firm (if applicable)</span><input type="text" name="firm" autocomplete="organization" /></label>
+                  <label><span>Phone or email</span><input type="text" name="contact" required autocomplete="email" data-testid="field-contact-assoc" /></label>
+                  <button class="btn btn-primary" type="submit" data-testid="submit-associate">Request associate access</button>
+                  <div class="cta-micro-row"><span>Verified onboarding</span><span>No payment info</span></div>
+                </form>
+              </div>
+
+              <!-- Demo First Panel -->
+              <div class="wizard-form-panel" data-form-panel="demo-first" style="display:none" data-testid="form-demo-first">
+                <p class="kicker">Demo first</p>
+                <h3>Explore the live demo</h3>
+                <p style="color: var(--muted); margin-bottom: 16px;">No sign-up needed. Walk through a real workspace with sample data.</p>
+                <div style="text-align: center; padding: 20px 0;">
+                  <a class="btn btn-primary" href="https://demo.maulya.in/" data-testid="btn-open-demo">Open Demo Workspace</a>
+                  <div class="cta-micro-row" style="justify-content: center; margin-top: 8px;"><span>No sign-up</span><span>Sample data loaded</span><span>Full workspace access</span></div>
+                </div>
+                <p style="color: var(--muted); font-size: 0.86rem; text-align: center; margin-top: 12px;">Ready after the demo? <a href="https://app.maulya.in/partner/request-access" style="color: var(--accent); font-weight: 700;">Request access here</a>.</p>
+              </div>
             </div>
-            <div class="action-link-row" style="margin-top: 16px; justify-content: center;">
-              <a href="https://demo.maulya.in/">Try Demo</a>
-              <a href="https://app.maulya.in/login">Client &amp; Ops Login</a>
+
+            <!-- Step 3: Success -->
+            <div class="wizard-step" data-wizard-step="3" data-testid="pilot-step-3">
+              <div class="wizard-success" data-testid="pilot-success">
+                <div class="wizard-success__icon" aria-hidden="true">&#10003;</div>
+                <h3>Request received</h3>
+                <p style="color: var(--muted);">We review every request within 24 hours. Check your email or WhatsApp.</p>
+                <div class="button-row" style="justify-content: center; margin-top: 20px;">
+                  <a class="btn btn-secondary" href="/">Back to Maulya</a>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -72,7 +174,7 @@
     <footer class="site-footer">
       <div class="shell">
         <div class="footer-top">
-          <a class="brand brand-text" href="/" aria-label="Maulya" style="font-family: Fraunces, serif; font-size: 1.5rem; color: #142017; text-decoration: none;">Maulya</a>
+          <a class="brand" href="/" aria-label="Maulya"><img src="/assets/brand/maulya-logo.png" alt="Maulya" class="brand-logo" style="height: 30px; width: auto; display: block;" /></a>
           <div class="footer-links">
             <a href="/product/">Product</a>
             <a href="/demo/">Demo</a>
