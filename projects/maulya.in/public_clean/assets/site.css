@@ -5628,11 +5628,13 @@ label:focus-within span {
   backdrop-filter: blur(6px);
   z-index: 18;
   opacity: 0;
+  pointer-events: none;
   transition: opacity var(--t-fast) var(--ease-premium);
 }
 
 .nav-overlay.is-active {
   opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 820px) {
