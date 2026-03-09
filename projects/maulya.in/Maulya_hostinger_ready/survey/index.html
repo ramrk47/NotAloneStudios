@@ -386,6 +386,40 @@
       padding-bottom: max(14px, env(safe-area-inset-bottom));
       display: flex; flex-direction: column; gap: 5px;
     }
+
+    /* =====================================================
+       SUBMIT STATUS (sheet submission feedback)
+       ===================================================== */
+    .sv-submit-status {
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.03em;
+      padding: 5px 14px; border-radius: 99px;
+      margin: 0 auto 14px; width: fit-content; min-height: 28px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .sv-submit-status--pending {
+      background: rgba(15,118,110,0.07); color: var(--muted-2);
+    }
+    .sv-submit-status--ok {
+      background: rgba(15,118,110,0.12); color: var(--teal); font-weight: 600;
+    }
+    .sv-submit-status--error {
+      background: rgba(180,50,50,0.07); color: #a83232; flex-wrap: wrap;
+      text-align: center; border-radius: 10px; padding: 8px 12px; font-size: 12px;
+      max-width: 280px;
+    }
+    .sv-submit-status--error button {
+      background: none; border: none; cursor: pointer;
+      color: var(--teal); font-family: var(--f-mono); font-size: 11px;
+      font-weight: 600; text-decoration: underline; padding: 0;
+    }
+    .sv-submit-spinner {
+      width: 10px; height: 10px; flex-shrink: 0;
+      border: 2px solid rgba(15,118,110,0.2);
+      border-top-color: var(--teal); border-radius: 50%;
+      animation: sv-spin 0.7s linear infinite;
+    }
+    @keyframes sv-spin { to { transform: rotate(360deg); } }
   </style>
 </head>
 <body>
@@ -500,8 +534,11 @@
         opts:['Below ₹3,000 / month','₹3,000–₹5,000 / month','₹5,000–₹9,000 / month','Above ₹9,000 / month'], req:false }
     ];
 
-    const STORAGE_KEY = 'maulya_survey_v2';
-    const AUTO_MS     = 380;
+    const STORAGE_KEY    = 'maulya_survey_v2';
+    const AUTO_MS        = 380;
+    // ── Paste your deployed Apps Script Web App URL below ──────────────────
+    const APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+    // ───────────────────────────────────────────────────────────────────────
 
     /* ============================================================
        STATE
@@ -626,6 +663,45 @@
     function sendMail() {
       const body = Object.entries(st.answers).map(([k, v]) => k + ': ' + v).join('\n');
       window.location.href = 'mailto:hello@maulya.in?subject=Maulya%20Survey%20Response&body=' + encodeURIComponent(body);
+    }
+
+    /* ============================================================
+       SHEET SUBMISSION
+       ============================================================ */
+    function getQueryParam(key) {
+      try { return new URLSearchParams(window.location.search).get(key) || ''; } catch(e) { return ''; }
+    }
+
+    function submitToSheet(onStatus) {
+      if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
+        onStatus('no-url'); return;
+      }
+      const payload = {
+        timestamp_iso:   new Date().toISOString(),
+        src:             getQueryParam('src') || 'unknown',
+        survey_version:  'v2-' + st.mode + '-' + Object.keys(st.answers).length + 'q',
+        answers:         st.answers,
+        page_url:        location.href,
+        user_agent:      navigator.userAgent,
+        referrer:        document.referrer || '',
+        lang:            navigator.language || ''
+      };
+
+      let retried = false;
+      function attempt() {
+        fetch(APPS_SCRIPT_URL, {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        })
+        .then(r => r.json())
+        .then(data => onStatus(data.ok ? 'ok' : 'error'))
+        .catch(() => {
+          if (!retried) { retried = true; setTimeout(attempt, 1200); }
+          else { onStatus('error'); }
+        });
+      }
+      attempt();
     }
 
     /* ============================================================
@@ -822,6 +898,9 @@
           <h2 class="sv-done__title">Thanks — responses received.</h2>
           <p class="sv-done__sub">Your answers help us tune Maulya's workflow discipline, approval gates, and invoice follow-up.</p>
           ${profile ? `<div class="sv-done__profile" aria-label="Your workflow profile">${profile}</div>` : ''}
+          <div id="sv-submit-status" class="sv-submit-status sv-submit-status--pending" role="status" aria-live="polite">
+            <span class="sv-submit-spinner" aria-hidden="true"></span>Submitting…
+          </div>
           <div class="sv-done__actions">
             <a href="https://app.maulya.in/partner/request-access" class="sv-btn sv-btn--primary" target="_blank" rel="noopener">
               Request Associate Access →
@@ -932,6 +1011,25 @@
       card.querySelector('#sv-dl-json')?.addEventListener('click', downloadJSON);
       card.querySelector('#sv-mail-btn')?.addEventListener('click', sendMail);
       card.querySelector('#sv-go-full')?.addEventListener('click', expandToFull);
+
+      // Done: auto-submit to Google Sheet
+      if (screen.t === 'done') {
+        const statusEl = card.querySelector('#sv-submit-status');
+        clearSaved();
+        submitToSheet((state) => {
+          if (!statusEl) return;
+          if (state === 'ok') {
+            statusEl.className = 'sv-submit-status sv-submit-status--ok';
+            statusEl.textContent = 'Submitted ✅';
+          } else if (state === 'no-url') {
+            statusEl.style.display = 'none';
+          } else {
+            statusEl.className = 'sv-submit-status sv-submit-status--error';
+            statusEl.innerHTML = '⚠ Could not submit automatically. <button id="sv-dl-fallback">Download JSON instead</button>';
+            statusEl.querySelector('#sv-dl-fallback')?.addEventListener('click', downloadJSON);
+          }
+        });
+      }
     }
 
     /* ============================================================
