@@ -7275,3 +7275,90 @@ body[data-theme="revalk"] .proof-snapshot__fact::before {
   text-decoration: underline;
   text-decoration-color: rgba(15, 118, 110, 0.4);
 }
+
+/* =========================================================
+   SURVEY CTA BAND
+   ========================================================= */
+
+.survey-band {
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.survey-band__inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.survey-band__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(15, 118, 110, 0.09);
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  border-radius: 99px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.survey-band__badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.survey-band__title {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 3.2vw, 1.45rem);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.survey-band__sub {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 22px;
+  line-height: 1.65;
+}
+
+.survey-band__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  min-height: 50px;
+  background: linear-gradient(135deg, #0d9488, #0f766e);
+  color: #fff;
+  border-radius: 14px;
+  font-family: var(--sans, var(--mono));
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(15, 118, 110, 0.25);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.survey-band__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(15, 118, 110, 0.32);
+}
+
+.survey-band__meta {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 10px;
+  opacity: 0.75;
+}
