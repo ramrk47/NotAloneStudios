@@ -536,8 +536,9 @@
 
     const STORAGE_KEY    = 'maulya_survey_v2';
     const AUTO_MS        = 380;
-    // ── Paste your deployed Apps Script Web App URL below ──────────────────
-    const APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+    // ── Apps Script Web App /exec endpoint (NOT a library URL) ────────────
+    // Must end in /exec and contain /macros/s/ — never /macros/library/ or /macros/edit
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbysv3x76e57dsR_VQKo3d85tbH59SDm0OCnNicxLQvPosIvZRULL37bei35SpFm7l4A/exec';
     // ───────────────────────────────────────────────────────────────────────
 
     /* ============================================================
@@ -689,9 +690,12 @@
 
       let retried = false;
       function attempt() {
+        // Use text/plain to avoid CORS preflight — Apps Script receives body
+        // in e.postData.contents and parses JSON server-side. application/json
+        // triggers an OPTIONS preflight that Apps Script does not handle.
         fetch(APPS_SCRIPT_URL, {
           method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'Content-Type': 'text/plain' },
           body:    JSON.stringify(payload)
         })
         .then(r => r.json())
