@@ -584,7 +584,7 @@
       screens: [],
       idx: 0,
       answers: {},
-      contact: { name: '', info: '' },   /* name + email/phone from contact screen */
+      contact: { name: '', info: '', city: '', state: '' },   /* from contact screen */
       qIdxMap: {},   /* questionId → screenIndex */
       autoTimer: null,
       swipe: { x0: 0, y0: 0 },
@@ -740,8 +740,10 @@
         survey_version:  'v2-' + Object.keys(st.answers).length + 'q',
         answers_text:    buildAnswersText(st.answers),
         answers:         st.answers,
-        contact_name:    st.contact.name || '',
-        contact_info:    st.contact.info || '',
+        contact_name:    st.contact.name  || '',
+        contact_info:    st.contact.info  || '',
+        contact_city:    st.contact.city  || '',
+        contact_state:   st.contact.state || '',
         page_url:        location.href,
         user_agent:      navigator.userAgent,
         referrer:        document.referrer || '',
@@ -869,12 +871,12 @@
         <div class="sv-intro" role="region" aria-label="Survey introduction">
           <img src="/assets/brand/maulya-logo.png" alt="Maulya" class="sv-intro__logo" loading="eager" />
           <h1 class="sv-intro__title">Help us shape Maulya for valuation ops.</h1>
-          <p class="sv-intro__sub">We're building workflow software for Indian valuation teams. Your answers help us get the details right.</p>
+          <p class="sv-intro__sub">We're building workflow software for Indian valuation teams. Your answers help us get the details right — and you'll get <strong>15 days free workspace access</strong> once we launch.</p>
           <div class="sv-intro__pills">
             <span class="sv-pill"><span class="sv-pill__dot"></span>8 minutes</span>
             <span class="sv-pill"><span class="sv-pill__dot"></span>Mostly taps</span>
             <span class="sv-pill"><span class="sv-pill__dot"></span>No client data</span>
-            <span class="sv-pill"><span class="sv-pill__dot"></span>Progress saves locally</span>
+            <span class="sv-pill"><span class="sv-pill__dot"></span>Free access on launch</span>
           </div>
           <button class="sv-btn sv-btn--primary" id="sv-start">Start survey →</button>
           ${hasProgress ? `<button class="sv-btn sv-btn--ghost" id="sv-resume-btn" style="margin-top:6px">Resume where I left off</button>` : ''}
@@ -960,8 +962,8 @@
       return `
         <div class="sv-done" role="region" aria-label="Survey complete">
           <span class="sv-done__icon" aria-hidden="true">✓</span>
-          <h2 class="sv-done__title">Thanks — responses received.</h2>
-          <p class="sv-done__sub">Your answers help us tune Maulya's workflow discipline, approval gates, and invoice follow-up.</p>
+          <h2 class="sv-done__title">Thanks — you're on the list.</h2>
+          <p class="sv-done__sub">Your responses help us tune Maulya's workflow discipline, approval gates, and invoice follow-up. You'll receive <strong>15 days of free workspace access</strong> (no report-generation credits) when we go live.</p>
           ${profile ? `<div class="sv-done__profile" aria-label="Your workflow profile">${profile}</div>` : ''}
           <div id="sv-submit-status" class="sv-submit-status sv-submit-status--pending" role="status" aria-live="polite">
             <span class="sv-submit-spinner" aria-hidden="true"></span>Submitting…
@@ -984,7 +986,7 @@
         <div class="sv-contact" role="region" aria-label="Contact details">
           <span class="sv-contact__icon" aria-hidden="true">✉️</span>
           <h2 class="sv-contact__title">One last thing</h2>
-          <p class="sv-contact__sub">Leave your details if you'd like us to follow up — we share early access and product updates with respondents.</p>
+          <p class="sv-contact__sub">Leave your details to get <strong>15 days free workspace access</strong> when we launch — no report credits, full workflow access.</p>
           <div class="sv-contact__fields">
             <div class="sv-contact__field">
               <label class="sv-contact__label" for="sv-c-name">Your name</label>
@@ -1000,9 +1002,23 @@
                 autocomplete="email" inputmode="email" spellcheck="false"
                 value="${escHtml(st.contact.info)}" />
             </div>
+            <div class="sv-contact__field">
+              <label class="sv-contact__label" for="sv-c-city">City</label>
+              <input id="sv-c-city" class="sv-contact__input" type="text"
+                placeholder="E.g. Pune"
+                autocomplete="address-level2" autocapitalize="words" spellcheck="false"
+                value="${escHtml(st.contact.city)}" />
+            </div>
+            <div class="sv-contact__field">
+              <label class="sv-contact__label" for="sv-c-state">State</label>
+              <input id="sv-c-state" class="sv-contact__input" type="text"
+                placeholder="E.g. Maharashtra"
+                autocomplete="address-level1" autocapitalize="words" spellcheck="false"
+                value="${escHtml(st.contact.state)}" />
+            </div>
           </div>
           <div class="sv-contact__actions">
-            <button class="sv-btn sv-btn--primary" id="sv-contact-submit">Continue →</button>
+            <button class="sv-btn sv-btn--primary" id="sv-contact-submit">Get free access →</button>
             <button class="sv-contact__skip" id="sv-contact-skip">Skip</button>
           </div>
         </div>`;
@@ -1101,14 +1117,20 @@
 
       // Contact: save fields and advance
       if (screen.t === 'contact') {
-        const nameEl = card.querySelector('#sv-c-name');
-        const infoEl = card.querySelector('#sv-c-info');
+        const nameEl  = card.querySelector('#sv-c-name');
+        const infoEl  = card.querySelector('#sv-c-info');
+        const cityEl  = card.querySelector('#sv-c-city');
+        const stateEl = card.querySelector('#sv-c-state');
         const saveContact = () => {
-          st.contact.name = nameEl?.value.trim() || '';
-          st.contact.info = infoEl?.value.trim() || '';
+          st.contact.name  = nameEl?.value.trim()  || '';
+          st.contact.info  = infoEl?.value.trim()  || '';
+          st.contact.city  = cityEl?.value.trim()  || '';
+          st.contact.state = stateEl?.value.trim() || '';
         };
         nameEl?.addEventListener('input', saveContact);
         infoEl?.addEventListener('input', saveContact);
+        cityEl?.addEventListener('input', saveContact);
+        stateEl?.addEventListener('input', saveContact);
         // Submit: advance to done
         card.querySelector('#sv-contact-submit')?.addEventListener('click', () => {
           saveContact();
@@ -1116,8 +1138,8 @@
         });
         // Skip: advance without saving
         card.querySelector('#sv-contact-skip')?.addEventListener('click', () => goNext());
-        // Enter key on info field submits
-        infoEl?.addEventListener('keydown', e => { if (e.key === 'Enter') { saveContact(); goNext(); } });
+        // Enter key on state field submits
+        stateEl?.addEventListener('keydown', e => { if (e.key === 'Enter') { saveContact(); goNext(); } });
       }
 
       // Done: download / mail
