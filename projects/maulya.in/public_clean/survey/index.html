@@ -584,7 +584,7 @@
       screens: [],
       idx: 0,
       answers: {},
-      contact: { name: '', info: '', city: '', state: '' },   /* from contact screen */
+      contact: { name: '', email: '', phone: '', city: '', state: '' },   /* from contact screen */
       qIdxMap: {},   /* questionId → screenIndex */
       autoTimer: null,
       swipe: { x0: 0, y0: 0 },
@@ -688,7 +688,7 @@
        SUBMIT
        ============================================================ */
     function downloadJSON() {
-      const data = { version:2, timestamp:new Date().toISOString(), mode:st.mode, answers:st.answers };
+      const data = { version:2, timestamp:new Date().toISOString(), answers:st.answers };
       const blob = new Blob([JSON.stringify(data, null, 2)], { type:'application/json' });
       const url  = URL.createObjectURL(blob);
       const a    = document.createElement('a');
@@ -741,7 +741,8 @@
         answers_text:    buildAnswersText(st.answers),
         answers:         st.answers,
         contact_name:    st.contact.name  || '',
-        contact_info:    st.contact.info  || '',
+        contact_email:   st.contact.email || '',
+        contact_phone:   st.contact.phone || '',
         contact_city:    st.contact.city  || '',
         contact_state:   st.contact.state || '',
         page_url:        location.href,
@@ -996,11 +997,18 @@
                 value="${escHtml(st.contact.name)}" />
             </div>
             <div class="sv-contact__field">
-              <label class="sv-contact__label" for="sv-c-info">Email or phone</label>
-              <input id="sv-c-info" class="sv-contact__input" type="text"
-                placeholder="E.g. rohan@firm.in or 98765 43210"
+              <label class="sv-contact__label" for="sv-c-email">Email</label>
+              <input id="sv-c-email" class="sv-contact__input" type="email"
+                placeholder="E.g. rohan@firm.in"
                 autocomplete="email" inputmode="email" spellcheck="false"
-                value="${escHtml(st.contact.info)}" />
+                value="${escHtml(st.contact.email)}" />
+            </div>
+            <div class="sv-contact__field">
+              <label class="sv-contact__label" for="sv-c-phone">Phone (optional)</label>
+              <input id="sv-c-phone" class="sv-contact__input" type="tel"
+                placeholder="E.g. 98765 43210"
+                autocomplete="tel" inputmode="tel" spellcheck="false"
+                value="${escHtml(st.contact.phone)}" />
             </div>
             <div class="sv-contact__field">
               <label class="sv-contact__label" for="sv-c-city">City</label>
@@ -1118,17 +1126,20 @@
       // Contact: save fields and advance
       if (screen.t === 'contact') {
         const nameEl  = card.querySelector('#sv-c-name');
-        const infoEl  = card.querySelector('#sv-c-info');
+        const emailEl = card.querySelector('#sv-c-email');
+        const phoneEl = card.querySelector('#sv-c-phone');
         const cityEl  = card.querySelector('#sv-c-city');
         const stateEl = card.querySelector('#sv-c-state');
         const saveContact = () => {
           st.contact.name  = nameEl?.value.trim()  || '';
-          st.contact.info  = infoEl?.value.trim()  || '';
+          st.contact.email = emailEl?.value.trim() || '';
+          st.contact.phone = phoneEl?.value.trim() || '';
           st.contact.city  = cityEl?.value.trim()  || '';
           st.contact.state = stateEl?.value.trim() || '';
         };
         nameEl?.addEventListener('input', saveContact);
-        infoEl?.addEventListener('input', saveContact);
+        emailEl?.addEventListener('input', saveContact);
+        phoneEl?.addEventListener('input', saveContact);
         cityEl?.addEventListener('input', saveContact);
         stateEl?.addEventListener('input', saveContact);
         // Submit: advance to done

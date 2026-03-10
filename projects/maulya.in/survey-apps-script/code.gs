@@ -78,7 +78,8 @@ function getSheet() {
       'survey_version',
       'answers_text',
       'contact_name',
-      'contact_info',
+      'contact_email',
+      'contact_phone',
       'contact_city',
       'contact_state',
       'answers_json',
@@ -88,11 +89,11 @@ function getSheet() {
       'lang'
     ]);
     sheet.setFrozenRows(1);
-    sheet.setColumnWidth(1, 180);  // timestamp
-    sheet.setColumnWidth(4, 500);  // answers_text  ← wide so it's readable
-    sheet.setColumnWidth(7, 380);  // answers_json
-    sheet.setColumnWidth(8, 260);  // page_url
-    sheet.setColumnWidth(9, 180);  // user_agent
+    sheet.setColumnWidth(1,  180);  // timestamp_iso
+    sheet.setColumnWidth(4,  500);  // answers_text  ← wide so it's readable
+    sheet.setColumnWidth(10, 380);  // answers_json
+    sheet.setColumnWidth(11, 260);  // page_url
+    sheet.setColumnWidth(12, 180);  // user_agent
   }
 
   return sheet;
@@ -119,7 +120,8 @@ function doPost(e) {
       payload.survey_version || '',
       payload.answers_text   || '',
       payload.contact_name   || '',
-      payload.contact_info   || '',
+      payload.contact_email  || '',
+      payload.contact_phone  || '',
       payload.contact_city   || '',
       payload.contact_state  || '',
       JSON.stringify(payload.answers || {}),
