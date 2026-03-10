@@ -716,6 +716,26 @@
       try { return new URLSearchParams(window.location.search).get(key) || ''; } catch(e) { return ''; }
     }
 
+    // Short human-readable labels for each question ID
+    const Q_LABELS = {
+      a1:'Practice type',    a2:'Weekly volume',      a3:'Empanelments',
+      a4:'Registration',     a5:'Experience (yrs)',
+      b1:'Site visit by',    b2:'Site visit speed',   b3:'Report prep time',
+      b4:'Peak pressure',
+      c1:'Main pain point',  c2:'Manual error risk',  c3:'Report storage',
+      c4:'Staff training',   c5:'Biggest problem',    c6:'Ideal solution',
+      d1:'Depreciation method', d2:'System comfort',  d3:'Review importance',
+      e1:'Assignment tracking', e2:'Dashboard value', e3:'Client notification',
+      f1:'Speed interest',   f2:'Rate DB value',      f3:'Bank formats',
+      f4:'Monthly budget'
+    };
+
+    function buildAnswersText(answers) {
+      return Object.entries(answers)
+        .map(([id, val]) => (Q_LABELS[id] || id) + ': ' + val)
+        .join(' | ');
+    }
+
     function submitToSheet(onStatus) {
       if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'PASTE_YOUR_APPS_SCRIPT_URL_HERE') {
         onStatus('no-url'); return;
@@ -724,6 +744,7 @@
         timestamp_iso:   new Date().toISOString(),
         src:             getQueryParam('src') || 'unknown',
         survey_version:  'v2-' + st.mode + '-' + Object.keys(st.answers).length + 'q',
+        answers_text:    buildAnswersText(st.answers),
         answers:         st.answers,
         contact_name:    st.contact.name || '',
         contact_info:    st.contact.info || '',

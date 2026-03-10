@@ -76,19 +76,21 @@ function getSheet() {
       'timestamp_iso',
       'src',
       'survey_version',
-      'answers_json',
+      'answers_text',
       'contact_name',
       'contact_info',
+      'answers_json',
       'page_url',
       'user_agent',
       'referrer',
       'lang'
     ]);
     sheet.setFrozenRows(1);
-    sheet.setColumnWidth(1, 200);  // timestamp
-    sheet.setColumnWidth(4, 400);  // answers_json
-    sheet.setColumnWidth(5, 280);  // page_url
-    sheet.setColumnWidth(6, 180);  // user_agent
+    sheet.setColumnWidth(1, 180);  // timestamp
+    sheet.setColumnWidth(4, 500);  // answers_text  ← wide so it's readable
+    sheet.setColumnWidth(7, 380);  // answers_json
+    sheet.setColumnWidth(8, 260);  // page_url
+    sheet.setColumnWidth(9, 180);  // user_agent
   }
 
   return sheet;
@@ -113,9 +115,10 @@ function doPost(e) {
       payload.timestamp_iso  || new Date().toISOString(),
       payload.src            || 'unknown',
       payload.survey_version || '',
-      JSON.stringify(payload.answers || {}),
+      payload.answers_text   || '',
       payload.contact_name   || '',
       payload.contact_info   || '',
+      JSON.stringify(payload.answers || {}),
       payload.page_url       || '',
       (payload.user_agent    || '').substring(0, 300),
       payload.referrer       || '',
