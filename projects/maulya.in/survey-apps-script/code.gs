@@ -44,7 +44,7 @@
  */
 
 // ─── SET THIS to your Google Sheet ID if using a standalone script ───────────
-var SPREADSHEET_ID = '';   // e.g. '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms'
+var SPREADSHEET_ID = '1TpL48O9EJT9VSZ7Y7YMmiZ_e1eD_gVPsGD2YOiFglVc';
 // ─────────────────────────────────────────────────────────────────────────────
 
 var SHEET_NAME = 'Responses';
