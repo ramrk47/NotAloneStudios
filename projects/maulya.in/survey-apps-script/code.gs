@@ -1,49 +1,96 @@
 /**
  * Maulya Survey — Google Apps Script Web App
  * ============================================
- * SETUP INSTRUCTIONS (do this ONCE in the Apps Script UI):
+ * FIRST-TIME SETUP (do this once):
  *
- *  1. Open https://script.google.com and create a new project.
- *     OR open your Google Sheet → Extensions → Apps Script (bound script).
+ *  STEP 1 — Link a Google Sheet
+ *  ─────────────────────────────
+ *  Option A (standalone script — most likely your situation):
+ *    1. Open https://sheets.google.com → create a new sheet (name it anything,
+ *       e.g. "Maulya Survey Responses")
+ *    2. Copy the spreadsheet ID from the URL:
+ *         https://docs.google.com/spreadsheets/d/ *** THIS PART *** /edit
+ *    3. Paste it as the SPREADSHEET_ID value below (between the quotes)
+ *    4. Save this file (Ctrl+S) and re-deploy (see Step 2)
  *
- *  2. Paste this entire file into the editor (replace default content).
- *     Save (Ctrl+S).
+ *  Option B (bound script — only if you opened Apps Script from a Sheet):
+ *    Leave SPREADSHEET_ID empty ('') — the script uses the bound sheet.
  *
- *  3. Click "Deploy" → "New deployment"
- *     ┌─────────────────────────────────────────────────────────┐
- *     │  Type:          Web app                                 │
- *     │  Execute as:    Me                                      │
- *     │  Who can access: Anyone          ← THIS IS CRITICAL     │
- *     └─────────────────────────────────────────────────────────┘
- *     Click "Deploy" and authorize.
+ *  STEP 2 — Deploy or re-deploy as Web App
+ *  ─────────────────────────────────────────
+ *    Click Deploy → Manage deployments → pencil icon on existing deployment
+ *    → Version: "New version" → Deploy.
+ *    The exec URL stays the same; no need to update survey/index.html.
  *
- *  4. Copy the Web App URL — it will look like:
- *       https://script.google.com/macros/s/AKfyc.../exec
- *     ✅ Must contain:  /macros/s/
- *     ✅ Must end with: /exec
- *     🚫 Never use:    /macros/library/   ← always returns 403
- *     🚫 Never use:    /macros/edit?lib=  ← editor, not endpoint
+ *    Deployment settings must be:
+ *    ┌─────────────────────────────────────────────────────────┐
+ *    │  Type:           Web app                                │
+ *    │  Execute as:     Me                                     │
+ *    │  Who can access: Anyone          ← THIS IS CRITICAL     │
+ *    └─────────────────────────────────────────────────────────┘
  *
- *  5. Paste that URL as APPS_SCRIPT_URL in survey/index.html.
- *
- *  6. Every time you change this script, you MUST create a NEW deployment
- *     (or "New version" in Manage deployments) — edits to code don't
- *     automatically update an existing deployed version.
+ *  STEP 3 — Verify
+ *  ─────────────────
+ *    Run testSheet() from the editor (select it in the dropdown → Run).
+ *    It should log the spreadsheet name. If it errors, check SPREADSHEET_ID.
  *
  * CORS NOTE:
- *  Apps Script Web Apps do not respond to OPTIONS preflight requests.
- *  To avoid preflight, the frontend sends Content-Type: text/plain
- *  (a "simple request"). Google's server adds Access-Control-Allow-Origin: *
- *  automatically when access is set to "Anyone".
- *  Do NOT set custom response headers here — ContentService.TextOutput
- *  does not expose a setHeader() method.
+ *  Frontend sends Content-Type: text/plain to avoid OPTIONS preflight.
+ *  Google adds Access-Control-Allow-Origin: * automatically for "Anyone" deployments.
  *
- * SHEET COLUMNS (auto-created on first run):
+ * SHEET COLUMNS (auto-created on first POST):
  *  timestamp_iso | src | survey_version | answers_json |
- *  page_url | user_agent | referrer | ip_hint | lang
+ *  page_url | user_agent | referrer | lang
  */
 
+// ─── SET THIS to your Google Sheet ID if using a standalone script ───────────
+var SPREADSHEET_ID = '';   // e.g. '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms'
+// ─────────────────────────────────────────────────────────────────────────────
+
 var SHEET_NAME = 'Responses';
+
+// ---------------------------------------------------------------------------
+// getSheet — resolves the Responses sheet regardless of bound vs standalone
+// ---------------------------------------------------------------------------
+function getSheet() {
+  var ss;
+  if (SPREADSHEET_ID) {
+    ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  } else {
+    ss = SpreadsheetApp.getActiveSpreadsheet();
+  }
+  if (!ss) {
+    throw new Error(
+      'No spreadsheet found. ' +
+      'Set SPREADSHEET_ID at the top of code.gs (copy the ID from your Sheet URL), ' +
+      'then re-deploy.'
+    );
+  }
+
+  var sheet = ss.getSheetByName(SHEET_NAME);
+
+  // Auto-create sheet + header row on first run
+  if (!sheet) {
+    sheet = ss.insertSheet(SHEET_NAME);
+    sheet.appendRow([
+      'timestamp_iso',
+      'src',
+      'survey_version',
+      'answers_json',
+      'page_url',
+      'user_agent',
+      'referrer',
+      'lang'
+    ]);
+    sheet.setFrozenRows(1);
+    sheet.setColumnWidth(1, 200);  // timestamp
+    sheet.setColumnWidth(4, 400);  // answers_json
+    sheet.setColumnWidth(5, 280);  // page_url
+    sheet.setColumnWidth(6, 180);  // user_agent
+  }
+
+  return sheet;
+}
 
 // ---------------------------------------------------------------------------
 // doPost — entry point for every survey submission
@@ -53,38 +100,12 @@ function doPost(e) {
   output.setMimeType(ContentService.MimeType.JSON);
 
   try {
-    // Guard: empty body
     if (!e || !e.postData || !e.postData.contents) {
       throw new Error('Empty request body');
     }
 
     var payload = JSON.parse(e.postData.contents);
-
-    var ss    = SpreadsheetApp.getActiveSpreadsheet();
-    var sheet = ss.getSheetByName(SHEET_NAME);
-
-    // Auto-create sheet + header row on first run
-    if (!sheet) {
-      sheet = ss.insertSheet(SHEET_NAME);
-      sheet.appendRow([
-        'timestamp_iso',
-        'src',
-        'survey_version',
-        'answers_json',
-        'page_url',
-        'user_agent',
-        'referrer',
-        'ip_hint',
-        'lang'
-      ]);
-      sheet.setFrozenRows(1);
-
-      // Basic column widths for readability
-      sheet.setColumnWidth(1, 200);  // timestamp
-      sheet.setColumnWidth(4, 400);  // answers_json
-      sheet.setColumnWidth(5, 280);  // page_url
-      sheet.setColumnWidth(6, 180);  // user_agent
-    }
+    var sheet   = getSheet();
 
     sheet.appendRow([
       payload.timestamp_iso  || new Date().toISOString(),
@@ -92,9 +113,8 @@ function doPost(e) {
       payload.survey_version || '',
       JSON.stringify(payload.answers || {}),
       payload.page_url       || '',
-      (payload.user_agent    || '').substring(0, 300),  // truncate long UA strings
+      (payload.user_agent    || '').substring(0, 300),
       payload.referrer       || '',
-      'unavailable',  // Apps Script cannot read client IP from doPost
       payload.lang           || ''
     ]);
 
@@ -108,9 +128,7 @@ function doPost(e) {
 }
 
 // ---------------------------------------------------------------------------
-// doGet — health check endpoint
-// Verify deployment is live: curl https://...exec
-// Expect: {"ok":true,"service":"maulya-survey"}
+// doGet — health check  (curl https://...exec  →  {"ok":true})
 // ---------------------------------------------------------------------------
 function doGet(e) {
   return ContentService
@@ -123,12 +141,14 @@ function doGet(e) {
 }
 
 // ---------------------------------------------------------------------------
-// testSheet — run manually in the Apps Script editor to verify
-// the Spreadsheet binding is correct before going live.
+// testSheet — run manually in the editor to verify the sheet connection
 // ---------------------------------------------------------------------------
 function testSheet() {
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
-  var sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0];
-  Logger.log('Spreadsheet: ' + ss.getName());
-  Logger.log('Sheet: ' + sheet.getName() + ' | Rows so far: ' + sheet.getLastRow());
+  var sheet = getSheet();
+  var ss    = SPREADSHEET_ID
+    ? SpreadsheetApp.openById(SPREADSHEET_ID)
+    : SpreadsheetApp.getActiveSpreadsheet();
+  Logger.log('Spreadsheet: ' + ss.getName() + ' (' + ss.getUrl() + ')');
+  Logger.log('Sheet: "' + sheet.getName() + '" | Rows: ' + sheet.getLastRow());
+  Logger.log('All good — doPost() will write to this sheet.');
 }
