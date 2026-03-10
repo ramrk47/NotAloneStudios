@@ -337,6 +337,47 @@
     .sv-done__expand p { font-size: 13px; color: var(--muted); margin-bottom: 10px; line-height: 1.55; }
 
     /* =====================================================
+       CONTACT CARD
+       ===================================================== */
+    .sv-contact {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 24px; padding: 28px 22px; text-align: center;
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 40px rgba(15,118,110,0.08);
+    }
+    .sv-contact__icon { font-size: 36px; display: block; margin-bottom: 10px; }
+    .sv-contact__title {
+      font-family: var(--f-serif); font-size: 19px; font-weight: 600;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .sv-contact__sub {
+      font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 22px;
+    }
+    .sv-contact__fields { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+    .sv-contact__field { display: flex; flex-direction: column; gap: 4px; }
+    .sv-contact__label {
+      font-size: 11px; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .sv-contact__input {
+      width: 100%; box-sizing: border-box;
+      padding: 10px 13px; border-radius: 10px;
+      border: 1.5px solid var(--border); background: rgba(255,255,255,0.7);
+      font-family: var(--f-sans); font-size: 14px; color: var(--text);
+      outline: none; transition: border-color 0.15s;
+      -webkit-appearance: none;
+    }
+    .sv-contact__input:focus { border-color: var(--teal); }
+    .sv-contact__input::placeholder { color: var(--muted); opacity: 0.6; }
+    .sv-contact__actions { display: flex; flex-direction: column; gap: 9px; margin-top: 20px; }
+    .sv-contact__skip {
+      background: none; border: none; padding: 6px;
+      font-family: var(--f-mono); font-size: 11px; color: var(--muted);
+      cursor: pointer; opacity: 0.65; text-decoration: underline;
+    }
+    .sv-contact__skip:hover { opacity: 1; }
+
+    /* =====================================================
        RESUME CARD
        ===================================================== */
     .sv-resume {
@@ -549,6 +590,7 @@
       screens: [],
       idx: 0,
       answers: {},
+      contact: { name: '', info: '' },   /* name + email/phone from contact screen */
       qIdxMap: {},   /* questionId → screenIndex */
       autoTimer: null,
       swipe: { x0: 0, y0: 0 },
@@ -571,6 +613,7 @@
         scr.push({ t: 'q', q });
       });
       scr.push({ t: 'review' });
+      scr.push({ t: 'contact' });
       scr.push({ t: 'done' });
       return scr;
     }
@@ -592,7 +635,7 @@
       if (screen.t === 'q') {
         qNum = qscreens.indexOf(screen) + 1;
         pct  = (qNum / qscreens.length) * 100;
-      } else if (screen.t === 'review' || screen.t === 'done') {
+      } else if (screen.t === 'review' || screen.t === 'contact' || screen.t === 'done') {
         qNum = qscreens.length; pct = 100;
       } else if (screen.t === 'chapter') {
         const prev = qscreens.filter(s => s.q.s < screen.sec.id).length;
@@ -682,6 +725,8 @@
         src:             getQueryParam('src') || 'unknown',
         survey_version:  'v2-' + st.mode + '-' + Object.keys(st.answers).length + 'q',
         answers:         st.answers,
+        contact_name:    st.contact.name || '',
+        contact_info:    st.contact.info || '',
         page_url:        location.href,
         user_agent:      navigator.userAgent,
         referrer:        document.referrer || '',
@@ -770,7 +815,7 @@
       const skipBtn = document.getElementById('sv-skip');
 
       // Back button: hide on intro, resume, done screens
-      const hideBack = screen.t === 'intro' || screen.t === 'done';
+      const hideBack = screen.t === 'intro' || screen.t === 'done' || screen.t === 'contact';
       back.hidden = hideBack;
 
       // Progress
@@ -781,6 +826,8 @@
         qLbl.textContent   = qNum + ' / ' + total;
       } else if (screen.t === 'review') {
         secLbl.textContent = 'Review'; qLbl.textContent = '';
+      } else if (screen.t === 'contact') {
+        secLbl.textContent = 'Almost done'; qLbl.textContent = '';
       } else if (screen.t === 'chapter') {
         secLbl.textContent = screen.sec.label; qLbl.textContent = '';
       } else {
@@ -788,8 +835,9 @@
       }
 
       // Bottom bar
-      const isText   = screen.t === 'q' && screen.q.t === 'x';
-      const isReview = screen.t === 'review';
+      const isText    = screen.t === 'q' && screen.q.t === 'x';
+      const isReview  = screen.t === 'review';
+      const isContact = screen.t === 'contact';
       nextBtn.style.display = (isText || isReview) ? '' : 'none';
       skipBtn.style.display = (isText && !screen.q.req) ? '' : 'none';
       if (isReview) nextBtn.textContent = 'Submit →';
@@ -925,6 +973,39 @@
         </div>`;
     }
 
+    function buildContactCard() {
+      return `
+        <div class="sv-contact" role="region" aria-label="Contact details">
+          <span class="sv-contact__icon" aria-hidden="true">✉️</span>
+          <h2 class="sv-contact__title">One last thing</h2>
+          <p class="sv-contact__sub">Leave your details if you'd like us to follow up — we share early access and product updates with respondents.</p>
+          <div class="sv-contact__fields">
+            <div class="sv-contact__field">
+              <label class="sv-contact__label" for="sv-c-name">Your name</label>
+              <input id="sv-c-name" class="sv-contact__input" type="text"
+                placeholder="E.g. Rohan Mehta"
+                autocomplete="name" autocapitalize="words" spellcheck="false"
+                value="${escHtml(st.contact.name)}" />
+            </div>
+            <div class="sv-contact__field">
+              <label class="sv-contact__label" for="sv-c-info">Email or phone</label>
+              <input id="sv-c-info" class="sv-contact__input" type="text"
+                placeholder="E.g. rohan@firm.in or 98765 43210"
+                autocomplete="email" inputmode="email" spellcheck="false"
+                value="${escHtml(st.contact.info)}" />
+            </div>
+          </div>
+          <div class="sv-contact__actions">
+            <button class="sv-btn sv-btn--primary" id="sv-contact-submit">Continue →</button>
+            <button class="sv-contact__skip" id="sv-contact-skip">Skip</button>
+          </div>
+        </div>`;
+    }
+
+    function escHtml(s) {
+      return (s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+    }
+
     /* ============================================================
        RENDER ENGINE
        ============================================================ */
@@ -937,6 +1018,7 @@
       else if (screen.t === 'chapter') html = buildChapterCard(screen.sec);
       else if (screen.t === 'q')  html = buildQuestionCard(screen.q);
       else if (screen.t === 'review') html = buildReviewCard();
+      else if (screen.t === 'contact') html = buildContactCard();
       else if (screen.t === 'done')   html = buildDoneCard();
 
       // Wrap in card div
@@ -1010,6 +1092,27 @@
       card.querySelectorAll('.sv-review-item__edit').forEach(btn => {
         btn.addEventListener('click', () => jumpToQuestion(btn.dataset.edit));
       });
+
+      // Contact: save fields and advance
+      if (screen.t === 'contact') {
+        const nameEl = card.querySelector('#sv-c-name');
+        const infoEl = card.querySelector('#sv-c-info');
+        const saveContact = () => {
+          st.contact.name = nameEl?.value.trim() || '';
+          st.contact.info = infoEl?.value.trim() || '';
+        };
+        nameEl?.addEventListener('input', saveContact);
+        infoEl?.addEventListener('input', saveContact);
+        // Submit: advance to done
+        card.querySelector('#sv-contact-submit')?.addEventListener('click', () => {
+          saveContact();
+          goNext();
+        });
+        // Skip: advance without saving
+        card.querySelector('#sv-contact-skip')?.addEventListener('click', () => goNext());
+        // Enter key on info field submits
+        infoEl?.addEventListener('keydown', e => { if (e.key === 'Enter') { saveContact(); goNext(); } });
+      }
 
       // Done: download / mail / expand
       card.querySelector('#sv-dl-json')?.addEventListener('click', downloadJSON);
